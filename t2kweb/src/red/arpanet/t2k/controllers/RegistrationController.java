@@ -97,7 +97,7 @@ public class RegistrationController {
 		if(user != null && SmtpController.sendAccountRecoveryEmail(email, user.getRecoveryToken())) {			
 			return true;
 		}
-		
+		 
 		return false;
 	}
 	

@@ -72,7 +72,7 @@ public class UserManager {
 		} catch(NonUniqueResultException | NoResultException e) {
 			d(LOG,String.format("Exception encountered retrieving user info. (User: %s, Error: %s)", userId, e.getClass().getSimpleName()));
 		} finally {
-			em.close();
+			closeEm(em);
 		}
 
 		return user;
@@ -94,7 +94,7 @@ public class UserManager {
 		} catch(NonUniqueResultException | NoResultException e) {
 			e(LOG,String.format("Exception encountered retrieving invite info. (E-Mail: %s, Error: %s)",email, e.getClass().getSimpleName()));
 		} finally {
-			em.close();
+			closeEm(em);
 		}
 
 		return invite;
@@ -119,12 +119,12 @@ public class UserManager {
 			et.begin();
 			em.persist(invite);
 			et.commit();
-		} catch(Exception e) {
-			et.rollback();
+		} catch(Exception e) {			
 			e(LOG,String.format("Exception encountered creating invite. (E-Mail: %s)",email),e);
 			invite = null;
+			et.rollback();
 		} finally {
-			em.close();
+			closeEm(em);
 		}
 
 		return invite;
@@ -176,11 +176,11 @@ public class UserManager {
 			
 			success = true;
 
-		} catch(Exception e) {
-			et.rollback();
+		} catch(Exception e) {			
 			e(LOG,String.format("Exception encountered registering user. (E-Mail: %s)",registration.getEmail()),e);
+			et.rollback();
 		} finally {
-			em.close();			
+			closeEm(em);		
 		}
 
 		return success;
@@ -206,7 +206,7 @@ public class UserManager {
 		} catch(NonUniqueResultException | NoResultException e) {
 			e(LOG,String.format("Exception encountered retrieving account status. (Status Name: %s, Error: %s)", name, e.getClass().getSimpleName()));
 		} finally {
-			em.close();
+			closeEm(em);
 		}
 
 		return status;
@@ -233,7 +233,7 @@ public class UserManager {
 		} catch(NonUniqueResultException | NoResultException e) {
 			e(LOG,String.format("Exception encountered retrieving account status. (Role Name: %s, Error: %s)", name, e.getClass().getSimpleName()));
 		} finally {
-			em.close();
+			closeEm(em);
 		}
 
 		return role;
@@ -263,11 +263,11 @@ public class UserManager {
 				et.commit();
 			}
 
-		} catch(NonUniqueResultException | NoResultException e) {
-			et.rollback();
+		} catch(NonUniqueResultException | NoResultException e) {			
 			e(LOG,String.format("Exception encountered trying to update last login.  (User: %s, Error: %s)", userId, e.getClass().getSimpleName()));
+			et.rollback();
 		} finally {
-			em.close();
+			closeEm(em);
 		}
 
 	}
@@ -297,15 +297,23 @@ public class UserManager {
 			user = em.merge(user);
 			et.commit();
 			
-		} catch(Exception e) {
-			et.rollback();
+		} catch(NonUniqueResultException | NoResultException e) {
+			d(LOG,String.format("E-mail address not found for password recovery. (E-mail: %s, Error: %s)", email, e.getClass().getSimpleName()));
+		} catch(Exception e) {			
 			e(LOG,String.format("Exception encountered creating account recovery token for user. (E-Mail: %s)",email),e);
 			user = null;
+			et.rollback();
 		} finally {
-			em.close();
+			closeEm(em);
 		}
 
 		return user;
+	}
+	
+	private static void closeEm(EntityManager em) {
+		if(em != null && em.isOpen()) {
+			em.close();
+		}
 	}
 
 }

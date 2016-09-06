@@ -34,9 +34,12 @@ public class ForgotPasswordAction extends BaseAction {
 
 	private static final long serialVersionUID = 1L;
 	
+	private static final String EMAIL_NOT_FOUND_MSG = "t2k.forgotpassword.emailnotfoundtext";
+	
 	private static final Logger LOG = Logger.getLogger(ForgotPasswordAction.class);
 	
 	protected String email;
+	protected String token;
 
 	public String getEmail() {
 		return email;
@@ -46,6 +49,14 @@ public class ForgotPasswordAction extends BaseAction {
 		this.email = email;
 	}
 
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
 	public String execute() {
 		
 		if(StringUtils.isNotBlank(email)) {
@@ -53,6 +64,8 @@ public class ForgotPasswordAction extends BaseAction {
 				i(LOG,String.format("Sent account recovery email to: %s", email));
 				return SUCCESS;
 			}
+			
+			addActionError(getText(EMAIL_NOT_FOUND_MSG));
 		}
 		
 		return INPUT;

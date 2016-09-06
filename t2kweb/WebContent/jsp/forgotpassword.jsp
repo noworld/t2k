@@ -26,7 +26,7 @@
 </div>
 
 <s:form action="ForgotPassword" method="post" validate="true">
-
+	<s:token />
 	<div>
 		<table class="formTable">
 			<tr>
@@ -38,6 +38,11 @@
 					<td colspan="2"><s:fielderror/></td>					
 				</tr>
 			</s:if>
+			<s:if test="hasActionErrors()">
+			<tr>
+				<td colspan="2"><s:actionerror /></td>
+			</tr>
+			</s:if>
 		</table>
 	</div>
 		
@@ -45,3 +50,7 @@
 		<s:submit value="%{getText('t2k.forgotpassword.submitbutton')}" />
 	</div>
 </s:form>
+<br />
+<div class="content-box">
+	<a href="<s:url action="ShowLogin" />"><s:text name="t2k.forgotpassword.loginlinktext" /></a>
+</div>
