@@ -28,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
+import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -60,6 +61,10 @@ public class BaseAction extends ActionSupport implements SessionAware, ServletRe
 		this.response = arg0;
 	}
 	
+	@SkipValidation
+	public String show() {
+		return SUCCESS; 
+	}
 	
 	
 }

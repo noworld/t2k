@@ -21,11 +21,4 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 
-<br />
-<div class="content-box">
-	<s:text name="t2k.register.successmessage" />
-</div>
-<br />
-<div class="content-box">
-	<a href="<s:url action="ShowLogin" />"><s:text name="t2k.register.loginlinktext" /></a>
-</div>
+HELLO CHARACTER

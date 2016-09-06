@@ -25,15 +25,14 @@
 	<s:text name="t2k.register.title" />
 </div>
 
-<s:form action="Register">
+<div class="content_box">
+	<s:text name="t2k.register.requiredmessage" />
+</div>
+
+<s:form action="Register">		
 		<s:token name="registerToken" />
 		<table class="formTable">
 			
-			<s:if test="hasFieldErrors()">
-			<tr>
-				<td colspan="2"><s:fielderror /></td>
-			</tr>
-			</s:if>
 			<tr>
 				<td><s:text name="t2k.register.emailaddressfield" /></td>
 				<td><s:textfield name="registration.email" /></td>
@@ -58,6 +57,21 @@
 				<td><s:text name="t2k.register.passwordfield" /></td>
 				<td><s:password name="registration.password" /></td>
 			</tr>
+			<s:if test="hasFieldErrors()">
+			<tr>
+				<td colspan="2"><s:fielderror /></td>
+			</tr>
+			</s:if>
+			<s:if test="hasActionMessages()">
+			<tr>
+				<td colspan="2"><s:actionmessage /></td>
+			</tr>
+			</s:if>
+			<s:if test="hasActionErrors()">
+			<tr>
+				<td colspan="2"><s:actionerror /></td>
+			</tr>
+			</s:if>
 		</table>
 		
 	<div>

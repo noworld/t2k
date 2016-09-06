@@ -20,21 +20,26 @@
 
 package red.arpanet.t2k.util;
 
+import static red.arpanet.t2k.util.LogUtil.e;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.log4j.Logger;
+
 public class TokenUtil {
+	
+	private static final Logger LOG = Logger.getLogger(TokenUtil.class);
 	
 	private static final int MIN_TOKEN_LENGTH = 6;	
 	private static final List<String> TOKENS;
-	private static volatile int readPos = 0;
+	private static Random RANDOM = new Random();
 	
 	static {
 		List<String> tempTokens = new ArrayList<String>();
@@ -50,23 +55,16 @@ public class TokenUtil {
 				}
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e(LOG,"Exception occurred initializing TokenUtil class.",e);
 		}
 		
 		TOKENS = Collections.unmodifiableList(tempTokens);
-		
-		Random random = new Random();
-		readPos = random.nextInt(TOKENS.size());
+
 	}	
 
 	public static String createToken() {
-		
-		if(readPos >= TOKENS.size() - 1) {
-			readPos = 0;
-		}
-		
-		return TOKENS.get(readPos++);
+
+		return TOKENS.get(RANDOM.nextInt(TOKENS.size()));
 		
 	}
 }

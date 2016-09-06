@@ -34,13 +34,14 @@ public class RegisterAction extends BaseAction {
 
 	private static final long serialVersionUID = 1L;
 	
+	private static final String DB_ERROR_MSG = "t2k.register.dberror";
+	private static final String NO_INVITE_ERROR_MSG = "t2k.register.noinviteerror";
+	private static final String USER_ID_TAKEN_ERROR_MSG = "t2k.register.useridtakenerror";
+	
 	private static final Logger LOG = Logger.getLogger(RegisterAction.class);
 	
 	protected RegistrationInfo registration;
-	protected boolean completeError = false;
-	protected boolean inviteError = false;
-	protected boolean userNameError = false;
-	protected boolean databaseError = false;
+	protected String registerToken;
 
 	public RegistrationInfo getRegistration() {
 		return registration;
@@ -50,36 +51,12 @@ public class RegisterAction extends BaseAction {
 		this.registration = registration;
 	}
 
-	public boolean isCompleteError() {
-		return completeError;
+	public String getRegisterToken() {
+		return registerToken;
 	}
 
-	public void setCompleteError(boolean completeError) {
-		this.completeError = completeError;
-	}
-
-	public boolean isInviteError() {
-		return inviteError;
-	}
-
-	public void setInviteError(boolean inviteError) {
-		this.inviteError = inviteError;
-	}
-
-	public boolean isUserNameError() {
-		return userNameError;
-	}
-
-	public void setUserNameError(boolean userNameError) {
-		this.userNameError = userNameError;
-	}
-
-	public boolean isDatabaseError() {
-		return databaseError;
-	}
-
-	public void setDatabaseError(boolean databaseError) {
-		this.databaseError = databaseError;
+	public void setRegisterToken(String registerToken) {
+		this.registerToken = registerToken;
 	}
 
 	public String execute() {
@@ -94,16 +71,21 @@ public class RegisterAction extends BaseAction {
 				if(RegistrationController.registerNewUser(registration)) {
 					return SUCCESS;
 				} else {
-					databaseError = true;
+					addActionError(getText(DB_ERROR_MSG));
 				}
 				
 			} else {
-				inviteError = !activeInvite;
-				userNameError = !availableUserName;
+				
+				if(!activeInvite) {
+					addActionMessage(getText(NO_INVITE_ERROR_MSG));
+				}
+				
+				if(!availableUserName) {
+					addActionMessage(getText(USER_ID_TAKEN_ERROR_MSG));
+				}
+
 			}
 
-		} else {
-			completeError = true;
 		}
 		
 		return INPUT;
@@ -111,3 +93,4 @@ public class RegisterAction extends BaseAction {
 	}
 
 }
+

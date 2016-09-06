@@ -36,6 +36,8 @@
     	<put-attribute name="leftnavbar" value="/jsp/leftnavbar.jsp" />
     	<put-attribute name="navCssFile" value="css/navstyle.css"/>
     	<put-attribute name="navJsFile" value="js/leftnav.js" />
+    	<put-attribute name="pageCssFile" value=""/>
+    	<put-attribute name="pageJsFile" value=""/>
     </definition>
     
     <definition name="Main" extends="leftnav">
@@ -81,6 +83,12 @@
  	<definition name="Campaigns" extends="leftnav">
     	<put-attribute name="browserTitle" type="string" value="My Campaigns" />
     	<put-attribute name="body" value="/jsp/campaigns.jsp"/>
+ 	</definition>
+ 	
+ 	<definition name="Character" extends="leftnav">
+    	<put-attribute name="browserTitle" type="string" value="Character" />
+    	<put-attribute name="pageJsFile" value="js/char.js"/>
+    	<put-attribute name="body" value="/jsp/character.jsp"/>
  	</definition>
  	
 </tiles-definitions>

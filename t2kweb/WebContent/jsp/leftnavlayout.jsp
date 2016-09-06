@@ -33,12 +33,21 @@
 	<meta http-equiv="pragma" content="no-cache" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title><s:text name="t2k.browsertitle" />: <tiles:getAsString name="browserTitle"/></title>
+	
 	<link rel="stylesheet" href="<tiles:getAsString name="googleFonts"/>" ></link>	
 	<link rel="stylesheet" href="<tiles:getAsString name="mainCssFile"/>" type="text/css"></link>
 	<link rel="stylesheet" href="<tiles:getAsString name="navCssFile"/>" type="text/css"></link>
+	<s:if test="#attr['pageCssFile'] != ''">
+		<link rel="stylesheet" href="<tiles:getAsString name="pageCssFile"/>" type="text/css"/>
+	</s:if>
+	
 	<script src="<tiles:getAsString name="jqueryJsFile"/>" type="text/javascript"></script>
 	<script src="<tiles:getAsString name="mainJsFile"/>" type="text/javascript"></script>
 	<script src="<tiles:getAsString name="navJsFile"/>" type="text/javascript"></script>
+	<s:if test="#attr['pageCssFile'] != ''">
+		<link rel="stylesheet" href="<tiles:getAsString name="pageJsFile"/>" type="text/css"/>
+	</s:if>
+	
 </head>
 
 <body>

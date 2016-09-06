@@ -61,10 +61,4 @@ public class InviteAction extends BaseAction {
 		return INPUT;
 	
 	}
-	
-	@SkipValidation
-	public String show() {
-		return SUCCESS; 
-	}
-
 }
