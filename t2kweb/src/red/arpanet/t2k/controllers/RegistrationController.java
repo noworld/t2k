@@ -25,8 +25,8 @@ import java.sql.Date;
 import org.apache.commons.lang3.StringUtils;
 
 import red.arpanet.t2k.dao.UserManager;
-import red.arpanet.t2k.dao.model.T2kInvite;
-import red.arpanet.t2k.dao.model.T2kUser;
+import red.arpanet.t2k.dao.model.account.T2kInvite;
+import red.arpanet.t2k.dao.model.account.T2kUser;
 import red.arpanet.t2k.util.CopyrightArpanet;
 import red.arpanet.t2k.util.valueobjects.RegistrationInfo;
 import red.arpanet.t2k.util.valueobjects.UserAccountInfo;

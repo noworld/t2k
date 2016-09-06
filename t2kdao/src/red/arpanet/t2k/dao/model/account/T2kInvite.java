@@ -17,7 +17,7 @@
 			to use the software, the software content or any
 			associated service.
 */
-package red.arpanet.t2k.dao.model;
+package red.arpanet.t2k.dao.model.account;
 
 import java.io.Serializable;
 import java.sql.Timestamp;

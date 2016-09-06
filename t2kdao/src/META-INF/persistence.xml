@@ -5,12 +5,16 @@
 	
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 	
-		<class>red.arpanet.t2k.dao.model.T2kUser</class>
-		<class>red.arpanet.t2k.dao.model.T2kInvite</class>
-		<class>red.arpanet.t2k.dao.model.T2kRole</class>
-		<class>red.arpanet.t2k.dao.model.T2kAccountStatus</class>
-		<class>red.arpanet.t2k.dao.model.T2kCampaign</class>
-		
+		<class>red.arpanet.t2k.dao.model.account.T2kUser</class>
+		<class>red.arpanet.t2k.dao.model.account.T2kInvite</class>
+		<class>red.arpanet.t2k.dao.model.account.T2kRole</class>
+		<class>red.arpanet.t2k.dao.model.account.T2kAccountStatus</class>
+		<class>red.arpanet.t2k.dao.model.campaign.T2kCampaign</class>
+		<class>red.arpanet.t2k.dao.model.character.T2kAttribute</class>
+		<class>red.arpanet.t2k.dao.model.character.T2kSkill</class>
+		<class>red.arpanet.t2k.dao.model.T2kStringValue</class>
+		<class>red.arpanet.t2k.dao.model.character.T2kNationality</class>
+				
 		 <properties>
 
 			<property name="openjpa.ConnectionURL" value="jdbc:hsqldb:hsql://localhost:9001/t2k_v1"/>

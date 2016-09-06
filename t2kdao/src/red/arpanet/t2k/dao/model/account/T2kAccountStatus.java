@@ -1,4 +1,4 @@
-package red.arpanet.t2k.dao.model;
+package red.arpanet.t2k.dao.model.account;
 
 import java.io.Serializable;
 import java.lang.String;

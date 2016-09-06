@@ -38,10 +38,10 @@ import javax.persistence.TypedQuery;
 
 import org.apache.log4j.Logger;
 
-import red.arpanet.t2k.dao.model.T2kAccountStatus;
-import red.arpanet.t2k.dao.model.T2kInvite;
-import red.arpanet.t2k.dao.model.T2kRole;
-import red.arpanet.t2k.dao.model.T2kUser;
+import red.arpanet.t2k.dao.model.account.T2kAccountStatus;
+import red.arpanet.t2k.dao.model.account.T2kInvite;
+import red.arpanet.t2k.dao.model.account.T2kRole;
+import red.arpanet.t2k.dao.model.account.T2kUser;
 import red.arpanet.t2k.util.CopyrightArpanet;
 import red.arpanet.t2k.util.HashUtil;
 import red.arpanet.t2k.util.TokenUtil;

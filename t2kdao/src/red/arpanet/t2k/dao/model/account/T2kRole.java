@@ -17,7 +17,7 @@
 			to use the software, the software content or any
 			associated service.
 */
-package red.arpanet.t2k.dao.model;
+package red.arpanet.t2k.dao.model.account;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -31,7 +31,7 @@ import red.arpanet.t2k.util.CopyrightArpanet;
 @Entity
 @Table(name="t2k_role")
 @NamedQueries({
-	@NamedQuery(name="FindRoleByName",query="select r from T2kRole r where r.name = :roleName")
+	//@NamedQuery(name="FindRoleByName",query="select r from T2kRole r where r.name = :roleName")
 })
 @CopyrightArpanet
 public class T2kRole implements Serializable {

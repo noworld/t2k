@@ -1,10 +1,11 @@
-package red.arpanet.t2k.dao.model;
+package red.arpanet.t2k.dao.model.campaign;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.persistence.*;
 
+import red.arpanet.t2k.dao.model.account.T2kUser;
 import red.arpanet.t2k.util.CopyrightArpanet;
 
 /**
