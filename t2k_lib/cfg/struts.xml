@@ -134,6 +134,12 @@
 		</action>
 		
 		<action name="Characters" class="red.arpanet.t2k.web.actions.CharacterListAction">
+			<result name="input" type="tiles">CharacterList</result>
+			<result name="success" type="tiles">CharacterList</result>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>
+		
+		<action name="ShowCharacter" class="red.arpanet.t2k.web.actions.CharacterAction" method="show">
 			<result name="input" type="tiles">Character</result>
 			<result name="success" type="tiles">Character</result>
 			<exception-mapping result="error" exception="java.lang.Exception" />
@@ -145,7 +151,6 @@
 			<exception-mapping result="error" exception="java.lang.Exception" />
 		</action>
 		
-	
 	</package>
 
 </struts>

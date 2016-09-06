@@ -95,6 +95,11 @@
     	<put-attribute name="body" value="/jsp/campaigns.jsp"/>
  	</definition>
  	
+ 	<definition name="CharacterList" extends="leftnav">
+    	<put-attribute name="browserTitle" type="string" value="Character" />    	
+    	<put-attribute name="body" value="/jsp/characterlist.jsp"/>
+ 	</definition>
+ 	
  	<definition name="Character" extends="leftnav">
     	<put-attribute name="browserTitle" type="string" value="Character" />
     	<put-attribute name="pageJsFile" value="js/char.js"/>
