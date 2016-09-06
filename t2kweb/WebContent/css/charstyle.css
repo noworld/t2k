@@ -1,4 +1,4 @@
-<!--
+/*
 	©2016 ARPANET.RED
 	
 	All rights reserved.
@@ -16,18 +16,31 @@
 			liability of any kind for the use of or inability
 			to use the software, the software content or any
 			associated service.
--->
+*/
 
-<%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 
-<br />
-<div class="content_box" >
-	<div class="char_sheet">
-		<s:text name="t2k.char.title" />
-		<s:form action="Character" method="post" validate="true">
-		
-		
-		</s:form>
-	</div>
-</div>
+
+/*
+GOOGLE FONTS
+font-family: 'Stardos Stencil', cursive;
+font-family: 'Arimo', sans-serif;
+font-family: 'Fjalla One', sans-serif;
+
+COLORS
+light gray: #f5f5f0
+light green: #ccffcc
+white: GhostWhite
+T2K Yellow: #F0ab55
+T2K Medium Blue: #1580bf
+T2K Dark Blue: #126ca1
+T2K Darker Blue: #0d4d73
+*/
+
+.char_sheet {
+	position: absolute;
+	left: 250px;
+	background: GhostWhite;	
+	min-width: 80%;
+	margin: 10px;
+	height: 20%;
+}

@@ -139,7 +139,7 @@ input {
 .footer {
 	font-family: 'Fjalla One', sans-serif;
 	width: 100%;
-	position: absolute;
+	position: fixed;
 	float: right;
 	vertical-align: bottom;
 	bottom: 10px;

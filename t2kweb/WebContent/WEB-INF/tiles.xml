@@ -102,6 +102,7 @@
  	
  	<definition name="Character" extends="leftnav">
     	<put-attribute name="browserTitle" type="string" value="Character" />
+    	<put-attribute name="pageCssFile" value="css/charstyle.css"/>
     	<put-attribute name="pageJsFile" value="js/char.js"/>
     	<put-attribute name="body" value="/jsp/character.jsp"/>
  	</definition>
