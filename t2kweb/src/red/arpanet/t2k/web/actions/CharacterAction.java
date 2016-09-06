@@ -32,6 +32,16 @@ public class CharacterAction extends BaseAction {
 
 	private static final long serialVersionUID = 1L;
 	
+	protected String token;
+	
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
 	public String execute() {
 		
 		return SUCCESS;

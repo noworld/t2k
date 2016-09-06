@@ -42,5 +42,48 @@ T2K Darker Blue: #0d4d73
 	background: GhostWhite;	
 	min-width: 80%;
 	margin: 10px;
-	height: 20%;
+}
+
+.char_sheet_box {
+	border-width: 3px;
+	border-style: solid;
+	boarder-color: black;
+	margin: 25px;
+}
+
+.char_subtitle {
+	font-size: 36pt;
+	margin: 25px 0 25px 0;
+}
+
+.char_menu {
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 24px;
+	color: #126ca1;
+	width: 100%;
+	margin: 0;
+	text-align: right;
+}
+
+.char_menubar li {
+	margin-right: 15px;
+	list-style-type: none;
+	display: inline;
+}
+
+.char_menubar li a:LINK {
+	font-style: normal;
+	text-decoration: none;
+	color: #126ca1;
+}
+
+.char_menubar li a:VISITED {
+	font-style: normal;
+	text-decoration: none;
+	color: #126ca1;
+}
+
+.char_menubar li a:HOVER {	
+	color: #1580bf;
+	text-decoration: underline;
 }
