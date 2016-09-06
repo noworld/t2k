@@ -1,0 +1,109 @@
+/*
+	©2016 ARPANET.RED
+	
+	All rights reserved.
+	
+	* No Warranty * 
+		1.1. "As-Is".
+			The Software is provided "as is,"
+			with all faults, defects and errors, and without
+			warranty of any kind.
+			
+		1.2. No Liability.
+			Licensor does not warrant that
+			the Software will be free of bugs, errors, viruses
+			or other defects, and Licensor shall have no
+			liability of any kind for the use of or inability
+			to use the software, the software content or any
+			associated service.
+*/
+
+
+
+/*
+GOOGLE FONTS
+font-family: 'Stardos Stencil', cursive;
+font-family: 'Arimo', sans-serif;
+font-family: 'Fjalla One', sans-serif;
+
+COLORS
+light gray: #f5f5f0
+light green: #ccffcc
+*/
+
+body {
+	font-family: 'Arimo', sans-serif;
+	background-color: #ccffcc;
+	-webkit-font-smoothing: antialiased;
+	padding:0;
+	z-index: 1;
+}
+
+input {	
+	padding-left: 10px;
+	font-size: x-large;
+}
+
+
+.header {
+	
+}
+
+.subtitle {
+	font-family: 'Stardos Stencil', cursive;
+	font-size: xx-large;
+}
+
+.content_box {
+	text-align: center;
+	vertical-align: middle;
+	width: 90%;
+	margin: 25px 5% 25px 5%;
+}
+
+.footer {
+	vertical-align: bottom;
+	width: 90%;
+	margin-left: 5%;
+}
+
+.fine_print {
+	font-size: small;
+	color: black;
+}
+
+.formTable {
+	width: 90%;
+	margin: 25px 0 25px 0;
+}
+
+.formTable td:FIRST-CHILD {
+	width: 50%;
+	padding-right: 10px;
+	text-align: right;
+	font-size: x-large;
+}
+
+.formTable td:LAST-CHILD {
+	width: 50%;
+	padding-left: 10px;
+	text-align: left;
+	font-size: x-large;
+}
+
+.formTable input[type="text"] {
+	min-width: 300px;
+}
+
+.formTable input[type="password"] {
+	min-width: 300px;
+}
+
+.errorMessage {
+	list-style: none;
+	width: 100%;
+	maring: 10px;
+	text-align: center;
+	font-size: medium;
+	color: red;
+}

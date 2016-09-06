@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	©2016 ARPANET.RED
+	
+	All rights reserved.
+	
+	* No Warranty * 
+		1.1. "As-Is".
+			The Software is provided "as is,"
+			with all faults, defects and errors, and without
+			warranty of any kind.
+			
+		1.2. No Liability.
+			Licensor does not warrant that
+			the Software will be free of bugs, errors, viruses
+			or other defects, and Licensor shall have no
+			liability of any kind for the use of or inability
+			to use the software, the software content or any
+			associated service.
+-->
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>t2kweb</display-name>
+
+	<context-param>
+		<param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
+		<param-value>/WEB-INF/tiles.xml</param-value>
+	</context-param>
+	
+	<listener>
+	  <listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
+	</listener>	
+	 
+  	<filter>
+      <filter-name>struts2</filter-name>
+      <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  	</filter>
+
+  	<filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>/*</url-pattern>
+  	</filter-mapping>	
+	
+	<session-config>
+      <session-timeout>30</session-timeout>
+    </session-config>
+    
+	<welcome-file-list>
+		<welcome-file>Main</welcome-file>
+	</welcome-file-list>
+
+</web-app>

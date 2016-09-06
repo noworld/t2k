@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="t2kdao">
+       
+    <path id="jpa.enhancement.classpath">
+               
+		<pathelement location="build"/>
+        <pathelement location="${basedir}/build/classes"/>
+    	
+        <fileset dir="../t2k_lib/lib">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+	
+	
+    <target name="enhance" >
+    	
+    	<taskdef name="openjpac" classname="org.apache.openjpa.ant.PCEnhancerTask">
+    		<classpath refid="jpa.enhancement.classpath"/>
+        </taskdef>
+   
+    	<!-- invoke enhancer -->
+        <openjpac>
+			<config propertiesFile="src/META-INF/persistence.xml" />
+    		<classpath refid="jpa.enhancement.classpath"/>
+        </openjpac>
+    	
+        <echo message="Enhancing complete."/>
+
+	</target>
+
+    	
+</project> 

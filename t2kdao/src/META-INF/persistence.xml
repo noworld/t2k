@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<persistence-unit name="t2k_v1">
+	
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+	
+		<class>red.arpanet.t2k.dao.model.T2kUser</class>
+		<class>red.arpanet.t2k.dao.model.T2kInvite</class>
+		<class>red.arpanet.t2k.dao.model.T2kRole</class>
+		<class>red.arpanet.t2k.dao.model.T2kAccountStatus</class>
+		<class>red.arpanet.t2k.dao.model.T2kCampaign</class>
+		
+		 <properties>
+
+			<property name="openjpa.ConnectionURL" value="jdbc:hsqldb:hsql://localhost:9001/t2k_v1"/>
+     		<property name="openjpa.ConnectionDriverName" value="org.hsqldb.jdbcDriver"/>
+            <property name="openjpa.ConnectionUserName" value="sa"/>
+            <property name="openjpa.ConnectionPassword" value=""/>
+            
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
+            
+            <!-- <property name="openjpa.LockManager" value="version" /> -->
+            
+            <!-- <property name="openjpa.Log" value="DefaultLevel=WARN, Tool=INFO"/> -->
+            
+            <property name="openjpa.ConnectionFactoryProperties" value="PrintParameters=True, PrettyPrint=true, PrettyPrintLineLength=80"/> 
+            
+            <property name="openjpa.Log" value="SQL=TRACE"/>
+            
+        </properties>
+	</persistence-unit>
+</persistence>

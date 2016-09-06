@@ -1,0 +1,12 @@
+2016-09-06 08:08:57,332  INFO  red.arpanet.t2k.web.actions.LoginAction:42 User attempting login: jb
+2016-09-06 08:09:16,893  INFO  red.arpanet.t2k.web.actions.LoginAction:42 User attempting login: jb
+2016-09-06 08:09:19,591  DEBUG red.arpanet.t2k.dao.UserManager:36 Exception encountered retrieving user info. (User: jb, Error: NoResultException)
+2016-09-06 08:10:07,177  INFO  red.arpanet.t2k.web.actions.RegisterAction:42 User attempting registration: jb/test@test.com
+2016-09-06 08:10:07,233  DEBUG red.arpanet.t2k.dao.UserManager:36 Exception encountered retrieving user info. (User: jb, Error: NoResultException)
+2016-09-06 08:12:20,575  INFO  red.arpanet.t2k.web.actions.RegisterAction:42 User attempting registration: jb/test@test.com
+2016-09-06 08:12:25,156  DEBUG red.arpanet.t2k.dao.UserManager:36 Exception encountered retrieving user info. (User: jb, Error: NoResultException)
+2016-09-06 08:12:49,553  INFO  red.arpanet.t2k.web.actions.RegisterAction:42 User attempting registration: jb/test@test.com
+2016-09-06 08:12:51,433  DEBUG red.arpanet.t2k.dao.UserManager:36 Exception encountered retrieving user info. (User: jb, Error: NoResultException)
+2016-09-06 08:14:31,781  INFO  red.arpanet.t2k.web.actions.RegisterAction:42 User attempting registration: jb/test@test.com
+2016-09-06 08:14:32,674  DEBUG red.arpanet.t2k.dao.UserManager:36 Exception encountered retrieving user info. (User: jb, Error: NoResultException)
+2016-09-06 08:17:03,787  INFO  red.arpanet.t2k.web.actions.LoginAction:42 User attempting login: jb

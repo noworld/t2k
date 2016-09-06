@@ -1,0 +1,125 @@
+2016-09-02 10:57:02,599  ERROR red.arpanet.t2k:38 An exception occurred processing JSP page /jsp/layout.jsp at line 50
+
+47: 		<tiles:insertAttribute name="body" />
+48: 	</div>
+49: 	
+50: 	<tiles:insertAttribute name="footer" />
+51: 	
+52: </body>	
+53: 	
+
+
+Stacktrace:
+org.apache.tiles.request.render.CannotRenderException: An exception occurred processing JSP page /jsp/layout.jsp at line 50
+
+47: 		<tiles:insertAttribute name="body" />
+48: 	</div>
+49: 	
+50: 	<tiles:insertAttribute name="footer" />
+51: 	
+52: </body>	
+53: 	
+
+
+Stacktrace:
+	at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399)
+	at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:238)
+	at org.apache.tiles.TilesContainerWrapper.render(TilesContainerWrapper.java:103)
+	at org.apache.tiles.impl.mgmt.CachingTilesContainer.render(CachingTilesContainer.java:126)
+	at org.apache.struts2.views.tiles.TilesResult.doExecute(TilesResult.java:72)
+	at org.apache.struts2.dispatcher.StrutsResultSupport.execute(StrutsResultSupport.java:186)
+	at com.opensymphony.xwork2.DefaultActionInvocation.executeResult(DefaultActionInvocation.java:371)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:275)
+	at com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor.intercept(ExceptionMappingInterceptor.java:189)
+	at com.opensymphony.xwork2.DefaultActionInvocation.invoke(DefaultActionInvocation.java:246)
+	at org.apache.struts2.impl.StrutsActionProxy.execute(StrutsActionProxy.java:54)
+	at org.apache.struts2.dispatcher.Dispatcher.serviceAction(Dispatcher.java:562)
+	at org.apache.struts2.dispatcher.ng.ExecuteOperations.executeAction(ExecuteOperations.java:77)
+	at org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter.doFilter(StrutsPrepareAndExecuteFilter.java:99)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:218)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:505)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:956)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:442)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1082)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:623)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:316)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.io.IOException: An exception occurred processing JSP page /jsp/layout.jsp at line 50
+
+47: 		<tiles:insertAttribute name="body" />
+48: 	</div>
+49: 	
+50: 	<tiles:insertAttribute name="footer" />
+51: 	
+52: </body>	
+53: 	
+
+
+Stacktrace:
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:467)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:395)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:339)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:747)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:485)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:410)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:337)
+	at org.apache.tiles.request.servlet.ServletRequest.forward(ServletRequest.java:265)
+	at org.apache.tiles.request.servlet.ServletRequest.doForward(ServletRequest.java:228)
+	at org.apache.tiles.request.AbstractClientRequest.dispatch(AbstractClientRequest.java:57)
+	at org.apache.tiles.request.render.DispatchRenderer.render(DispatchRenderer.java:47)
+	at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:259)
+	at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:397)
+	... 30 more
+Caused by: java.io.IOException: JSPException including path '/jsp/footer.jsp'.
+	at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63)
+	at org.apache.tiles.request.jsp.JspRequest.doInclude(JspRequest.java:125)
+	at org.apache.tiles.request.AbstractViewRequest.dispatch(AbstractViewRequest.java:47)
+	at org.apache.tiles.request.render.DispatchRenderer.render(DispatchRenderer.java:47)
+	at org.apache.tiles.request.render.ChainedDelegateRenderer.render(ChainedDelegateRenderer.java:68)
+	at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:259)
+	at org.apache.tiles.TilesContainerWrapper.render(TilesContainerWrapper.java:108)
+	at org.apache.tiles.template.InsertAttributeModel.renderAttribute(InsertAttributeModel.java:188)
+	at org.apache.tiles.template.InsertAttributeModel.execute(InsertAttributeModel.java:132)
+	at org.apache.tiles.jsp.taglib.InsertAttributeTag.doTag(InsertAttributeTag.java:299)
+	at org.apache.jsp.jsp.layout_jsp._jspx_meth_tiles_005finsertAttribute_005f2(layout_jsp.java:347)
+	at org.apache.jsp.jsp.layout_jsp._jspService(layout_jsp.java:166)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:439)
+	... 48 more
+Caused by: javax.servlet.ServletException: File &quot;/jsp/footer.jsp&quot; not found
+	at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:417)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:384)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:339)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:747)
+	at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:603)
+	at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:542)
+	at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:955)
+	at org.apache.jasper.runtime.PageContextImpl.doInclude(PageContextImpl.java:688)
+	at org.apache.jasper.runtime.PageContextImpl.include(PageContextImpl.java:682)
+	at org.apache.tiles.request.jsp.JspRequest.doInclude(JspRequest.java:123)
+	... 61 more
+2016-09-02 10:57:40,610  INFO  red.arpanet.t2k.web.actions.LoginAction:42 User attempting login: 1
+2016-09-02 10:57:44,123  DEBUG red.arpanet.t2k.dao.UserManager:36 Exception encountered retrieving user info. (User: 1, Error: NoResultException)
+2016-09-02 10:58:38,939  INFO  red.arpanet.t2k.web.actions.RegisterAction:42 User attempting registration: jb/test@test.com
+2016-09-02 10:58:38,992  DEBUG red.arpanet.t2k.dao.UserManager:36 Exception encountered retrieving user info. (User: jb, Error: NoResultException)
+2016-09-02 10:59:48,826  INFO  red.arpanet.t2k.web.actions.LoginAction:42 User attempting login: jb
+2016-09-02 10:59:48,834  DEBUG red.arpanet.t2k.dao.UserManager:36 Exception encountered retrieving user info. (User: jb, Error: NoResultException)

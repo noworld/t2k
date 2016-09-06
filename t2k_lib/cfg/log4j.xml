@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p %d{ISO8601} %-5c{3}:%L %x %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="STDERR" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.err" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p %d{ISO8601} %-5c{3}:%L %x %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="ERROR" />
+			<param name="LevelMax" value="FATAL" />
+		</filter>
+	</appender>
+	
+	<appender name="webEventsLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="C:\\nick\\dev\\t2k\\t2k_lib\\logs\\t2k_log.txt" />
+		<param name="DatePattern" value=".yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-24d %-5p %c{8}:%L %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="DatabaseLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="C:\\nick\\dev\\t2k\\t2k_lib\\logs\\t2k_data_log.txt" />
+		<param name="DatePattern" value=".yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-24d %-5p %c{8}:%L %m%n" />
+		</layout>
+	</appender>
+	
+	<logger name="org.hsqldb" additivity="false">
+		<level value="TRACE" />
+ 		<appender-ref ref="DatabaseLog"/>
+	</logger>  
+	
+	<logger name="openjpa" additivity="false">
+		<level value="TRACE" />
+ 		<appender-ref ref="DatabaseLog"/>
+	</logger>  
+
+	<logger name="openjpa.jdbc.SQL" additivity="false">
+		<level value="TRACE" />
+ 		<appender-ref ref="DatabaseLog"/>
+	</logger>    
+	
+	<logger name="openjpa.Query" additivity="false">
+		<level value="TRACE" />
+ 		<appender-ref ref="DatabaseLog"/>
+	</logger>    
+
+	<logger name="red.arpanet.t2k">
+		<level value="DEBUG" />
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="webEventsLog" />
+	</logger>	
+	
+	<logger name="com.opensymphony.xwork2">
+		<level value="INFO" />
+		<appender-ref ref="STDOUT" />		
+	</logger>
+	
+	<logger name="org.apache">
+		<level value="INFO" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<root>
+		<level value="ERROR" />
+		<appender-ref ref="STDERR" />		
+	</root>
+	
+</log4j:configuration>

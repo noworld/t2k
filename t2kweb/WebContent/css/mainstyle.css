@@ -1,0 +1,174 @@
+/*
+	©2016 ARPANET.RED
+	
+	All rights reserved.
+	
+	* No Warranty * 
+		1.1. "As-Is".
+			The Software is provided "as is,"
+			with all faults, defects and errors, and without
+			warranty of any kind.
+			
+		1.2. No Liability.
+			Licensor does not warrant that
+			the Software will be free of bugs, errors, viruses
+			or other defects, and Licensor shall have no
+			liability of any kind for the use of or inability
+			to use the software, the software content or any
+			associated service.
+*/
+
+
+
+/*
+GOOGLE FONTS
+font-family: 'Stardos Stencil', cursive;
+font-family: 'Arimo', sans-serif;
+font-family: 'Fjalla One', sans-serif;
+
+COLORS
+light gray: #f5f5f0
+light green: #ccffcc
+white: GhostWhite
+T2K Yellow: #F0ab55
+T2K Medium Blue: #1580bf
+T2K Dark Blue: #126ca1
+T2K Darker Blue: #0d4d73
+*/
+
+body {
+	font-family: 'Arimo', sans-serif;
+	background-color: #F0ab55;
+	-webkit-font-smoothing: antialiased;
+	padding:0;
+	z-index: 1;
+}
+
+input {	
+	padding-left: 10px;
+	font-size: x-large;
+}
+
+.header {
+	color: white;
+	background-color: black;
+	font-family: 'Stardos Stencil', cursive;
+	font-size: 48pt;
+	letter-spacing: 4pt;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	top: 30px;
+	left: 0;
+}
+
+.spacer {
+	height: 105px;
+}
+
+.menu {
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 24px;
+	color: #126ca1;
+	width: 80%;
+	margin-left: 10%;
+	text-align: center;
+}
+
+.menubar li {
+	list-style-type: none;
+	display: inline;
+}
+
+.menubar li a:LINK {
+	font-style: normal;
+	text-decoration: none;
+	color: #126ca1;
+}
+
+.menubar li a:VISITED {
+	font-style: normal;
+	text-decoration: none;
+	color: #126ca1;
+}
+
+.menubar li a:HOVER {	
+	color: #1580bf;
+	text-decoration: underline;
+}
+
+.subtitle {
+	font-size: 24pt;
+}
+
+.content_box {
+	font-size: 18px;
+	text-align: center;
+	vertical-align: middle;
+	width: 90%;
+	margin: 25px 5% 25px 5%;
+}
+
+.formTable {
+	width: 90%;
+	margin: 25px 0 25px 0;
+}
+
+.formTable td:FIRST-CHILD {
+	width: 50%;
+	padding-right: 10px;
+	text-align: right;
+	font-size: x-large;
+}
+
+.formTable td:LAST-CHILD {
+	width: 50%;
+	padding-left: 10px;
+	text-align: left;
+	font-size: x-large;
+}
+
+.formTable input[type="text"] {
+	min-width: 300px;
+}
+
+.formTable input[type="password"] {
+	min-width: 300px;
+}
+
+.footer {
+	font-family: 'Fjalla One', sans-serif;
+	width: 100%;
+	position: absolute;
+	float: right;
+	vertical-align: bottom;
+	bottom: 10px;
+	left: 0;
+	text-align: right;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.footertext {
+	margin: 0 15px 0 0;
+	font-size: small;
+	color: black;
+}
+
+.hline {
+	border-top: 2px;
+	border-color: black;
+	border-style: double;
+	margin: 15px 0 15px 0;
+}
+
+.errorMessage {
+	list-style: none;
+	width: 100%;
+	maring: 10px;
+	text-align: center;
+	font-size: medium;
+	color: red;
+	font-style: italic;
+}
