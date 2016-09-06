@@ -14,16 +14,16 @@ import javax.persistence.Table;
 import red.arpanet.t2k.util.CopyrightArpanet;
 
 /**
- * Entity implementation class for Entity: T2kArmy
+ * Entity implementation class for Entity: T2kSkilLevel
  *
  */
 @Entity
-@Table(name="t2k_army")
+@Table(name="t2k_skill_level")
 @NamedQueries({
 	//@NamedQuery(name="FindRoleByName",query="select r from T2kRole r where r.name = :roleName")
 })
 @CopyrightArpanet
-public class T2kArmy implements Serializable {
+public class T2kSkillLevel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	   
@@ -32,39 +32,34 @@ public class T2kArmy implements Serializable {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="name", nullable=false)
-	private String name;	
+	@Column(name="level", nullable=false)
+	private int level;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	private T2kNationality nationality;
+	private T2kSkill skill;
 
-	public T2kArmy() {
-		super();
-	}   
-	
 	public int getId() {
 		return this.id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-	}   
-	
-	public String getName() {
-		return this.name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public int getLevel() {
+		return level;
 	}
-	
-	public T2kNationality getNationality() {
-		return nationality;
+
+	public void setLevel(int level) {
+		this.level = level;
 	}
-	
-	public void setNationality(T2kNationality nationality) {
-		this.nationality = nationality;
+
+	public T2kSkill getSkill() {
+		return skill;
 	}
-	
+
+	public void setSkill(T2kSkill skill) {
+		this.skill = skill;
+	}
 
 }

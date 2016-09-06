@@ -25,7 +25,6 @@ import static red.arpanet.t2k.util.LogUtil.i;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
-import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import com.opensymphony.xwork2.Action;
 

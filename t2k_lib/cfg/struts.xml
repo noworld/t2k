@@ -115,6 +115,12 @@
 			<exception-mapping result="error" exception="java.lang.Exception" />
 		</action>
 		
+		<action name="Admin" class="red.arpanet.t2k.web.actions.AdminAction">
+			<result name="input" type="tiles">Admin</result>
+			<result name="success" type="tiles">Admin</result>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>
+		
 		<action name="Main" class="red.arpanet.t2k.web.actions.MainAction">
 			<result name="input" type="tiles">Main</result>
 			<result name="success" type="tiles">Main</result>

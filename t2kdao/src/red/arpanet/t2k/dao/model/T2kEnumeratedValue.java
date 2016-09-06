@@ -11,12 +11,12 @@ import red.arpanet.t2k.util.CopyrightArpanet;
  *
  */
 @Entity
-@Table(name="t2k_string_value")
+@Table(name="t2k_enumerated_value")
 @NamedQueries({
 	//@NamedQuery(name="FindInviteByTokenAndEmail",query="select i from T2kInvite i where i.emailAddress = :email and i.inviteToken = :token")
 })
 @CopyrightArpanet
-public class T2kStringValue implements Serializable {
+public class T2kEnumeratedValue implements Serializable {
   
 	private static final long serialVersionUID = 1L;
 	
@@ -25,8 +25,8 @@ public class T2kStringValue implements Serializable {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="group", nullable=false)
-	private int group;
+	@Column(name="value_group", nullable=false)
+	private int valueGroup;
 	
 	@Column(name="value", nullable=false)
 	private String value;
@@ -34,9 +34,10 @@ public class T2kStringValue implements Serializable {
 	@Column(name="ordinal")
 	private int ordinal;	
 
-	public T2kStringValue() {
+	public T2kEnumeratedValue() {
 		super();
 	}   
+	
 	public int getId() {
 		return this.id;
 	}
@@ -44,13 +45,15 @@ public class T2kStringValue implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}   
-	public int getGroup() {
-		return this.group;
-	}
 
-	public void setGroup(int group) {
-		this.group = group;
-	}   
+	public int getValueGroup() {
+		return valueGroup;
+	}
+	
+	public void setValueGroup(int valueGroup) {
+		this.valueGroup = valueGroup;
+	}
+	
 	public String getValue() {
 		return this.value;
 	}
@@ -58,6 +61,7 @@ public class T2kStringValue implements Serializable {
 	public void setValue(String value) {
 		this.value = value;
 	}   
+	
 	public int getOrdinal() {
 		return this.ordinal;
 	}

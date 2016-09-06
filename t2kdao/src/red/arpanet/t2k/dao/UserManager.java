@@ -71,6 +71,8 @@ public class UserManager {
 			user = query.getSingleResult();
 		} catch(NonUniqueResultException | NoResultException e) {
 			d(LOG,String.format("Exception encountered retrieving user info. (User: %s, Error: %s)", userId, e.getClass().getSimpleName()));
+		} catch(Exception e) {
+			e(LOG,String.format("Exception encountered retrieving user info. (User: %s, Error: %s)", userId, e.getClass().getSimpleName()));
 		} finally {
 			closeEm(em);
 		}

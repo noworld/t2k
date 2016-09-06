@@ -1,8 +1,16 @@
 package red.arpanet.t2k.dao.model.character;
 
 import java.io.Serializable;
-import java.lang.String;
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import red.arpanet.t2k.util.CopyrightArpanet;
 
@@ -27,10 +35,15 @@ public class T2kNationality implements Serializable {
 	
 	@Column(name="name", nullable=false)
 	private String name;	
+	
+	@OneToMany
+	private List<T2kArmy> armies;
 
 	public T2kNationality() {
 		super();
+		this.armies = new ArrayList<T2kArmy>();
 	}   
+	
 	public int getId() {
 		return this.id;
 	}
@@ -38,6 +51,7 @@ public class T2kNationality implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}   
+	
 	public String getName() {
 		return this.name;
 	}
@@ -45,5 +59,13 @@ public class T2kNationality implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-   
+
+	public List<T2kArmy> getArmies() {
+		return armies;
+	}
+
+	public void setArmies(List<T2kArmy> armies) {
+		this.armies = armies;
+	}
+	
 }

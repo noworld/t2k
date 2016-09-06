@@ -46,8 +46,8 @@ public class T2kSkill implements Serializable {
 	@Column(name="name", nullable=false)
 	private String name;
 	
-	@Column(name="group")
-	private int group;
+	@Column(name="skill_group")
+	private int skillGroup;
 	
 	@ManyToOne(targetEntity=T2kAttribute.class, fetch=FetchType.EAGER)
 	private T2kAttribute controllingAttribute;
@@ -68,12 +68,12 @@ public class T2kSkill implements Serializable {
 		this.name = name;
 	}
 
-	public int getGroup() {
-		return group;
+	public int getSkillGroup() {
+		return skillGroup;
 	}
 
-	public void setGroup(int group) {
-		this.group = group;
+	public void setSkillGroup(int skillGroup) {
+		this.skillGroup = skillGroup;
 	}
 
 	public T2kAttribute getControllingAttribute() {
