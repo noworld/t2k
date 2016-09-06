@@ -20,20 +20,28 @@
 
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
- 	
-<div id="leftNavMenu" class="leftnav">
-	
-	<div id="leftNavMenuTitle"><s:text name="t2k.menu.menutitle" /></div>
-	<div id="leftNavCollapse"> 
-		<div class="collapsebox"></div>
-	</div>
-		
-	<ul id="leftNavList">		
-		<li><a href="<s:url action="Profile" />"><s:text name="t2k.menu.profiletext" /></a></li>
-		<li><a href="<s:url action="Campaigns" />"><s:text name="t2k.menu.campaignstext" /></a></li>
-		<li><a href="<s:url action="Characters" />"><s:text name="t2k.menu.characterstext" /></a></li>
-		<li><a href="<s:url action="ShowInvite" />"><s:text name="t2k.menu.invitetext" /></a></li>
-	</ul>
+
+<div class="subtitle" >
+	<s:text name="t2k.forgotpassword.title" />
 </div>
 
+<s:form action="ForgotPassword" method="post" validate="true">
 
+	<div>
+		<table class="formTable">
+			<tr>
+				<td><s:text name="t2k.invite.emailaddressfield" /></td>
+				<td><s:textfield name="email" /></td>
+			</tr>
+			<s:if test="hasFieldErrors()">
+				<tr class="formTableFooter">
+					<td colspan="2"><s:fielderror/></td>					
+				</tr>
+			</s:if>
+		</table>
+	</div>
+		
+	<div>
+		<s:submit value="%{getText('t2k.forgotpassword.submitbutton')}" />
+	</div>
+</s:form>

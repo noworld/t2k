@@ -271,5 +271,41 @@ public class UserManager {
 		}
 
 	}
+	
+	public static T2kUser updateUserWithToken(String email) {
+
+		if(email == null) {
+			return null;
+		}
+		
+		EntityManager em = EMF.createEntityManager();	
+		EntityTransaction et = em.getTransaction();
+		T2kUser user = null;
+		
+		try {
+			TypedQuery<T2kUser> query = em.createNamedQuery("FindUserByEmailAddress",T2kUser.class);
+			query.setParameter("email", email);
+			user = query.getSingleResult();
+			
+			if(user == null) {
+				return null;
+			}
+			
+			user.setRecoveryToken(TokenUtil.createToken());
+
+			et.begin();
+			user = em.merge(user);
+			et.commit();
+			
+		} catch(Exception e) {
+			et.rollback();
+			e(LOG,String.format("Exception encountered creating account recovery token for user. (E-Mail: %s)",email),e);
+			user = null;
+		} finally {
+			em.close();
+		}
+
+		return user;
+	}
 
 }

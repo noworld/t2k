@@ -65,6 +65,16 @@
  		<put-attribute name="body" value="/jsp/registersuccess.jsp"/>
  	</definition>
  	
+ 	<definition name="ForgotPassword" extends="basepage">
+ 		<put-attribute name="browserTitle" type="string" value="Account Recovery" />
+ 		<put-attribute name="body" value="/jsp/forgotpassword.jsp"/>
+ 	</definition>
+ 	
+ 	<definition name="ForgotPasswordSuccess" extends="basepage">
+ 		<put-attribute name="browserTitle" type="string" value="Success!" />
+ 		<put-attribute name="body" value="/jsp/forgotpasswordsuccess.jsp"/>
+ 	</definition>
+ 	
  	<definition name="Invite" extends="leftnav">
  		<put-attribute name="browserTitle" type="string" value="Send Invite" />
  		<put-attribute name="body" value="/jsp/invite.jsp"/>

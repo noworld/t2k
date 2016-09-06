@@ -9,7 +9,7 @@
 			with all faults, defects and errors, and without
 			warranty of any kind.
 			
-		1.1. No Liability.
+		1.2. No Liability.
 			Licensor does not warrant that
 			the Software will be free of bugs, errors, viruses
 			or other defects, and Licensor shall have no
@@ -18,15 +18,24 @@
 			associated service.
 */
 
-package red.arpanet.t2k.controllers;
 
-public class SmtpController {
+package red.arpanet.t2k.web.actions;
 
-	public static boolean sendInviteEmail(String emailAddress) {
-		return true;
-	}
+import org.apache.log4j.Logger;
+
+import red.arpanet.t2k.util.CopyrightArpanet;
+
+@CopyrightArpanet
+public class CharacterListAction extends BaseAction {
 	
-	public static boolean sendAccountRecoveryEmail(String emailAddress, String recoveryToken) {
-		return true;
+	private static final Logger LOG = Logger.getLogger(CharacterListAction.class);
+
+	private static final long serialVersionUID = 1L;
+	
+	public String execute() {
+
+		return SUCCESS;
+	
 	}
+
 }

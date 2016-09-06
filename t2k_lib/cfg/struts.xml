@@ -101,6 +101,18 @@
 			<exception-mapping result="error" exception="java.lang.Exception" />
 		</action>
 		
+		<action name="ShowForgotPassword" class="red.arpanet.t2k.web.actions.ForgotPasswordAction" method="show">
+			<result name="input" type="tiles">ForgotPassword</result>
+			<result name="success" type="tiles">ForgotPassword</result>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>
+		
+		<action name="ForgotPassword" class="red.arpanet.t2k.web.actions.ForgotPasswordAction">
+			<result name="input" type="tiles">ForgotPassword</result>
+			<result name="success" type="tiles">ForgotPasswordSuccess</result>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>
+		
 		<action name="Main" class="red.arpanet.t2k.web.actions.MainAction">
 			<result name="input" type="tiles">Main</result>
 			<result name="success" type="tiles">Main</result>
@@ -116,6 +128,12 @@
 		<action name="Campaigns" class="red.arpanet.t2k.web.actions.CampaignAction">
 			<result name="input" type="tiles">Campaigns</result>
 			<result name="success" type="tiles">Campaigns</result>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>
+		
+		<action name="Characters" class="red.arpanet.t2k.web.actions.CharacterListAction">
+			<result name="input" type="tiles">Character</result>
+			<result name="success" type="tiles">Character</result>
 			<exception-mapping result="error" exception="java.lang.Exception" />
 		</action>
 		

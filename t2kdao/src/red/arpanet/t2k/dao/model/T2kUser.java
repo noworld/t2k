@@ -45,7 +45,8 @@ import red.arpanet.t2k.util.CopyrightArpanet;
 @Entity
 @Table(name="t2k_user")
 @NamedQueries({
-	@NamedQuery(name="FindUserByUserId",query="select u from T2kUser u where u.userId = :userId")
+	@NamedQuery(name="FindUserByUserId",query="select u from T2kUser u where u.userId = :userId"),
+	@NamedQuery(name="FindUserByEmailAddress",query="select u from T2kUser u where u.emailAddress = :email")
 })
 @CopyrightArpanet
 public class T2kUser implements Serializable {
@@ -75,8 +76,11 @@ public class T2kUser implements Serializable {
 	@Column(name="password", nullable=false, length=64)
 	private byte[] password;
 	
-	@Column(name="email_address", nullable=false)
+	@Column(name="email_address", nullable=false, unique=true)
 	private String emailAddress;
+	
+	@Column(name="recovery_token")
+	private String recoveryToken;
 	
 	@Column(name="account_status", nullable=false)
 	private T2kAccountStatus accountStatus;
@@ -147,6 +151,14 @@ public class T2kUser implements Serializable {
 
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
+	}
+
+	public String getRecoveryToken() {
+		return recoveryToken;
+	}
+
+	public void setRecoveryToken(String recoveryToken) {
+		this.recoveryToken = recoveryToken;
 	}
 
 	public T2kAccountStatus getAccountStatus() {

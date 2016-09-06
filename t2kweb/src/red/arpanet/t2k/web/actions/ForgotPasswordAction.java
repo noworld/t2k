@@ -21,21 +21,41 @@
 
 package red.arpanet.t2k.web.actions;
 
+import static red.arpanet.t2k.util.LogUtil.i;
+
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
+import red.arpanet.t2k.controllers.RegistrationController;
 import red.arpanet.t2k.util.CopyrightArpanet;
 
 @CopyrightArpanet
-public class CharacterAction extends BaseAction {
-	
-	private static final Logger LOG = Logger.getLogger(CharacterAction.class);
+public class ForgotPasswordAction extends BaseAction {
 
 	private static final long serialVersionUID = 1L;
 	
-	public String execute() {
-		
-		return SUCCESS;
+	private static final Logger LOG = Logger.getLogger(ForgotPasswordAction.class);
 	
+	protected String email;
+
+	public String getEmail() {
+		return email;
 	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String execute() {
+		
+		if(StringUtils.isNotBlank(email)) {
+			if(RegistrationController.sendForgotPasswordEmail(email)) {
+				i(LOG,String.format("Sent account recovery email to: %s", email));
+				return SUCCESS;
+			}
+		}
+		
+		return INPUT;
+	
+	}
 }

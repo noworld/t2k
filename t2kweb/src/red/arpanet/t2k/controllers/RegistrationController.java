@@ -88,6 +88,19 @@ public class RegistrationController {
 		return false;
 	}
 	
+	public static boolean sendForgotPasswordEmail(String email) {
+
+		email = email.trim().toLowerCase();
+		
+		T2kUser user = UserManager.updateUserWithToken(email);
+		
+		if(user != null && SmtpController.sendAccountRecoveryEmail(email, user.getRecoveryToken())) {			
+			return true;
+		}
+		
+		return false;
+	}
+	
 	public static UserAccountInfo getUserAccountInfo(String userId) {
 		
 		userId = userId.trim().toLowerCase();

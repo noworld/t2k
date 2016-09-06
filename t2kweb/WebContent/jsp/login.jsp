@@ -49,7 +49,7 @@
 		</table>
 		
 	<div>
-		<s:submit value="%{getText('t2k.login.submitbutton')}" />
+		<s:submit value="%{getText('t2k.login.submitbutton')}" />		
 	</div>
 </s:form>
 
@@ -57,4 +57,8 @@
 	<s:text name="t2k.login.registertext1" />
 	<a href="<s:url action="Register" />"><s:text name="t2k.login.registertext2" /></a>
 	<s:text name="t2k.login.registertext3" />
+</div>
+
+<div class="content_box">
+	<a href="<s:url action="ShowForgotPassword" />"><s:text name="t2k.login.forgotpasswordtext" /></a>
 </div>
