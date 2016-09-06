@@ -14,6 +14,7 @@
 		<class>red.arpanet.t2k.dao.model.character.T2kSkill</class>
 		<class>red.arpanet.t2k.dao.model.T2kStringValue</class>
 		<class>red.arpanet.t2k.dao.model.character.T2kNationality</class>
+		<class>red.arpanet.t2k.dao.model.character.T2kArmy</class>
 				
 		 <properties>
 
