@@ -13,7 +13,8 @@ import red.arpanet.t2k.util.CopyrightArpanet;
 @Entity
 @Table(name="t2k_enumerated_value")
 @NamedQueries({
-	//@NamedQuery(name="FindInviteByTokenAndEmail",query="select i from T2kInvite i where i.emailAddress = :email and i.inviteToken = :token")
+	@NamedQuery(name="FindRootGroups",query="select v from T2kEnumeratedValue v where v.valueGroup = 0 and v.id <> 0"),
+	@NamedQuery(name="FindGroupById",query="select v from T2kEnumeratedValue v where v.valueGroup = :id")	
 })
 @CopyrightArpanet
 public class T2kEnumeratedValue implements Serializable {
@@ -28,8 +29,8 @@ public class T2kEnumeratedValue implements Serializable {
 	@Column(name="value_group", nullable=false)
 	private int valueGroup;
 	
-	@Column(name="value", nullable=false)
-	private String value;
+	@Column(name="enum_value", nullable=false)
+	private String enumValue;
 	
 	@Column(name="ordinal")
 	private int ordinal;	
@@ -52,16 +53,16 @@ public class T2kEnumeratedValue implements Serializable {
 	
 	public void setValueGroup(int valueGroup) {
 		this.valueGroup = valueGroup;
-	}
+	} 
 	
-	public String getValue() {
-		return this.value;
+	public String getEnumValue() {
+		return enumValue;
 	}
 
-	public void setValue(String value) {
-		this.value = value;
-	}   
-	
+	public void setEnumValue(String enumValue) {
+		this.enumValue = enumValue;
+	}
+
 	public int getOrdinal() {
 		return this.ordinal;
 	}

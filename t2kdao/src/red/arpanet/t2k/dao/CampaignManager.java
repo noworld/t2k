@@ -20,6 +20,6 @@
 
 package red.arpanet.t2k.dao;
 
-public class CampaignManager {
+public class CampaignManager extends BaseDaoManager  {
 
 }

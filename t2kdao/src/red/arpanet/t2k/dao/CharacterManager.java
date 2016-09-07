@@ -20,6 +20,6 @@
 
 package red.arpanet.t2k.dao;
 
-public class CharacterManager {
+public class CharacterManager extends BaseDaoManager  {
 
 }

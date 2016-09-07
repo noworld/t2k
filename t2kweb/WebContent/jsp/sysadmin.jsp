@@ -21,4 +21,23 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 
-HELLO ADMIN
+<div class="content_box">
+	<s:form>
+		<s:select label="Enumerated Value Groups"
+	       name="selectedGroup"
+	       list="groups" />
+		<br />
+		
+		<s:select label="Enumerated Value SubGroups"
+	       name="selectedSubGroup"
+	       list="subGroups" />
+		<br />
+		
+		<s:select label="Enumerated Values"
+	       name="selectedValue"
+	       list="values" />
+		<br />
+		
+		<s:submit value="%{getText('t2k.sysadmin.submitbutton')}" />
+     </s:form>
+</div>

@@ -75,9 +75,9 @@
  		<put-attribute name="body" value="/jsp/forgotpasswordsuccess.jsp"/>
  	</definition>
  	
- 	<definition name="Admin" extends="leftnav">
+ 	<definition name="SysAdmin" extends="leftnav">
     	<put-attribute name="browserTitle" type="string" value="System Administration" />
-    	<put-attribute name="body" value="/jsp/admin.jsp"/>
+    	<put-attribute name="body" value="/jsp/sysadmin.jsp"/>
  	</definition>
  	
  	<definition name="Invite" extends="leftnav">

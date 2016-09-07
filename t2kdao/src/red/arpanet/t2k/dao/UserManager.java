@@ -29,11 +29,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import org.apache.log4j.Logger;
@@ -48,15 +46,9 @@ import red.arpanet.t2k.util.TokenUtil;
 import red.arpanet.t2k.util.valueobjects.RegistrationInfo;
 
 @CopyrightArpanet
-public class UserManager {
+public class UserManager extends BaseDaoManager {
 
 	private static final Logger LOG = Logger.getLogger(UserManager.class);
-
-	private static final String PERSISTENCE_UNIT_NAME = "t2k_v1";
-	private static final String DEFAULT_ROLE = "newbie";
-	private static final String DEFAULT_STATUS = "pending";
-
-	private static final EntityManagerFactory EMF = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
 	public static T2kUser getUserById(String userId) {
 
@@ -310,12 +302,6 @@ public class UserManager {
 		}
 
 		return user;
-	}
-	
-	private static void closeEm(EntityManager em) {
-		if(em != null && em.isOpen()) {
-			em.close();
-		}
 	}
 
 }

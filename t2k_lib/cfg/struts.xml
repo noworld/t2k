@@ -116,8 +116,8 @@
 		</action>
 		
 		<action name="SysAdmin" class="red.arpanet.t2k.web.actions.SysAdminAction">
-			<result name="input" type="tiles">Admin</result>
-			<result name="success" type="tiles">Admin</result>
+			<result name="input" type="tiles">SysAdmin</result>
+			<result name="success" type="tiles">SysAdmin</result>
 			<exception-mapping result="error" exception="java.lang.Exception" />
 		</action>
 		
