@@ -49,6 +49,11 @@ input {
 	font-size: x-large;
 }
 
+select {	
+	padding-left: 10px;
+	font-size: x-large;
+}
+
 .header {
 	color: white;
 	background-color: black;

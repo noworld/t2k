@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,7 +25,7 @@ import red.arpanet.t2k.util.CopyrightArpanet;
 @Entity
 @Table(name="t2k_nationality")
 @NamedQueries({
-	//@NamedQuery(name="FindInviteByTokenAndEmail",query="select i from T2kInvite i where i.emailAddress = :email and i.inviteToken = :token")
+	@NamedQuery(name="FindAllNationalities",query="select n from T2kNationality n")
 })
 @CopyrightArpanet
 public class T2kNationality implements Serializable {
@@ -42,13 +43,8 @@ public class T2kNationality implements Serializable {
 	@ManyToOne(fetch=FetchType.EAGER)
 	private T2kEnumeratedValue faction;
 	
-	@OneToMany
-	private List<T2kArmy> armies;
-
-	public T2kNationality() {
-		super();
-		this.armies = new ArrayList<T2kArmy>();
-	}   
+	@ManyToOne
+	private T2kArmy army;
 	
 	public int getId() {
 		return this.id;
@@ -74,12 +70,13 @@ public class T2kNationality implements Serializable {
 		this.faction = faction;
 	}
 
-	public List<T2kArmy> getArmies() {
-		return armies;
+	public T2kArmy getArmy() {
+		return army;
 	}
 
-	public void setArmies(List<T2kArmy> armies) {
-		this.armies = armies;
+	public void setArmy(T2kArmy army) {
+		this.army = army;
 	}
+
 	
 }

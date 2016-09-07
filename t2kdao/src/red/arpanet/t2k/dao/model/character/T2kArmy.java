@@ -34,9 +34,6 @@ public class T2kArmy implements Serializable {
 	
 	@Column(name="name", nullable=false)
 	private String name;	
-	
-	@ManyToOne(fetch=FetchType.EAGER)
-	private T2kNationality nationality;
 
 	public T2kArmy() {
 		super();
@@ -57,14 +54,5 @@ public class T2kArmy implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public T2kNationality getNationality() {
-		return nationality;
-	}
-	
-	public void setNationality(T2kNationality nationality) {
-		this.nationality = nationality;
-	}
-	
 
 }

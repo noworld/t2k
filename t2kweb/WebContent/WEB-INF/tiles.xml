@@ -112,4 +112,11 @@
     	<put-attribute name="body" value="/jsp/character.jsp"/>
  	</definition>
  	
+ 	<definition name="StartNewCharacter" extends="leftnav">
+    	<put-attribute name="browserTitle" type="string" value="Character" />
+    	<put-attribute name="pageCssFile" value="css/charstyle.css"/>
+    	<put-attribute name="pageJsFile" value="js/newchar.js"/>
+    	<put-attribute name="body" value="/jsp/startnewcharacter.jsp"/>
+ 	</definition>
+ 	
 </tiles-definitions>

@@ -20,6 +20,37 @@
 
 package red.arpanet.t2k.dao;
 
-public class CharacterManager extends BaseDaoManager  {
+import static red.arpanet.t2k.util.LogUtil.e;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import org.apache.log4j.Logger;
+
+import red.arpanet.t2k.dao.model.character.T2kNationality;
+
+public class CharacterManager extends BaseDaoManager  {
+	
+	private static final Logger LOG = Logger.getLogger(CharacterManager.class);
+
+	public static List<T2kNationality> getNationalities() {
+		
+		List<T2kNationality> nationalities = null;
+
+		EntityManager em = EMF.createEntityManager();
+
+		TypedQuery<T2kNationality> query = em.createNamedQuery("FindAllNationalities",T2kNationality.class);
+
+		try {			
+			nationalities = query.getResultList();
+		} catch(Exception e) {
+			e(LOG,String.format("Exception encountered retrieving nationalities list. (Error: %s - %s)", e.getClass().getSimpleName(), e.getMessage()));
+		} finally {
+			closeEm(em);
+		}
+
+		return nationalities;
+	}
 }

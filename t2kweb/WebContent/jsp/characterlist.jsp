@@ -21,4 +21,8 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 
-HELLO CHARACTER LIST
+<div class="content_box">
+	<ul>
+		<li><a href="<s:url action="SysAdmin" />"><s:text name="t2k.menu.admintext" /></a></li>
+	</ul>
+</div>

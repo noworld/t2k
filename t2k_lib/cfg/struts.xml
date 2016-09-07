@@ -145,11 +145,11 @@
 			<exception-mapping result="error" exception="java.lang.Exception" />
 		</action>
 		
-		<action name="ShowCharacter" class="red.arpanet.t2k.web.actions.CharacterAction" method="show">
-			<result name="input" type="tiles">Character</result>
-			<result name="success" type="tiles">Character</result>
+		<action name="NewCharacter" class="red.arpanet.t2k.web.actions.NewCharacterAction">
+			<result name="input" type="tiles">StartNewCharacter</result>
+			<result name="success" type="tiles">StartNewCharacter</result>
 			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
+		</action>		
 		
 		<action name="Character" class="red.arpanet.t2k.web.actions.CharacterAction">
 			<result name="input" type="tiles">Character</result>
@@ -157,6 +157,58 @@
 			<exception-mapping result="error" exception="java.lang.Exception" />
 		</action>
 		
+	</package>
+	
+	<package name="t2kjson" extends="json-default" namespace="/json">
+	
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+	
+		<interceptors>
+			<interceptor name="authenticator" class="red.arpanet.t2k.web.interceptors.SecurityInterceptor" />
+		
+			<interceptor-stack name="t2kStack">
+				<interceptor-ref name="exception">
+					<param name="logEnabled">true</param>
+					<param name="logCategory">red.arpanet.t2k</param>
+					<param name="logLevel">ERROR</param>
+				</interceptor-ref>
+				<interceptor-ref name="authenticator" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			
+			<interceptor-stack name="jsonStack">
+				<interceptor-ref name="exception">
+					<param name="logEnabled">true</param>
+					<param name="logCategory">red.arpanet.t2k.json</param>
+					<param name="logLevel">ERROR</param>
+				</interceptor-ref>
+				<interceptor-ref name="json" /> 
+				<interceptor-ref name="jsonValidation" /> 
+				<interceptor-ref name="t2kStack" /> 
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="jsonStack" />
+		
+		<global-results>
+			<result name="error" type="tiles">Error</result>
+			<result name="login" type="tiles">Login</result>
+		</global-results>
+	
+		<action name="EnumValues" class="red.arpanet.t2k.web.actions.json.EnumeratedValuesAction">
+			<result name="success" type="json" />			
+			<result name="error"   type="json" />
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>
+		
+		<action name="CharValues" class="red.arpanet.t2k.web.actions.json.CharacterValuesAction">
+			<result name="success" type="json" />			
+			<result name="error"   type="json" />
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>		
+	
 	</package>
 
 </struts>
