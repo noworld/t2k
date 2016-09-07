@@ -6,12 +6,15 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import red.arpanet.t2k.dao.model.T2kEnumeratedValue;
 import red.arpanet.t2k.util.CopyrightArpanet;
 
 /**
@@ -35,6 +38,9 @@ public class T2kNationality implements Serializable {
 	
 	@Column(name="name", nullable=false)
 	private String name;	
+
+	@ManyToOne(fetch=FetchType.EAGER)
+	private T2kEnumeratedValue faction;
 	
 	@OneToMany
 	private List<T2kArmy> armies;
@@ -58,6 +64,14 @@ public class T2kNationality implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public T2kEnumeratedValue getFaction() {
+		return faction;
+	}
+
+	public void setFaction(T2kEnumeratedValue faction) {
+		this.faction = faction;
 	}
 
 	public List<T2kArmy> getArmies() {

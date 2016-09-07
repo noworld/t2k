@@ -5,7 +5,7 @@
 
 <struts>
 
-	<constant name="struts.devMode" value="true" />	
+	<constant name="struts.devMode" value="false" />	
 
 	<constant name="struts.action.extension" value=""/>
 	
@@ -115,7 +115,7 @@
 			<exception-mapping result="error" exception="java.lang.Exception" />
 		</action>
 		
-		<action name="Admin" class="red.arpanet.t2k.web.actions.AdminAction">
+		<action name="SysAdmin" class="red.arpanet.t2k.web.actions.SysAdminAction">
 			<result name="input" type="tiles">Admin</result>
 			<result name="success" type="tiles">Admin</result>
 			<exception-mapping result="error" exception="java.lang.Exception" />

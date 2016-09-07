@@ -26,7 +26,7 @@ import red.arpanet.t2k.util.CopyrightArpanet;
 
 @CopyrightArpanet
 @RequiresAuthentication
-public class AdminAction extends BaseAction {
+public class SysAdminAction extends BaseAction {
 
 	private static final long serialVersionUID = 1L;
 	

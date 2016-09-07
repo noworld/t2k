@@ -31,10 +31,13 @@ $(function() {
 		$("#leftNavMenuTitle").show();	
 		$("#leftNavCollapse").off("click");
 		$("#leftNavCollapse").on("click",showLeftNavMenu);
-		setCookie("leftNavCollapse",true);
+		$("#leftNavMenuTitle").off("click");
+		$("#leftNavMenuTitle").on("click",showLeftNavMenu);
+		
+		setCookie("leftNavCollapse","collapse");
 	} else {
 		$("#leftNavCollapse").bind("click",hideLeftNavMenu);
 		$("#leftNavMenuTitle").bind("click",showLeftNavMenu);
-		setCookie("leftNavCollapse",false);
+		setCookie("leftNavCollapse","expand");
 	}
 });

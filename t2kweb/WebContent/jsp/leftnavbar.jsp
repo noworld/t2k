@@ -29,7 +29,7 @@
 	</div>
 		
 	<ul id="leftNavList">		
-		<li><a href="<s:url action="Admin" />"><s:text name="t2k.menu.admintext" /></a></li>
+		<li><a href="<s:url action="SysAdmin" />"><s:text name="t2k.menu.admintext" /></a></li>
 		<li><a href="<s:url action="Profile" />"><s:text name="t2k.menu.profiletext" /></a></li>
 		<li><a href="<s:url action="Campaigns" />"><s:text name="t2k.menu.campaignstext" /></a></li>
 		<li><a href="<s:url action="ShowCharacter" />"><s:text name="t2k.menu.characterstext" /></a></li>

@@ -46,6 +46,9 @@ public class T2kAttribute implements Serializable {
 	@Column(name="name", nullable=false)
 	private String name;
 	
+	@Column(name="abbreviation", nullable=false)
+	private String abbreviation;
+	
 	public int getId() {
 		return id;
 	}
@@ -61,5 +64,14 @@ public class T2kAttribute implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getAbbreviation() {
+		return abbreviation;
+	}
+
+	public void setAbbreviation(String abbreviation) {
+		this.abbreviation = abbreviation;
+	}
+	
 	
 }
