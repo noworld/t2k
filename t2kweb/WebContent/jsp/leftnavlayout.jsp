@@ -45,7 +45,7 @@
 	<script src="<tiles:getAsString name="mainJsFile"/>" type="text/javascript"></script>
 	<script src="<tiles:getAsString name="navJsFile"/>" type="text/javascript"></script>
 	<s:if test="#attr['pageCssFile'] != ''">
-		<link rel="stylesheet" href="<tiles:getAsString name="pageJsFile"/>" type="text/css"/>
+		<script src="<tiles:getAsString name="pageJsFile"/>" type="text/javascript"></script>
 	</s:if>
 	
 </head>

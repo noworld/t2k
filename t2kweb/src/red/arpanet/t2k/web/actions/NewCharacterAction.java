@@ -26,9 +26,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import red.arpanet.t2k.controllers.CharacterController;
 import red.arpanet.t2k.controllers.EnumeratedValueController;
-import red.arpanet.t2k.dao.CharacterManager;
 import red.arpanet.t2k.util.CopyrightArpanet;
 import red.arpanet.t2k.util.valueobjects.NewCharacter;
 
@@ -45,6 +43,7 @@ public class NewCharacterAction extends BaseAction {
 	protected Map<Integer,String> nationalities;
 	protected Map<Integer,String> factions;
 	protected int selectedFaction = -1;
+	protected int selectedNationality = -1;
 	
 	public NewCharacterAction() {
 		this.genders = EnumeratedValueController.getGenders();
@@ -100,11 +99,15 @@ public class NewCharacterAction extends BaseAction {
 		this.selectedFaction = selectedFaction;
 	}
 
+	public int getSelectedNationality() {
+		return selectedNationality;
+	}
+
+	public void setSelectedNationality(int selectedNationality) {
+		this.selectedNationality = selectedNationality;
+	}
+
 	public String execute() {
-		
-		if(selectedFaction >= 0) {
-			this.nationalities = CharacterController.getNationalitiesByFaction(selectedFaction);
-		}
 		
 		return SUCCESS;
 	

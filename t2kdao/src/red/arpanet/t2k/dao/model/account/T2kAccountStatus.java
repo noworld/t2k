@@ -13,7 +13,8 @@ import red.arpanet.t2k.util.CopyrightArpanet;
 @Entity
 @Table(name="t2k_account_status")
 @NamedQueries({
-	@NamedQuery(name="FindAccountStatusByName",query="select s from T2kAccountStatus s where s.name = :statusName")
+	@NamedQuery(name="FindAccountStatusByName",query="select s from T2kAccountStatus s where s.name = :statusName",
+			hints={@QueryHint(name="openjpa.hint.OptimizeResultCount", value="1")})
 })
 @CopyrightArpanet
 public class T2kAccountStatus implements Serializable {

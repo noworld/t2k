@@ -28,6 +28,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.QueryHint;
 import javax.persistence.Table;
 
 import red.arpanet.t2k.util.CopyrightArpanet;
@@ -39,7 +40,8 @@ import red.arpanet.t2k.util.CopyrightArpanet;
 @Entity
 @Table(name="t2k_invite")
 @NamedQueries({
-	@NamedQuery(name="FindInviteByTokenAndEmail",query="select i from T2kInvite i where i.emailAddress = :email and i.inviteToken = :token")
+	@NamedQuery(name="FindInviteByTokenAndEmail",query="select i from T2kInvite i where i.emailAddress = :email and i.inviteToken = :token",
+			hints={@QueryHint(name="openjpa.hint.OptimizeResultCount", value="1")})
 })
 @CopyrightArpanet
 public class T2kInvite implements Serializable {

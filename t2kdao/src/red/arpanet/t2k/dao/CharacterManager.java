@@ -55,7 +55,7 @@ public class CharacterManager extends BaseDaoManager  {
 		return nationalities;
 	}
 	
-	public static List<T2kNationality> findNationalitiesByFaction(int faction) {
+	public static List<T2kNationality> findNationalitiesByFaction(T2kEnumeratedValue faction) {
 		List<T2kNationality> factions = null;
 		
 		EntityManager em = EMF.createEntityManager();
@@ -73,4 +73,5 @@ public class CharacterManager extends BaseDaoManager  {
 		
 		return factions;
 	}
+	
 }

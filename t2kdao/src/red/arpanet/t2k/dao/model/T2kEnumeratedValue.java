@@ -14,7 +14,11 @@ import red.arpanet.t2k.util.CopyrightArpanet;
 @Table(name="t2k_enumerated_value")
 @NamedQueries({
 	@NamedQuery(name="FindRootGroups",query="select v from T2kEnumeratedValue v where v.valueGroup = 0 and v.id <> 0"),
-	@NamedQuery(name="FindGroupById",query="select v from T2kEnumeratedValue v where v.valueGroup = :id")	
+	@NamedQuery(name="FindGroupById",query="select v from T2kEnumeratedValue v where v.valueGroup = :id"),
+	@NamedQuery(name="FindValueByEnumValue",query="select v from T2kEnumeratedValue v where v.enumValue = :enumValue",
+		hints={@QueryHint(name="openjpa.hint.OptimizeResultCount", value="1")}),
+	@NamedQuery(name="FindValueById",query="select v from T2kEnumeratedValue v where v.id = :valueId",
+		hints={@QueryHint(name="openjpa.hint.OptimizeResultCount", value="1")})
 })
 @CopyrightArpanet
 public class T2kEnumeratedValue implements Serializable {

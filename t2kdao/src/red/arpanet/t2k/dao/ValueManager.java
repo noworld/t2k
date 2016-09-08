@@ -72,5 +72,43 @@ public class ValueManager extends BaseDaoManager  {
 		return values;
 	}
 	
+	public static T2kEnumeratedValue findValueByEnumValue(String enumValue) {
+		T2kEnumeratedValue val = null;
+		
+		EntityManager em = EMF.createEntityManager();
+
+		TypedQuery<T2kEnumeratedValue> query = em.createNamedQuery("FindValueByEnumValue",T2kEnumeratedValue.class);
+		query.setParameter("enumValue", enumValue);
+
+		try {			
+			val = query.getSingleResult();
+		} catch(Exception e) {
+			e(LOG,"Exception encountered accessing single enumerated value by enumValue.",e);
+		} finally {
+			closeEm(em);
+		}
+		
+		return val;
+	}
+	
+	public static T2kEnumeratedValue findSingleValueById(int valueId) {
+		T2kEnumeratedValue val = null;
+		
+		EntityManager em = EMF.createEntityManager();
+
+		TypedQuery<T2kEnumeratedValue> query = em.createNamedQuery("FindValueById",T2kEnumeratedValue.class);
+		query.setParameter("valueId", valueId);
+
+		try {			
+			val = query.getSingleResult();
+		} catch(Exception e) {
+			e(LOG,"Exception encountered accessing single enumerated value by enumValue.",e);
+		} finally {
+			closeEm(em);
+		}
+		
+		return val;
+	}
+	
 	
 }

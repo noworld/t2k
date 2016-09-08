@@ -32,7 +32,7 @@ public class EnumeratedValueController {
 	
 	protected static final Map<String,Integer> GROUP_IDS;
 	protected static final String GENDER_GROUP = "gender";
-	protected static final String FACTIONS_GROUP = "factions";
+	protected static final String FACTIONS_GROUP = "faction";
 	protected static final String PLAYABLE_FACTIONS = "warsaw pact nato";
 	
 	//TODO: Most of these can probably be cached...

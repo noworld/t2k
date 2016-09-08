@@ -31,7 +31,8 @@ import red.arpanet.t2k.util.CopyrightArpanet;
 @Entity
 @Table(name="t2k_role")
 @NamedQueries({
-	@NamedQuery(name="FindRoleByName",query="select r from T2kRole r where r.name = :roleName")
+	@NamedQuery(name="FindRoleByName",query="select r from T2kRole r where r.name = :roleName",
+			hints={@QueryHint(name="openjpa.hint.OptimizeResultCount", value="1")})
 })
 @CopyrightArpanet
 public class T2kRole implements Serializable {

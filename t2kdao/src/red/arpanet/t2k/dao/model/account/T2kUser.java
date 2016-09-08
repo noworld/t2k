@@ -32,6 +32,7 @@ import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.QueryHint;
 import javax.persistence.Table;
 
 import org.apache.openjpa.persistence.jdbc.Unique;
@@ -45,8 +46,10 @@ import red.arpanet.t2k.util.CopyrightArpanet;
 @Entity
 @Table(name="t2k_user")
 @NamedQueries({
-	@NamedQuery(name="FindUserByUserId",query="select u from T2kUser u where u.userId = :userId"),
-	@NamedQuery(name="FindUserByEmailAddress",query="select u from T2kUser u where u.emailAddress = :email")
+	@NamedQuery(name="FindUserByUserId",query="select u from T2kUser u where u.userId = :userId",
+			hints={@QueryHint(name="openjpa.hint.OptimizeResultCount", value="1")}),
+	@NamedQuery(name="FindUserByEmailAddress",query="select u from T2kUser u where u.emailAddress = :email",
+			hints={@QueryHint(name="openjpa.hint.OptimizeResultCount", value="1")})
 })
 @CopyrightArpanet
 public class T2kUser implements Serializable {
