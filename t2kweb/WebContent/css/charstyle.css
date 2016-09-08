@@ -90,6 +90,7 @@ T2K Darker Blue: #0d4d73
 
 .formTable td:FIRST-CHILD {
 	min-width: 200px;
+	vertical-align: text-top;
 }
 
 #NativeLanguagesContainer {

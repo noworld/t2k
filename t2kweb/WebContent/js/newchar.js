@@ -34,14 +34,15 @@ function popNationalitySelect() {
 function popNativeLanguage() {
 	$("#NativeLanguagesContainer").children().remove().end();
 	
-	var ajaxUrl = "json/CharValues?groupName=native_languages&groupVal=" + $("#Character_character_nationality").val();
+	var ajaxUrl = "json/NativeLanguageValues?nationalityId=" + $("#Character_character_nationality").val();
 	
 	$.getJSON(ajaxUrl, function(data) {
 		
 		  var items = [];
 		  items.push("<ul>");
-		  $.each( data["values"], function(key, val) {
-		    items.push( "<li value='" + key + "'>" + val + "</li>" );
+		  $.each( data["languages"], function(index,val) {
+			  
+			  items.push( "<li>" + val["name"] + "</li>" );
 		  });
 		  items.push("</ul>");
 		 

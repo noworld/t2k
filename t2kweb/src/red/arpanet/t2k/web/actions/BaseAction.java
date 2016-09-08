@@ -20,8 +20,6 @@
 
 package red.arpanet.t2k.web.actions;
 
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +32,6 @@ import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import red.arpanet.t2k.controllers.EnumeratedValueController;
 import red.arpanet.t2k.util.CopyrightArpanet;
 
 @CopyrightArpanet
