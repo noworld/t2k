@@ -47,7 +47,7 @@ public class T2kSkill implements Serializable {
 	@Column(name="name", nullable=false)
 	private String name;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	private T2kAttribute controllingAttribute;
 	
 	@ManyToOne(fetch=FetchType.EAGER)

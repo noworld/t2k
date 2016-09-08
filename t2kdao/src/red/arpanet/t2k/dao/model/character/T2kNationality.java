@@ -40,14 +40,14 @@ public class T2kNationality implements Serializable {
 	@Column(name="name", nullable=false)
 	private String name;	
 
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	private T2kEnumeratedValue faction;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	private T2kArmy army;
 	
-	@OneToMany
-	private Set<T2kDefaultSkill> nativeLanguages;
+	@OneToMany(fetch=FetchType.LAZY)
+	private Set<T2kNativeLanguage> nativeLanguages;
 	
 	public int getId() {
 		return this.id;
@@ -81,11 +81,11 @@ public class T2kNationality implements Serializable {
 		this.army = army;
 	}
 
-	public Set<T2kDefaultSkill> getNativeLanguages() {
+	public Set<T2kNativeLanguage> getNativeLanguages() {
 		return nativeLanguages;
 	}
 
-	public void setNativeLanguages(Set<T2kDefaultSkill> nativeLanguages) {
+	public void setNativeLanguages(Set<T2kNativeLanguage> nativeLanguages) {
 		this.nativeLanguages = nativeLanguages;
 	}
 
