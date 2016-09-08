@@ -39,7 +39,12 @@
 	<logger name="org.hsqldb" additivity="false">
 		<level value="TRACE" />
  		<appender-ref ref="DatabaseLog"/>
-	</logger>  
+	</logger>
+	
+	<logger name="hsqldb.db" additivity="false">
+		<level value="TRACE" />
+ 		<appender-ref ref="DatabaseLog"/>
+	</logger>  	
 	
 	<logger name="openjpa" additivity="false">
 		<level value="TRACE" />

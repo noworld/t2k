@@ -40,7 +40,7 @@ public class T2kNationality implements Serializable {
 	@Column(name="name", nullable=false)
 	private String name;	
 
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	private T2kEnumeratedValue faction;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
