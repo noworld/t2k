@@ -19,9 +19,6 @@ import red.arpanet.t2k.util.CopyrightArpanet;
  */
 @Entity
 @Table(name="t2k_native_language")
-@NamedQueries({
-	//@NamedQuery(name="FindRoleByName",query="select r from T2kRole r where r.name = :roleName")
-})
 @CopyrightArpanet
 public class T2kNativeLanguage implements Serializable {
 

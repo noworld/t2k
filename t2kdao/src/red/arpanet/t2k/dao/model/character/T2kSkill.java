@@ -32,7 +32,7 @@ import red.arpanet.t2k.util.CopyrightArpanet;
 @Entity
 @Table(name="t2k_skill")
 @NamedQueries({
-	//@NamedQuery(name="FindRoleByName",query="select r from T2kRole r where r.name = :roleName")
+	@NamedQuery(name="FindSkillByNameList",query="select s from T2kSkill s where s.name IN :nameList")
 })
 @CopyrightArpanet
 public class T2kSkill implements Serializable {

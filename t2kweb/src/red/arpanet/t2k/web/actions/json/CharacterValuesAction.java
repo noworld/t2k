@@ -21,6 +21,8 @@
 
 package red.arpanet.t2k.web.actions.json;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
@@ -35,6 +37,28 @@ import red.arpanet.t2k.web.actions.BaseAction;
 public class CharacterValuesAction extends BaseAction {
 
 	private static final long serialVersionUID = 1L;
+	
+	private static final Map<Integer,String> PARAMS;
+	private static final String PARAMS_NAME = "params";
+	private static final String NATIONALITIES_PARAM = "nationalities";
+	private static final String NATO_NAT_PARAM = "nato_nationalities";
+	private static final String PACT_NAT_PARAM = "pact_nationalities";
+	private static final String NAT_BY_ID_PARAM = "nationalities_by_id";
+	private static final String BG_SKILLS_PARAM = "background_skills";
+	private static final String NAT_LANGUAGES_PARAM = "native_languages";
+	
+	static {
+		Map<Integer,String> temp = new HashMap<Integer,String>(6);
+		
+		temp.put(0, NATIONALITIES_PARAM);
+		temp.put(1, NATO_NAT_PARAM);
+		temp.put(2, PACT_NAT_PARAM);
+		temp.put(3, NAT_BY_ID_PARAM);
+		temp.put(4, BG_SKILLS_PARAM);
+		temp.put(5, NAT_LANGUAGES_PARAM);
+		
+		PARAMS = Collections.unmodifiableMap(temp);
+	}
 
 	protected String groupName;
 	protected Integer groupVal;
@@ -68,18 +92,28 @@ public class CharacterValuesAction extends BaseAction {
 
 		if(StringUtils.isNotBlank(groupName)) {
 			switch(groupName.toLowerCase()) {
-			case "nationalities": values = CharacterController.getNationalities(); 
+			case NATIONALITIES_PARAM: values = CharacterController.getNationalities(); 
 			break;
-			case "nato_nationalities": values = CharacterController.getNatoNationalties();
+			case NATO_NAT_PARAM: values = CharacterController.getNatoNationalties();
 			break;
-			case "pact_nationalities": values = CharacterController.getWarsawPactNationalties(); 
+			case PACT_NAT_PARAM: values = CharacterController.getWarsawPactNationalties(); 
 			break;
-			case "nationalities_by_id": values = CharacterController.getNationalitiesByFactionId(groupVal);
+			case NAT_BY_ID_PARAM: values = CharacterController.getNationalitiesByFactionId(groupVal);
+			break;
+			case BG_SKILLS_PARAM: values = CharacterController.getBackgroundSkills();
+			break;
+			case NAT_LANGUAGES_PARAM: values = CharacterController.getNativeLanguagesByNationalityId(groupVal);
+			default:
 			break;
 			};
+			
+			return SUCCESS;
 		}
 
-		return SUCCESS;
+		groupName = PARAMS_NAME;
+		values = PARAMS;
+		
+		return INPUT;
 
 	}
 

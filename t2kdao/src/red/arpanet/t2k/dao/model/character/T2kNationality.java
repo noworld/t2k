@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.QueryHint;
 import javax.persistence.Table;
 
 import red.arpanet.t2k.dao.model.T2kEnumeratedValue;
@@ -25,7 +26,9 @@ import red.arpanet.t2k.util.CopyrightArpanet;
 @Table(name="t2k_nationality")
 @NamedQueries({
 	@NamedQuery(name="FindAllNationalities",query="select n from T2kNationality n"),
-	@NamedQuery(name="FindNationalitiesByFaction",query="select n from T2kNationality n where n.faction = :faction")
+	@NamedQuery(name="FindNationalitiesByFaction",query="select n from T2kNationality n where n.faction = :faction"),
+	@NamedQuery(name="FindNationalityById",query="select n from T2kNationality n where n.id = :id",
+			hints={@QueryHint(name="openjpa.hint.OptimizeResultCount", value="1")})
 })
 @CopyrightArpanet
 public class T2kNationality implements Serializable {

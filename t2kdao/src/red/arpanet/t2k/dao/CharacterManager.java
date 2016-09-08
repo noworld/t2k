@@ -23,6 +23,7 @@ package red.arpanet.t2k.dao;
 import static red.arpanet.t2k.util.LogUtil.e;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -31,6 +32,8 @@ import org.apache.log4j.Logger;
 
 import red.arpanet.t2k.dao.model.T2kEnumeratedValue;
 import red.arpanet.t2k.dao.model.character.T2kNationality;
+import red.arpanet.t2k.dao.model.character.T2kNativeLanguage;
+import red.arpanet.t2k.dao.model.character.T2kSkill;
 
 public class CharacterManager extends BaseDaoManager  {
 	
@@ -56,7 +59,7 @@ public class CharacterManager extends BaseDaoManager  {
 	}
 	
 	public static List<T2kNationality> findNationalitiesByFaction(T2kEnumeratedValue faction) {
-		List<T2kNationality> factions = null;
+		List<T2kNationality> nationalities = null;
 		
 		EntityManager em = EMF.createEntityManager();
 
@@ -64,14 +67,58 @@ public class CharacterManager extends BaseDaoManager  {
 		query.setParameter("faction", faction);
 
 		try {			
-			factions = query.getResultList();
+			nationalities = query.getResultList();
 		} catch(Exception e) {
-			e(LOG,"Exception encountered accessing enumerated value groups by id.",e);
+			e(LOG,String.format("Exception encountered accessing nationalities by faction. (Error: %s - %s)", e.getClass().getSimpleName(), e.getMessage()));
 		} finally {
 			closeEm(em);
 		}
 		
-		return factions;
+		return nationalities;
+	}
+	
+	public static List<T2kSkill> findSkillsByNameList(List<String> nameList) {
+		List<T2kSkill> skills = null;
+		
+		EntityManager em = EMF.createEntityManager();
+
+		TypedQuery<T2kSkill> query = em.createNamedQuery("FindSkillByNameList",T2kSkill.class);
+		query.setParameter("nameList", nameList);
+
+		try {			
+			skills = query.getResultList();
+		} catch(Exception e) {
+			e(LOG,String.format("Exception encountered finding skills by list of skill names. (Error: %s - %s)", e.getClass().getSimpleName(), e.getMessage()));
+		} finally {
+			closeEm(em);
+		}
+		
+		return skills;
+	}
+	
+	public static Set<T2kNativeLanguage> findLanguagesByNationalityId(int id) {
+		T2kNationality nationality = null;
+		Set<T2kNativeLanguage> languages = null;
+		
+		EntityManager em = EMF.createEntityManager();
+
+		TypedQuery<T2kNationality> query = em.createNamedQuery("FindNationalityById",T2kNationality.class);
+		query.setParameter("id", id);
+
+		try {			
+			nationality = query.getSingleResult();
+			
+			if(nationality != null && nationality.getNativeLanguages() != null) {
+				languages = nationality.getNativeLanguages();
+			}
+			
+		} catch(Exception e) {
+			e(LOG,String.format("Exception encountered finding skills by list of skill names. (Error: %s - %s)", e.getClass().getSimpleName(), e.getMessage()));
+		} finally {
+			closeEm(em);
+		}
+		
+		return languages;
 	}
 	
 }

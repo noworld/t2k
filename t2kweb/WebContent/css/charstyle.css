@@ -87,3 +87,25 @@ T2K Darker Blue: #0d4d73
 	color: #1580bf;
 	text-decoration: underline;
 }
+
+.formTable td:FIRST-CHILD {
+	min-width: 200px;
+}
+
+#NativeLanguagesContainer {
+	float: left;
+	text-align: left;
+	padding: 0;
+}
+
+#NativeLanguagesContainer ul {
+	padding: 0;
+	margin: 0;
+}
+
+#NativeLanguagesContainer ul li {
+	list-style: none;
+	text-align: left;
+	padding: 0;
+	margin: 0; 
+}

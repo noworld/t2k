@@ -51,6 +51,12 @@
 				<tr>
 					<td><s:text name="t2k.newchar.namefield" /></td>
 					<td><s:textfield name="character.name" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
 				</tr>
 				
 				<tr>
@@ -58,6 +64,12 @@
 					<td><s:select
 							name="character.gender"
 							list="genders"/></td>
+							
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
 				</tr>
 				
 				<tr>
@@ -65,6 +77,12 @@
 					<td><s:select
 							name="selectedFaction"
 							list="factions"/></td>
+							
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
 				</tr>	
 				
 				<tr>
@@ -72,21 +90,39 @@
 					<td><s:select
 							name="character.nationality"
 							list="nationalities"/></td>
+							
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
 				</tr>	
+				
+				<tr>
+					<td><s:text name="t2k.newchar.natitivelangtext" /></td>
+					<td><div id="NativeLanguagesContainer">
+					</div></td>
+							
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
+				</tr>
 
 				<s:if test="hasFieldErrors()">
 				<tr>
-					<td colspan="2"><s:fielderror /></td>
+					<td colspan="6"><s:fielderror /></td>
 				</tr>
 				</s:if>
 				<s:if test="hasActionMessages()">
 				<tr>
-					<td colspan="2"><s:actionmessage /></td>
+					<td colspan="6"><s:actionmessage /></td>
 				</tr>
 				</s:if>
 				<s:if test="hasActionErrors()">
 				<tr>
-					<td colspan="2"><s:actionerror /></td>
+					<td colspan="6"><s:actionerror /></td>
 				</tr>
 				</s:if>
 			</table>

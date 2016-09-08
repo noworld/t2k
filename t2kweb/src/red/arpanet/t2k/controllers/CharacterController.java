@@ -20,23 +20,44 @@
 
 package red.arpanet.t2k.controllers;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import red.arpanet.t2k.dao.CharacterManager;
 import red.arpanet.t2k.dao.ValueManager;
 import red.arpanet.t2k.dao.model.T2kEnumeratedValue;
 import red.arpanet.t2k.dao.model.character.T2kNationality;
+import red.arpanet.t2k.dao.model.character.T2kNativeLanguage;
+import red.arpanet.t2k.dao.model.character.T2kSkill;
 
 public class CharacterController {
 	
 	private static final T2kEnumeratedValue NATO_ENUM_VALUE;
 	private static final T2kEnumeratedValue PACT_ENUM_VALUE;
+	private static final List<String> BG_SKILL_NAMES;
 	
 	static {
 		NATO_ENUM_VALUE = ValueManager.findValueByEnumValue("NATO");
 		PACT_ENUM_VALUE = ValueManager.findValueByEnumValue("Warsaw Pact");
+		
+		List<String> temp = new ArrayList<String>();
+		
+		temp.add("Swimming");
+		temp.add("Ground Vehicle (Wheeled)");
+		temp.add("Computer");
+		temp.add("Unarmed Martial Arts");
+		temp.add("Riding");
+		temp.add("Survival");
+		temp.add("Small Watercraft");
+		temp.add("Ground Vehicle (Motorcycle)");
+		temp.add("Tracking");
+		temp.add("Farming");
+		
+		BG_SKILL_NAMES = Collections.unmodifiableList(temp);
 	}
 
 	public static Map<Integer,String> getNationalities() {
@@ -82,5 +103,37 @@ public class CharacterController {
 	
 	public static Map<Integer,String> getWarsawPactNationalties() {
 		return getNationalitiesByFaction(PACT_ENUM_VALUE);
+	}
+	
+	public static Map<Integer,String> getBackgroundSkills() {
+		
+		Map<Integer,String> bgSkills = null;
+		List<T2kSkill> skillsList = CharacterManager.findSkillsByNameList(BG_SKILL_NAMES);
+
+		if(skillsList != null) {
+
+			bgSkills = new HashMap<Integer,String>(skillsList.size());
+
+			for(T2kSkill s : skillsList) {
+				bgSkills.put(s.getId(), s.getName());
+			}
+		}
+
+		return bgSkills;
+	}
+	
+	public static Map<Integer,String> getNativeLanguagesByNationalityId(int id) {
+		Map<Integer,String> languages = null;
+		
+		Set<T2kNativeLanguage> natLangs = CharacterManager.findLanguagesByNationalityId(id);
+		
+		if(natLangs != null) {
+			languages = new HashMap<Integer,String>(natLangs.size());
+			for(T2kNativeLanguage l : natLangs) {
+				languages.put(l.getId(), l.getLanguageSkill().getName());
+			}
+		}
+		
+		return languages;
 	}
 }
