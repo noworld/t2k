@@ -19,6 +19,7 @@
 		<class>red.arpanet.t2k.dao.model.character.T2kRank</class>
 		<class>red.arpanet.t2k.dao.model.character.T2kCharacter</class>
 		<class>red.arpanet.t2k.dao.model.character.T2kContact</class>
+		<class>red.arpanet.t2k.dao.model.character.T2kDefaultSkill</class>
 				
 		 <properties>
 

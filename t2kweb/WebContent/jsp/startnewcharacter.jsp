@@ -55,14 +55,21 @@
 				
 				<tr>
 					<td><s:text name="t2k.newchar.genderfield" /></td>
-					<td><s:select label="Enumerated Value Groups"
+					<td><s:select
 							name="character.gender"
 							list="genders"/></td>
 				</tr>
 				
 				<tr>
+					<td><s:text name="t2k.newchar.factionfield" /></td>
+					<td><s:select
+							name="selectedFaction"
+							list="factions"/></td>
+				</tr>	
+				
+				<tr>
 					<td><s:text name="t2k.newchar.nationalityfield" /></td>
-					<td><s:select label="Enumerated Value Groups"
+					<td><s:select
 							name="character.nationality"
 							list="nationalities"/></td>
 				</tr>	

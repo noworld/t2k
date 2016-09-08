@@ -55,7 +55,7 @@ public class EnumeratedValuesAction extends BaseAction {
 
 	public String execute() {
 
-		values = EnumeratedValueController.getGroupById(GROUP_IDS.get(groupName.toLowerCase()));
+		values = EnumeratedValueController.getGroupByName(groupName.toLowerCase());
 		
 		return SUCCESS;
 	

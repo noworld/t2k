@@ -29,6 +29,7 @@ import javax.persistence.TypedQuery;
 
 import org.apache.log4j.Logger;
 
+import red.arpanet.t2k.dao.model.T2kEnumeratedValue;
 import red.arpanet.t2k.dao.model.character.T2kNationality;
 
 public class CharacterManager extends BaseDaoManager  {
@@ -52,5 +53,24 @@ public class CharacterManager extends BaseDaoManager  {
 		}
 
 		return nationalities;
+	}
+	
+	public static List<T2kNationality> findNationalitiesByFaction(int faction) {
+		List<T2kNationality> factions = null;
+		
+		EntityManager em = EMF.createEntityManager();
+
+		TypedQuery<T2kNationality> query = em.createNamedQuery("FindNationalitiesByFaction",T2kNationality.class);
+		query.setParameter("faction", faction);
+
+		try {			
+			factions = query.getResultList();
+		} catch(Exception e) {
+			e(LOG,"Exception encountered accessing enumerated value groups by id.",e);
+		} finally {
+			closeEm(em);
+		}
+		
+		return factions;
 	}
 }

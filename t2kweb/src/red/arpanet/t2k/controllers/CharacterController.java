@@ -43,4 +43,18 @@ public class CharacterController {
 		return nationalities;
 	}
 	
+	public static Map<Integer,String> getNationalitiesByFaction(int factionId) {
+		Map<Integer,String> nationalities = null;
+		
+		List<T2kNationality> factionNationalities = CharacterManager.findNationalitiesByFaction(factionId);
+		
+		nationalities = new HashMap<Integer,String>(factionNationalities.size());
+		
+		for(T2kNationality n : factionNationalities) {
+			nationalities.put(n.getId(), n.getName());
+		}
+				
+		return nationalities;
+	}
+	
 }

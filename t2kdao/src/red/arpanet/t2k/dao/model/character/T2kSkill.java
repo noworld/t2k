@@ -22,6 +22,7 @@ package red.arpanet.t2k.dao.model.character;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import red.arpanet.t2k.dao.model.T2kEnumeratedValue;
 import red.arpanet.t2k.util.CopyrightArpanet;
 
 /**
@@ -46,11 +47,14 @@ public class T2kSkill implements Serializable {
 	@Column(name="name", nullable=false)
 	private String name;
 	
-	@Column(name="skill_group")
-	private int skillGroup;
-	
-	@ManyToOne(targetEntity=T2kAttribute.class, fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	private T2kAttribute controllingAttribute;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	private T2kEnumeratedValue skillGroup;
+	
+	@ManyToOne
+	private T2kEnumeratedValue associatedValue;
 	
 	public int getId() {
 		return id;
@@ -68,20 +72,28 @@ public class T2kSkill implements Serializable {
 		this.name = name;
 	}
 
-	public int getSkillGroup() {
-		return skillGroup;
-	}
-
-	public void setSkillGroup(int skillGroup) {
-		this.skillGroup = skillGroup;
-	}
-
 	public T2kAttribute getControllingAttribute() {
 		return controllingAttribute;
 	}
 
 	public void setControllingAttribute(T2kAttribute controllingAttribute) {
 		this.controllingAttribute = controllingAttribute;
+	}
+
+	public T2kEnumeratedValue getSkillGroup() {
+		return skillGroup;
+	}
+
+	public void setSkillGroup(T2kEnumeratedValue skillGroup) {
+		this.skillGroup = skillGroup;
+	}
+
+	public T2kEnumeratedValue getAssociatedValue() {
+		return associatedValue;
+	}
+
+	public void setAssociatedValue(T2kEnumeratedValue associatedValue) {
+		this.associatedValue = associatedValue;
 	}
 	
 }

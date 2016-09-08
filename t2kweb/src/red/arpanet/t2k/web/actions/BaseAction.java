@@ -44,23 +44,11 @@ public class BaseAction extends ActionSupport implements SessionAware, ServletRe
 	
 	public static final String LOGGED_IN = "LoggedIn";
 	public static final String ACCOUNT_INFO = "AccountInfo";
-	public static final Map<String,Integer> GROUP_IDS;
 	
 	protected Map<String,Object> session;
 	protected HttpServletRequest request;
 	protected HttpServletResponse response;
 	
-	static {
-		Map<Integer,String> temp1 = EnumeratedValueController.getRootGroups();
-		Map<String,Integer> temp2 = new HashMap<String,Integer>(temp1.size());
-		
-		for(Integer k : temp1.keySet()) {
-			temp2.put(temp1.get(k).toLowerCase(), k);
-		}
-		
-		GROUP_IDS = Collections.unmodifiableMap(temp2);
-	}
-
 	@Override
 	public void setSession(Map<String, Object> arg0) {
 		this.session = arg0;

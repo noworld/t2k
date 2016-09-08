@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.Table;
 
+import red.arpanet.t2k.dao.model.T2kEnumeratedValue;
 import red.arpanet.t2k.util.CopyrightArpanet;
 
 /**
@@ -34,6 +35,9 @@ public class T2kArmy implements Serializable {
 	
 	@Column(name="name", nullable=false)
 	private String name;	
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	private T2kEnumeratedValue faction;
 
 	public T2kArmy() {
 		super();
@@ -53,6 +57,14 @@ public class T2kArmy implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public T2kEnumeratedValue getFaction() {
+		return faction;
+	}
+
+	public void setFaction(T2kEnumeratedValue faction) {
+		this.faction = faction;
 	}
 
 }

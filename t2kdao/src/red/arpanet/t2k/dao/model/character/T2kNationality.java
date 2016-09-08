@@ -1,8 +1,7 @@
 package red.arpanet.t2k.dao.model.character;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,7 +24,8 @@ import red.arpanet.t2k.util.CopyrightArpanet;
 @Entity
 @Table(name="t2k_nationality")
 @NamedQueries({
-	@NamedQuery(name="FindAllNationalities",query="select n from T2kNationality n")
+	@NamedQuery(name="FindAllNationalities",query="select n from T2kNationality n"),
+	@NamedQuery(name="FindNationalitiesByFaction",query="select n from T2kNationality n where n.faction = :faction")
 })
 @CopyrightArpanet
 public class T2kNationality implements Serializable {
@@ -45,6 +45,9 @@ public class T2kNationality implements Serializable {
 	
 	@ManyToOne
 	private T2kArmy army;
+	
+	@OneToMany
+	private Set<T2kDefaultSkill> nativeLanguages;
 	
 	public int getId() {
 		return this.id;
@@ -78,5 +81,12 @@ public class T2kNationality implements Serializable {
 		this.army = army;
 	}
 
-	
+	public Set<T2kDefaultSkill> getNativeLanguages() {
+		return nativeLanguages;
+	}
+
+	public void setNativeLanguages(Set<T2kDefaultSkill> nativeLanguages) {
+		this.nativeLanguages = nativeLanguages;
+	}
+
 }

@@ -21,12 +21,14 @@
 
 package red.arpanet.t2k.web.actions;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
 
 import red.arpanet.t2k.controllers.CharacterController;
 import red.arpanet.t2k.controllers.EnumeratedValueController;
+import red.arpanet.t2k.dao.CharacterManager;
 import red.arpanet.t2k.util.CopyrightArpanet;
 import red.arpanet.t2k.util.valueobjects.NewCharacter;
 
@@ -41,10 +43,13 @@ public class NewCharacterAction extends BaseAction {
 	protected NewCharacter character;
 	protected Map<Integer,String> genders;
 	protected Map<Integer,String> nationalities;
+	protected Map<Integer,String> factions;
+	protected int selectedFaction = -1;
 	
 	public NewCharacterAction() {
-		this.genders = EnumeratedValueController.getGroupById(GROUP_IDS.get("gender"));
-		this.nationalities = CharacterController.getNationalities();
+		this.genders = EnumeratedValueController.getGenders();
+		this.factions = EnumeratedValueController.getPlayableFactions();
+		this.nationalities =  new HashMap<Integer,String>();
 	}
 	
 	public String getToken() {
@@ -71,6 +76,14 @@ public class NewCharacterAction extends BaseAction {
 		this.genders = genders;
 	}
 
+	public Map<Integer, String> getFactions() {
+		return factions;
+	}
+
+	public void setFactions(Map<Integer, String> factions) {
+		this.factions = factions;
+	}
+
 	public Map<Integer, String> getNationalities() {
 		return nationalities;
 	}
@@ -79,7 +92,19 @@ public class NewCharacterAction extends BaseAction {
 		this.nationalities = nationalities;
 	}
 
+	public int getSelectedFaction() {
+		return selectedFaction;
+	}
+
+	public void setSelectedFaction(int selectedFaction) {
+		this.selectedFaction = selectedFaction;
+	}
+
 	public String execute() {
+		
+		if(selectedFaction >= 0) {
+			this.nationalities = CharacterController.getNationalitiesByFaction(selectedFaction);
+		}
 		
 		return SUCCESS;
 	
