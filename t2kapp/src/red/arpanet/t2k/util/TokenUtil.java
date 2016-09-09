@@ -37,6 +37,7 @@ public class TokenUtil {
 	
 	private static final Logger LOG = Logger.getLogger(TokenUtil.class);
 	
+	private static final String TOKENS_FILE = "tokens.txt";
 	private static final int MIN_TOKEN_LENGTH = 6;	
 	private static final List<String> TOKENS;
 	private static Random RANDOM = new Random();
@@ -44,7 +45,7 @@ public class TokenUtil {
 	static {
 		List<String> tempTokens = new ArrayList<String>();
 		
-		InputStream in = TokenUtil.class.getClassLoader().getResourceAsStream("words2.txt");		
+		InputStream in = TokenUtil.class.getClassLoader().getResourceAsStream(TOKENS_FILE);		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 		String line = null;
 		
