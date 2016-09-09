@@ -32,8 +32,10 @@ public class NewCharacter {
 	protected String name;
 	protected int gender;
 	protected int nationality;
+	protected int faction;
 	protected List<Skill> skills;
 	protected Map<String,Integer> nativeLanguages;
+	
 	
 	public NewCharacter() {
 		this.skills = new ArrayList<Skill>();
@@ -62,6 +64,14 @@ public class NewCharacter {
 
 	public void setNationality(int nationality) {
 		this.nationality = nationality;
+	}
+
+	public int getFaction() {
+		return faction;
+	}
+
+	public void setFaction(int faction) {
+		this.faction = faction;
 	}
 
 	public List<Skill> getSkills() {

@@ -45,12 +45,14 @@ public class NewCharacterAction extends BaseAction {
 	
 	protected String token;
 	protected NewCharacter character;
+	protected Integer selectedNationality;
+	protected String languagesFinished;
+	protected Map<String,Integer> selectedLanguages;
 	protected Map<Integer,String> nationalities;
-	protected int selectedFaction = -1;
-	protected int selectedNationality = -1;
 	
 	public NewCharacterAction() {
-		this.nationalities =  new HashMap<Integer,String>();
+		this.selectedLanguages =  new HashMap<String,Integer>();
+		this.nationalities = new HashMap<Integer,String>();
 	}
 	
 	public String getToken() {
@@ -69,12 +71,36 @@ public class NewCharacterAction extends BaseAction {
 		this.character = character;
 	}
 
+	public Integer getSelectedNationality() {
+		return selectedNationality;
+	}
+
+	public void setSelectedNationality(Integer selectedNationality) {
+		this.selectedNationality = selectedNationality;
+	}
+
 	public Map<Integer, String> getGenders() {
 		return genders;
 	}
 
 	public Map<Integer, String> getFactions() {
 		return factions;
+	}
+
+	public Map<String, Integer> getSelectedLanguages() {
+		return selectedLanguages;
+	}
+
+	public void setSelectedLanguages(Map<String, Integer> selectedLanguages) {
+		this.selectedLanguages = selectedLanguages;
+	}
+
+	public String getLanguagesFinished() {
+		return languagesFinished;
+	}
+
+	public void setLanguagesFinished(String languagesFinished) {
+		this.languagesFinished = languagesFinished;
 	}
 
 	public Map<Integer, String> getNationalities() {
@@ -85,30 +111,16 @@ public class NewCharacterAction extends BaseAction {
 		this.nationalities = nationalities;
 	}
 
-	public int getSelectedFaction() {
-		return selectedFaction;
-	}
-
-	public void setSelectedFaction(int selectedFaction) {
-		this.selectedFaction = selectedFaction;
-	}
-
-	public int getSelectedNationality() {
-		return selectedNationality;
-	}
-
-	public void setSelectedNationality(int selectedNationality) {
-		this.selectedNationality = selectedNationality;
-	}
-
 	@SkipValidation
 	public String execute() {
 		t(LOG,"In NewCharacterAction.execute()"); 
 		
-		if(session.get(NEW_CHARACTER) != null) {
-			this.character = (NewCharacter)session.get(NEW_CHARACTER);
-		} else {
-			session.put(NEW_CHARACTER, this.character);
+		if(character != null) {
+			this.selectedNationality = character.getNationality();
+			
+			if(languagesFinished.toLowerCase().equals(Boolean.TRUE.toString().toLowerCase())) {
+				this.selectedLanguages = character.getNativeLanguages();
+			}
 		}
 		
 		return SUCCESS;

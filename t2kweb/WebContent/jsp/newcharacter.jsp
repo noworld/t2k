@@ -28,6 +28,7 @@
 		<s:token />
 
 		<s:url id="charListUrl" action="Characters" />
+		
 		<div class="char_menu">
 			<ul class="char_menubar">
 				<li>
@@ -44,6 +45,11 @@
 				<s:text name="t2k.newchar.title" />
 			</div>
 			
+			<s:hidden name="selectedNationality" />
+			<s:hidden name="languagesFinished" />
+			<s:iterator value="selectedLanguages">
+				<s:hidden name="selectedLanguages['%{key}']" value="%{value}" />
+			</s:iterator>
 			
 			<table class="formTable">
 				
@@ -79,7 +85,7 @@
 				<tr>
 					<td><s:text name="t2k.newchar.factionfield" /></td>
 					<td><s:select
-							name="selectedFaction"
+							name="character.faction"
 							list="factions"/></td>
 							
 					<td><s:text name="t2k.newchar.namefield" /></td>
@@ -107,7 +113,7 @@
 					<td>
 						<div id="NativeLanguagesContainer">
 							<ul>
-								<s:iterator value="character.nativeLanguages" status="status">
+								<s:iterator value="character.nativeLanguages">
 									<li>
 										<s:textfield name="%{key}" value="%{key}" /><s:hidden name="character.nativeLanguages['%{key}']" value="%{value}" />										
 									</li>								

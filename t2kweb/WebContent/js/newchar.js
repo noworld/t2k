@@ -10,11 +10,11 @@ $(function() {
 
 	bindEvents();
 	popNationalitySelect(); 	
-	
+	setSavedValues();
 });
 
 function bindEvents() {
-	$("#NewCharacterForm_selectedFaction").on("change",popNationalitySelect);
+	$("#NewCharacterForm_character_faction").on("change",popNationalitySelect);
 	$("#NewCharacterForm_character_nationality").on("change",popNativeLanguage);
 	$("#NewCharacterSaveLink").on("click",function(){$("#NewCharacterForm").submit();});
 }
@@ -25,7 +25,7 @@ function popNationalitySelect() {
 	
 	$("#NewCharacterForm_character_nationality").find('option').remove().end();
 	
-	var ajaxUrl = "json/CharValues?groupName=nationalities_by_id&groupVal=" + $("#NewCharacterForm_selectedFaction").val();
+	var ajaxUrl = "json/CharValues?groupName=nationalities_by_id&groupVal=" + $("#NewCharacterForm_character_faction").val();
 	
 	$.getJSON(ajaxUrl, function(data) {
 		
@@ -37,9 +37,30 @@ function popNationalitySelect() {
 		 
 		  $("#NewCharacterForm_character_nationality").append(items.join(""));
 		  
-		  popNativeLanguage();
-		  
-		});
+		}).done(setSavedNationality);
+}
+
+function setSavedNationality() {
+	//Get saved nationality
+	var savedNationality = $("#NewCharacterForm_selectedNationality").prop("value");
+	
+	//Check to see if the nationality is in the select list 
+	var exists = false;
+	$('#NewCharacterForm_character_nationality option').each(function(){
+	    if (this.value == savedNationality) {
+	        exists = true;
+	        return false;
+	    }
+	});
+	
+	//If the saved nationality is available and in the list
+	//then select it
+	if(savedNationality >= 0 && exists) {
+		$("#NewCharacterForm_character_nationality").prop("value",savedNationality);
+	}
+	
+	//Choose the native languages based on the nationality
+	popNativeLanguage();
 }
 
 function popNativeLanguage() {
@@ -154,8 +175,6 @@ function attemptLang(id) {
 				}
 			});
 			
-			disableNationalitySelect();
-			
 			result = "Success!";
 		} else {
 			langElement.children().remove().end();
@@ -181,7 +200,6 @@ function attemptLang(id) {
 				}
 			});
 			
-			disableNationalitySelect();
 		}
 	});
 
@@ -237,9 +255,4 @@ function hideRoll() {
 	}
 	
 	rollBoxes = [];
-}
-
-function disableNationalitySelect() {
-	$("#NewCharacterForm_selectedFaction").prop('disabled', 'disabled');
-	$("#NewCharacterForm_character_nationality").prop('disabled', 'disabled');
 }
