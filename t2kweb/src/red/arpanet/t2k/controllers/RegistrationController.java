@@ -28,8 +28,8 @@ import red.arpanet.t2k.dao.UserManager;
 import red.arpanet.t2k.dao.model.account.T2kInvite;
 import red.arpanet.t2k.dao.model.account.T2kUser;
 import red.arpanet.t2k.util.CopyrightArpanet;
-import red.arpanet.t2k.util.valueobjects.RegistrationInfo;
-import red.arpanet.t2k.util.valueobjects.UserAccountInfo;
+import red.arpanet.t2k.valueobjects.RegistrationInfo;
+import red.arpanet.t2k.valueobjects.UserAccountInfo;
 
 @CopyrightArpanet
 public class RegistrationController {

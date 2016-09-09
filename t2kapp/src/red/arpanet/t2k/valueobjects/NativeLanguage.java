@@ -18,7 +18,7 @@
 			associated service.
 */
 
-package red.arpanet.t2k.util.valueobjects;
+package red.arpanet.t2k.valueobjects;
 
 public class NativeLanguage implements Comparable<NativeLanguage> {
 

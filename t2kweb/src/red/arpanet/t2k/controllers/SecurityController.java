@@ -26,7 +26,7 @@ import red.arpanet.t2k.dao.UserManager;
 import red.arpanet.t2k.dao.model.account.T2kUser;
 import red.arpanet.t2k.util.CopyrightArpanet;
 import red.arpanet.t2k.util.HashUtil;
-import red.arpanet.t2k.util.valueobjects.Credentials;
+import red.arpanet.t2k.valueobjects.Credentials;
 
 @CopyrightArpanet
 public class SecurityController {

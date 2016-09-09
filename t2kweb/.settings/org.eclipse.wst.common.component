@@ -5,9 +5,6 @@
         <dependent-module archiveName="t2kdao.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/t2kdao/t2kdao">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="t2kutil.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/t2kutil/t2kutil">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="java-output-path" value="/t2kweb/build/classes"/>
         <property name="context-root" value="t2k"/>
     </wb-module>

@@ -34,7 +34,7 @@ import red.arpanet.t2k.dao.model.T2kEnumeratedValue;
 import red.arpanet.t2k.dao.model.character.T2kNationality;
 import red.arpanet.t2k.dao.model.character.T2kNativeLanguage;
 import red.arpanet.t2k.dao.model.character.T2kSkill;
-import red.arpanet.t2k.util.valueobjects.NativeLanguage;
+import red.arpanet.t2k.valueobjects.NativeLanguage;
 
 public class CharacterController {
 	

@@ -43,7 +43,7 @@ import red.arpanet.t2k.dao.model.account.T2kUser;
 import red.arpanet.t2k.util.CopyrightArpanet;
 import red.arpanet.t2k.util.HashUtil;
 import red.arpanet.t2k.util.TokenUtil;
-import red.arpanet.t2k.util.valueobjects.RegistrationInfo;
+import red.arpanet.t2k.valueobjects.RegistrationInfo;
 
 @CopyrightArpanet
 public class UserManager extends BaseDaoManager {

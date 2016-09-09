@@ -31,8 +31,8 @@ import com.opensymphony.xwork2.Action;
 import red.arpanet.t2k.controllers.RegistrationController;
 import red.arpanet.t2k.controllers.SecurityController;
 import red.arpanet.t2k.util.CopyrightArpanet;
-import red.arpanet.t2k.util.valueobjects.Credentials;
-import red.arpanet.t2k.util.valueobjects.UserAccountInfo;
+import red.arpanet.t2k.valueobjects.Credentials;
+import red.arpanet.t2k.valueobjects.UserAccountInfo;
 
 @CopyrightArpanet
 public class LoginAction extends BaseAction {

@@ -1,3 +1,5 @@
+var currLangs;
+
 $(function() {
 
 	bindEvents();
@@ -33,20 +35,60 @@ function popNationalitySelect() {
 
 function popNativeLanguage() {
 	$("#NativeLanguagesContainer").children().remove().end();
+	currLangs = {};
 	
 	var ajaxUrl = "json/NativeLanguageValues?nationalityId=" + $("#Character_character_nationality").val();
 	
 	$.getJSON(ajaxUrl, function(data) {
 		
-		  var items = [];
-		  items.push("<ul>");
+		  var items = $("<ul />");
 		  $.each( data["languages"], function(index,val) {
 			  
-			  items.push( "<li>" + val["name"] + "</li>" );
+			  currLangs[val["id"]] = val;
+			  
+			  var langText = val["name"];
+			  
+			  if(val["targetNumber"] >= 20) {
+				  langText += " (native)";
+				  items.append($("<li>" + langText + "</li>"));
+			  } else {
+				  langText += " (" + val["targetNumber"] + ")";
+				  
+				  var  item = $("<li />", {
+						  text: langText,						  
+						  id: "item_lang_" + val["id"],
+						  "class": "pendingLang"});
+				  
+				  var skipBtnId = 'btn_skip_'+val["id"];
+				  
+				  item.append($('<button/>', {
+				        text: "Skip",
+				        id: skipBtnId,
+				        click: function () {$("#item_lang_" + val["id"]).remove(); return false;}
+				    }));
+				  
+				  var attemptBtnId = 'btn_attempt_'+val["id"];
+				  
+				  item.append($('<button/>', {
+				        text: "Attempt",
+				        id: attemptBtnId,
+				        click: function () { attemptLang(val["id"]);  return false; }
+				    }));
+				  				  
+				  				  
+				  items.append(item);
+			  }			
 		  });
-		  items.push("</ul>");
 		 
-		  $("#NativeLanguagesContainer").append(items.join(""));
+		  $("#NativeLanguagesContainer").append(items);
 		  
 		});
+}
+
+function attemptLang(id) {
+	var attemptedLang = currLangs[id];
+	var langElement = $("#item_lang_" + attemptedLang["id"]);
+	langElement.children().remove().end();
+	langElement.removeClass("pendingLang");
+	langElement.text(attemptedLang["name"] + " (native)");
 }

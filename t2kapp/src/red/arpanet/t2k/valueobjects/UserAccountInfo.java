@@ -18,7 +18,7 @@
 			associated service.
 */
 
-package red.arpanet.t2k.util.valueobjects;
+package red.arpanet.t2k.valueobjects;
 
 import java.util.Date;
 

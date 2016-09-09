@@ -27,7 +27,7 @@ import org.apache.log4j.Logger;
 
 import red.arpanet.t2k.controllers.RegistrationController;
 import red.arpanet.t2k.util.CopyrightArpanet;
-import red.arpanet.t2k.util.valueobjects.RegistrationInfo;
+import red.arpanet.t2k.valueobjects.RegistrationInfo;
 
 @CopyrightArpanet
 public class RegisterAction extends BaseAction {

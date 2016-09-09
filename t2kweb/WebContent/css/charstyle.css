@@ -34,6 +34,7 @@ T2K Yellow: #F0ab55
 T2K Medium Blue: #1580bf
 T2K Dark Blue: #126ca1
 T2K Darker Blue: #0d4d73
+Flat Form Button Color: Gray/T2K Yellow
 */
 
 .char_sheet {
@@ -107,6 +108,33 @@ T2K Darker Blue: #0d4d73
 #NativeLanguagesContainer ul li {
 	list-style: none;
 	text-align: left;
-	padding: 0;
+	padding: 5px;
+	background-color: white;
+	border-color: LightGray;
+	border-style: solid;
+	border-width: 2px;
+	min-width: 300px;
 	margin: 0; 
+}
+
+.pendingLang {
+	color: gray;
+	background-color: Lavender;
+}
+
+.pendingLang > button {
+	border: 1px;
+	border-color: Gray;
+	box-shadow:none;
+	border-radius: 0px;
+	float: right;
+	margin-left: 5px;
+	margin-right: 2px;
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 16pt;	
+}
+
+.pendingLang > button:HOVER {
+	background-color: #F0ab55;
+	text-decoration: underline;
 }

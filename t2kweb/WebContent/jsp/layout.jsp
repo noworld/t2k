@@ -33,6 +33,7 @@
 	<meta http-equiv="pragma" content="no-cache" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title><s:text name="t2k.browsertitle" />: <tiles:getAsString name="browserTitle"/></title>
+	<link rel="icon" type="image/png" href="favicon.ico" ></link>
 	<link rel="stylesheet" href="<tiles:getAsString name="googleFonts"/>" ></link>	
 	<link rel="stylesheet" href="<tiles:getAsString name="mainCssFile"/>" type="text/css"></link>
 	<script src="<tiles:getAsString name="jqueryJsFile"/>" type="text/javascript"></script>

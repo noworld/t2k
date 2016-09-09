@@ -4,7 +4,6 @@
 	<comment></comment>
 	<projects>
 		<project>t2kdao</project>
-		<project>t2kutil</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

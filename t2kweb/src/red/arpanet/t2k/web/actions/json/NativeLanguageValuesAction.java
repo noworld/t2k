@@ -26,7 +26,7 @@ import java.util.List;
 import red.arpanet.t2k.annotations.RequiresAuthentication;
 import red.arpanet.t2k.controllers.CharacterController;
 import red.arpanet.t2k.util.CopyrightArpanet;
-import red.arpanet.t2k.util.valueobjects.NativeLanguage;
+import red.arpanet.t2k.valueobjects.NativeLanguage;
 import red.arpanet.t2k.web.actions.BaseAction;
 
 @CopyrightArpanet

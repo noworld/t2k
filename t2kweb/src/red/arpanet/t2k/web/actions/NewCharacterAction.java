@@ -28,7 +28,7 @@ import org.apache.log4j.Logger;
 
 import red.arpanet.t2k.controllers.EnumeratedValueController;
 import red.arpanet.t2k.util.CopyrightArpanet;
-import red.arpanet.t2k.util.valueobjects.NewCharacter;
+import red.arpanet.t2k.valueobjects.NewCharacter;
 
 @CopyrightArpanet
 public class NewCharacterAction extends BaseAction {
