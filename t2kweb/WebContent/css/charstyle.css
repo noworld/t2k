@@ -138,3 +138,24 @@ Flat Form Button Color: Gray/T2K Yellow
 	background-color: #F0ab55;
 	text-decoration: underline;
 }
+
+.failedLang {
+	color: gray;
+	background-color: Lavender;
+	text-decoration: line-through;
+}
+
+.roll_display {
+	position: absolute;
+	float: left;
+	background-color: GhostWhite;
+	height: 200px;
+	width: 200px;
+	top: 450px;
+	left: -200px;	
+	padding: 5px;
+	border-color: gray;
+	border-width: 3px 3px 3px 0;
+	border-style: double;
+	font-size: 18pt;
+}

@@ -220,7 +220,31 @@
 			<result name="success" type="json" />			
 			<result name="error"   type="json" />
 			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>		
+		</action>
+		
+		<action name="RollSix" class="red.arpanet.t2k.web.actions.json.DieRollAction" method="rollSix">
+			<result name="success" type="json" />			
+			<result name="error"   type="json" />
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>	
+		
+		<action name="RollTwoDSix" class="red.arpanet.t2k.web.actions.json.DieRollAction" method="rollTwoDSix">
+			<result name="success" type="json" />			
+			<result name="error"   type="json" />
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>
+		
+		<action name="RollTen" class="red.arpanet.t2k.web.actions.json.DieRollAction" method="rollTen">
+			<result name="success" type="json" />			
+			<result name="error"   type="json" />
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>
+		
+		<action name="RollTwenty" class="red.arpanet.t2k.web.actions.json.DieRollAction" method="rollTwenty">
+			<result name="success" type="json" />			
+			<result name="error"   type="json" />
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>	
 	
 	</package>
 

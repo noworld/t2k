@@ -1,14 +1,14 @@
 /*
 	©2016 ARPANET.RED
-	
+
 	All rights reserved.
-	
-	* No Warranty * 
+
+ * No Warranty * 
 		1.1. "As-Is".
 			The Software is provided "as is,"
 			with all faults, defects and errors, and without
 			warranty of any kind.
-			
+
 		1.2. No Liability.
 			Licensor does not warrant that
 			the Software will be free of bugs, errors, viruses
@@ -16,48 +16,56 @@
 			liability of any kind for the use of or inability
 			to use the software, the software content or any
 			associated service.
-*/
+ */
 
 
-package red.arpanet.t2k.web.actions;
-
-import static red.arpanet.t2k.util.LogUtil.i;
-
-import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
+package red.arpanet.t2k.web.actions.json;
 
 import red.arpanet.t2k.annotations.RequiresAuthentication;
-import red.arpanet.t2k.controllers.RegistrationController;
+import red.arpanet.t2k.random.Die;
 import red.arpanet.t2k.util.CopyrightArpanet;
+import red.arpanet.t2k.web.actions.BaseAction;
 
 @CopyrightArpanet
 @RequiresAuthentication
-public class InviteAction extends BaseAction {
+public class DieRollAction extends BaseAction {
 
 	private static final long serialVersionUID = 1L;
 	
-	private static final Logger LOG = Logger.getLogger(InviteAction.class);
-	
-	protected String email;
+	private int roll;
 
-	public String getEmail() {
-		return email;
+	public int getRoll() {
+		return roll;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setRoll(int roll) {
+		this.roll = roll;
 	}
 
 	public String execute() {
 		
-		if(StringUtils.isNotBlank(email)) {
-			if(RegistrationController.sendInvite(email)) {
-				i(LOG,String.format("Sent registration invite to: %s", email));
-				return SUCCESS;
-			}
-		}
-		
 		return INPUT;
-	
+
 	}
+	
+	public String rollSix() {
+		this.roll = Die.rollSix();
+		return SUCCESS;
+	}
+	
+	public String rollTwoDSix() {
+		this.roll = Die.rollTwoDSix();
+		return SUCCESS;
+	}
+	
+	public String rollTen() {
+		this.roll = Die.rollTen();
+		return SUCCESS;
+	}
+	
+	public String rollTwenty() {
+		this.roll = Die.rollTwenty();
+		return SUCCESS;
+	}
+
 }

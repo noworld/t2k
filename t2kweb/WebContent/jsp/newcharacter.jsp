@@ -27,7 +27,7 @@
 	<s:form action="Character" method="post" validate="true">
 		<s:token />
 		
-		<s:url id="charUrl" action="Character" />
+		<s:url id="charUrl" action="NewCharacter" />
 		<s:url id="charListUrl" action="Characters" />
 		<div class="char_menu">
 			<ul class="char_menubar">

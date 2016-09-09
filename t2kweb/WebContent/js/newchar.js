@@ -1,4 +1,9 @@
 var currLangs;
+var rollBoxes = [];
+var maxBoxes = 2;
+var hideRollDelay = 8000;
+var hideBoxTimeout;
+var rollHistory = [];
 
 $(function() {
 
@@ -23,7 +28,7 @@ function popNationalitySelect() {
 		  var items = [];
 		  
 		  $.each( data["values"], function(key, val) {
-		    items.push( "<option value='" + key + "'>" + val + "</option>" );
+		    items.push("<option value='" + key + "'>" + val + "</option>");
 		  });
 		 
 		  $("#Character_character_nationality").append(items.join(""));
@@ -64,7 +69,13 @@ function popNativeLanguage() {
 				  item.append($('<button/>', {
 				        text: "Skip",
 				        id: skipBtnId,
-				        click: function () {$("#item_lang_" + val["id"]).remove(); return false;}
+				        click: function () {
+				        			var langElement = $("#item_lang_" + val["id"]);
+				        			langElement.children().remove().end();
+				        			langElement.removeClass("pendingLang");
+									langElement.addClass("failedLang");
+				        			return false;
+				        		}
 				    }));
 				  
 				  var attemptBtnId = 'btn_attempt_'+val["id"];
@@ -72,7 +83,10 @@ function popNativeLanguage() {
 				  item.append($('<button/>', {
 				        text: "Attempt",
 				        id: attemptBtnId,
-				        click: function () { attemptLang(val["id"]);  return false; }
+				        click: function () {
+				        			attemptLang(val["id"]); 
+				        			return false;
+				        		}
 				    }));
 				  				  
 				  				  
@@ -86,9 +100,82 @@ function popNativeLanguage() {
 }
 
 function attemptLang(id) {
-	var attemptedLang = currLangs[id];
-	var langElement = $("#item_lang_" + attemptedLang["id"]);
-	langElement.children().remove().end();
-	langElement.removeClass("pendingLang");
-	langElement.text(attemptedLang["name"] + " (native)");
+	
+	var result = "";
+	
+	$.getJSON("json/RollTen", function(data) {		
+		var attemptedLang = currLangs[id];
+		var langElement = $("#item_lang_" + attemptedLang["id"]);
+		if(data["roll"] <= attemptedLang["targetNumber"]) {
+			langElement.children().remove().end();
+			langElement.removeClass("pendingLang");
+			langElement.text(attemptedLang["name"] + " (native)");
+			result = "Success!";
+		} else {
+			langElement.children().remove().end();
+			langElement.removeClass("pendingLang");
+			langElement.addClass("failedLang");
+			result = "Fail";
+		}	
+		
+		showRoll(data["roll"], "You rolled " +
+				data["roll"] +
+				" against " +
+				attemptedLang["targetNumber"] +
+				" to receive " + attemptedLang["name"] + 
+				" as a native language. (" + result + ")");
+	});
+
+}
+
+function showRoll(roll, message) {	
+	
+	if(rollBoxes.length == maxBoxes) {
+		var lastBox = rollBoxes.shift();
+		rollHistory.push(lastBox);
+		lastBox.animate({
+			left: "-=200",
+			opacity: 0.0
+		},function(){lastBox.remove();});
+		
+	}
+	
+	for(var i = rollBoxes.length - 1; i >= 0; i--) {
+		if(rollBoxes[i] !== undefined) {
+			rollBoxes[i].animate({
+				top: "+=225"
+			});
+		}
+	}
+	
+	var rollBox = $("<div></div>",{
+		text: message,		
+		"class":"roll_display"
+		});
+	
+	rollBoxes.push(rollBox);
+
+	$("body").append(rollBox);
+
+	rollBox.animate({
+			left: "+=200"
+	});
+	
+	clearTimeout(hideBoxTimeout);
+	hideBoxTimeout = setTimeout(hideRoll,hideRollDelay);
+
+}
+
+function hideRoll() {
+	for(var i = rollBoxes.length - 1; i >= 0; i--) {
+		if(rollBoxes[i] !== undefined) {
+			rollHistory.push(rollBoxes[i]);
+			rollBoxes[i].animate({
+				left: "-=200",
+				opacity: 0.0
+			});
+		}
+	}
+	
+	rollBoxes = [];
 }
