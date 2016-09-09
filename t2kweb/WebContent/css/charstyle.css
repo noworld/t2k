@@ -105,6 +105,7 @@ Flat Form Button Color: Gray/T2K Yellow
 	margin: 0;
 }
 
+/*
 #NativeLanguagesContainer ul li {
 	list-style: none;
 	text-align: left;
@@ -116,10 +117,26 @@ Flat Form Button Color: Gray/T2K Yellow
 	min-width: 300px;
 	margin: 0; 
 }
+*/
+
+#NativeLanguagesContainer ul li {
+	list-style: none;
+	text-align: left;
+	background: none;
+	border-color: LightGray;
+	border-style: solid;
+	border-width: 2px;
+	min-width: 300px;
+	margin: 0; 
+	padding-left: 10px;
+}
 
 .pendingLang {
 	color: gray;
 	background-color: Lavender;
+	font-size: 14pt;
+	min-height: 28px;
+	vertical-align: middle;
 }
 
 .pendingLang > button {

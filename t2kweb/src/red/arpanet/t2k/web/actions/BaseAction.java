@@ -41,6 +41,7 @@ public class BaseAction extends ActionSupport implements SessionAware, ServletRe
 	
 	public static final String LOGGED_IN = "LoggedIn";
 	public static final String ACCOUNT_INFO = "AccountInfo";
+	public static final String NEW_CHARACTER = "NewCharacter";
 	
 	protected Map<String,Object> session;
 	protected HttpServletRequest request;

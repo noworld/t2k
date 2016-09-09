@@ -18,13 +18,27 @@
 			associated service.
 */
 
-package red.arpanet.t2k.valueobjects;
+package red.arpanet.t2k.valueobjects.newcharacter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import red.arpanet.t2k.valueobjects.Skill;
 
 public class NewCharacter {
 
 	protected String name;
 	protected int gender;
 	protected int nationality;
+	protected List<Skill> skills;
+	protected Map<String,Integer> nativeLanguages;
+	
+	public NewCharacter() {
+		this.skills = new ArrayList<Skill>();
+		this.nativeLanguages = new HashMap<String,Integer>();
+	}
 
 	public String getName() {
 		return name;
@@ -48,6 +62,22 @@ public class NewCharacter {
 
 	public void setNationality(int nationality) {
 		this.nationality = nationality;
+	}
+
+	public List<Skill> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
+	}
+
+	public Map<String, Integer> getNativeLanguages() {
+		return nativeLanguages;
+	}
+
+	public void setNativeLanguages(Map<String, Integer> nativeLanguages) {
+		this.nativeLanguages = nativeLanguages;
 	}
 	
 }

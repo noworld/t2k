@@ -21,14 +21,17 @@
 
 package red.arpanet.t2k.web.actions;
 
+import static red.arpanet.t2k.util.LogUtil.t;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import red.arpanet.t2k.controllers.EnumeratedValueController;
 import red.arpanet.t2k.util.CopyrightArpanet;
-import red.arpanet.t2k.valueobjects.NewCharacter;
+import red.arpanet.t2k.valueobjects.newcharacter.NewCharacter;
 
 @CopyrightArpanet
 public class NewCharacterAction extends BaseAction {
@@ -37,17 +40,16 @@ public class NewCharacterAction extends BaseAction {
 
 	private static final long serialVersionUID = 1L;	
 	
+	protected static Map<Integer,String> genders = EnumeratedValueController.getGenders();
+	protected static Map<Integer,String> factions = EnumeratedValueController.getPlayableFactions();
+	
 	protected String token;
 	protected NewCharacter character;
-	protected Map<Integer,String> genders;
 	protected Map<Integer,String> nationalities;
-	protected Map<Integer,String> factions;
 	protected int selectedFaction = -1;
 	protected int selectedNationality = -1;
 	
 	public NewCharacterAction() {
-		this.genders = EnumeratedValueController.getGenders();
-		this.factions = EnumeratedValueController.getPlayableFactions();
 		this.nationalities =  new HashMap<Integer,String>();
 	}
 	
@@ -71,16 +73,8 @@ public class NewCharacterAction extends BaseAction {
 		return genders;
 	}
 
-	public void setGenders(Map<Integer, String> genders) {
-		this.genders = genders;
-	}
-
 	public Map<Integer, String> getFactions() {
 		return factions;
-	}
-
-	public void setFactions(Map<Integer, String> factions) {
-		this.factions = factions;
 	}
 
 	public Map<Integer, String> getNationalities() {
@@ -107,7 +101,15 @@ public class NewCharacterAction extends BaseAction {
 		this.selectedNationality = selectedNationality;
 	}
 
+	@SkipValidation
 	public String execute() {
+		t(LOG,"In NewCharacterAction.execute()"); 
+		
+		if(session.get(NEW_CHARACTER) != null) {
+			this.character = (NewCharacter)session.get(NEW_CHARACTER);
+		} else {
+			session.put(NEW_CHARACTER, this.character);
+		}
 		
 		return SUCCESS;
 	

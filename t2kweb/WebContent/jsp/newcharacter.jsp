@@ -24,15 +24,14 @@
 <br />
 <div class="char_sheet">
 		
-	<s:form action="Character" method="post" validate="true">
+	<s:form id="NewCharacterForm" action="NewCharacter" method="post" validate="true">
 		<s:token />
-		
-		<s:url id="charUrl" action="NewCharacter" />
+
 		<s:url id="charListUrl" action="Characters" />
 		<div class="char_menu">
 			<ul class="char_menubar">
 				<li>
-					<s:a href="%{charUrl}"><s:text name="t2k.char.savebutton" /></s:a>
+					<s:a href="#" id="NewCharacterSaveLink"><s:text name="t2k.char.savebutton" /></s:a>
 				</li>
 				<li>
 					<s:a href="%{charListUrl}"><s:text name="t2k.char.cancelbutton" /></s:a>
@@ -52,8 +51,13 @@
 					<td><s:text name="t2k.newchar.namefield" /></td>
 					<td><s:textfield name="character.name" /></td>
 					
-					<td><s:text name="t2k.newchar.namefield" /></td>
-					<td><s:textfield name="abc" /></td>
+					<td><s:text name="t2k.newchar.skillstext" /></td>
+					<td> 
+						<s:iterator value="character.skills" status="stat" var="skill">
+              				<s:textfield value="%{#skill.name}" name="character.skills[%{#stat.count}].name"/>
+              				<br/>
+              			</s:iterator>
+              		</td>
 					
 					<td><s:text name="t2k.newchar.namefield" /></td>
 					<td><s:textfield name="def" /></td>
@@ -100,8 +104,17 @@
 				
 				<tr>
 					<td><s:text name="t2k.newchar.natitivelangtext" /></td>
-					<td><div id="NativeLanguagesContainer">
-					</div></td>
+					<td>
+						<div id="NativeLanguagesContainer">
+							<ul>
+								<s:iterator value="character.nativeLanguages" status="status">
+									<li>
+										<s:textfield name="%{key}" value="%{key}" /><s:hidden name="character.nativeLanguages['%{key}']" value="%{value}" />										
+									</li>								
+              					</s:iterator>
+              				</ul>
+						</div>
+					</td>
 							
 					<td><s:text name="t2k.newchar.namefield" /></td>
 					<td><s:textfield name="abc" /></td>
