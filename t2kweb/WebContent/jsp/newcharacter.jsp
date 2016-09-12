@@ -57,13 +57,8 @@
 					<td><s:text name="t2k.newchar.namefield" /></td>
 					<td><s:textfield name="character.name" /></td>
 					
-					<td><s:text name="t2k.newchar.skillstext" /></td>
-					<td> 
-						<s:iterator value="character.skills" status="stat" var="skill">
-              				<s:textfield value="%{#skill.name}" name="character.skills[%{#stat.count}].name"/>
-              				<br/>
-              			</s:iterator>
-              		</td>
+					<td><s:text name="t2k.newchar.careerstext" /></td>
+					<td><s:textfield name="abc" /></td>
 					
 					<td><s:text name="t2k.newchar.namefield" /></td>
 					<td><s:textfield name="def" /></td>
@@ -88,8 +83,13 @@
 							name="character.faction"
 							list="factions"/></td>
 							
-					<td><s:text name="t2k.newchar.namefield" /></td>
-					<td><s:textfield name="abc" /></td>
+					<td><s:text name="t2k.newchar.skillstext" /></td>
+					<td>
+						<s:iterator value="character.skills" status="stat" var="skill">
+              				<s:textfield value="%{#skill.name}" name="character.skills[%{#stat.count}].name"/>
+              				<br/>
+              			</s:iterator>
+              		</td>
 					
 					<td><s:text name="t2k.newchar.namefield" /></td>
 					<td><s:textfield name="def" /></td>
@@ -111,16 +111,140 @@
 				<tr>
 					<td><s:text name="t2k.newchar.natitivelangtext" /></td>
 					<td>
-						<div id="NativeLanguagesContainer">
-							<ul>
-								<!-- 
-								<s:iterator value="character.nativeLanguages">
-									<li>
-										<s:textfield name="%{key}" value="%{key}" /><s:hidden name="character.nativeLanguages['%{key}']" value="%{value}" />										
-									</li>								
-              					</s:iterator>
-              					 -->
-              				</ul>
+						<div id="NativeLanguagesContainer"></div>
+					</td>
+							
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
+				</tr>
+				
+				<tr>
+					<td><s:text name="t2k.newchar.basicattributestext" /></td>
+					<td><span class="attrDesc"><s:text name="t2k.newchar.basicattributesdesc" /></span></td>
+							
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
+				</tr>
+				
+				<tr>
+					<td><span class="attrTitle"><s:text name="t2k.newchar.attributetext" /></span></td>
+					<td>
+						<span class="attrTitle"><s:text name="t2k.newchar.rolltext" /></span>
+						<span class="attrTitle"><s:text name="t2k.newchar.adjtext" /></span>
+						<span class="attrTitle"><s:text name="t2k.newchar.finaltext" /></span>
+					</td>
+							
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
+				</tr>
+				
+				<tr>
+					<td><span class="attrName"><s:text name="t2k.newchar.strtext" /></span></td>
+					<td>
+						<div class="basic_attributes_container">
+							<span class="attrTitle" id="strength_roll">[ _ ]</span>
+							<span class="attrTitle" id="strength_adj">[ _ ]</span>
+							<span class="attrTitle" id="strength_final">[ _ ]</span>
+							<s:textfield type="hidden" name="character.strength" />
+						</div>
+					</td>
+							
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
+				</tr>
+				
+				<tr>
+					<td><span class="attrName"><s:text name="t2k.newchar.agltext" /></span></td>
+					<td>
+						<div class="basic_attributes_container">
+							<span class="attrTitle" id="agility_roll">[ _ ]</span>
+							<span class="attrTitle" id="agility_adj">[ _ ]</span>
+							<span class="attrTitle" id="agility_final">[ _ ]</span>
+							<s:textfield type="hidden" name="character.agility" />
+						</div>
+					</td>
+							
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
+				</tr>
+				
+				<tr>
+					<td><span class="attrName"><s:text name="t2k.newchar.context" /></span></td>
+					<td>
+						<div class="basic_attributes_container">
+							<span class="attrTitle" id="constitution_roll">[ _ ]</span>
+							<span class="attrTitle" id="constitution_adj">[ _ ]</span>
+							<span class="attrTitle" id="constitution_final">[ _ ]</span>
+							<s:textfield type="hidden" name="character.constitution" />
+						</div>
+					</td>
+							
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
+				</tr>
+				
+				<tr>
+					<td><span class="attrName"><s:text name="t2k.newchar.inttext" /></span></td>
+					<td>
+						<div class="basic_attributes_container">
+							<span class="attrTitle" id="intelligence_roll">[ _ ]</span>
+							<span class="attrTitle" id="intelligence_adj">[ _ ]</span>
+							<span class="attrTitle" id="intelligence_final">[ _ ]</span>
+							<s:textfield type="hidden" name="character.intelligence" />
+						</div>
+					</td>
+							
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
+				</tr>
+				
+				<tr>
+					<td><span class="attrName"><s:text name="t2k.newchar.edutext" /></span></td>
+					<td>
+						<div class="basic_attributes_container">
+							<span class="attrTitle" id="education_roll">[ _ ]</span>
+							<span class="attrTitle" id="education_adj">[ _ ]</span>
+							<span class="attrTitle" id="education_final">[ _ ]</span>
+							<s:textfield type="hidden" name="character.education" />
+						</div>
+					</td>
+							
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
+				</tr>
+				
+				<tr>
+					<td><span class="attrName"><s:text name="t2k.newchar.chrtext" /></span></td>
+					<td>
+						<div class="basic_attributes_container">
+							<span class="attrTitle" id="charisma_roll">[ _ ]</span>
+							<span class="attrTitle" id="charisma_adj">[ _ ]</span>
+							<span class="attrTitle" id="charisma_final">[ _ ]</span>
+							<s:textfield type="hidden" name="character.charisma" />
 						</div>
 					</td>
 							

@@ -146,10 +146,10 @@ select {
 .footer {
 	font-family: 'Fjalla One', sans-serif;
 	width: 100%;
-	position: fixed;
+	position: absolute;
 	float: right;
 	vertical-align: bottom;
-	bottom: 10px;
+	top: 140%;
 	left: 0;
 	text-align: right;
 	margin: 0;

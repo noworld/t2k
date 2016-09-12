@@ -39,10 +39,6 @@ public class Die {
 		return roll(SIX);
 	}
 	
-	public static int rollTwoDSix() {
-		return roll(SIX) + roll(SIX);
-	}
-	
 	public static int rollTen() {
 		return roll(TEN);
 	}

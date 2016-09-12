@@ -10,6 +10,7 @@ $(function() {
 	
 	bindEvents();
 	popNationalitySelect();
+	setupAttributes();
 	
 });
 
@@ -51,6 +52,45 @@ function popNationalitySelect() {
 		}).done(setSavedValues);
 }
 
+function setupAttributes() {
+		$(".basic_attributes_container").find("[id^=NewCharacterForm_character_]").each(function(idx,el) {			
+			var hiddenElement = $(el);
+			var regex = /NewCharacterForm_character_(.*)/;
+			var attr = (hiddenElement.prop("id").match(regex))[1];			
+			var rollBtnId = 'btn_roll_' + attr;
+			
+			if($("#NewCharacterForm_character_" + attr).prop("value") === undefined
+					|| $("#NewCharacterForm_character_" + attr).prop("value").trim() === ""
+					|| $("#NewCharacterForm_character_" + attr).prop("value") == 0) {
+				$("#" + attr + "_roll").text("[ _ ]");
+			} else {
+				$("#" + attr + "_roll").text("[ " + $("#NewCharacterForm_character_" + attr).prop("value") + " ]");
+			}
+			  
+			hiddenElement.parent().append($('<button/>', {
+				text: "Roll",
+				id: rollBtnId,
+				click: function () {
+	
+					var ajaxUrl = "json/RollTwoDSix";
+					
+					$.getJSON(ajaxUrl, function(data) {
+						$("#" + attr + "_roll").text("[ " + data["roll"] + " ]");
+						$("#NewCharacterForm_character_" + attr).prop("value",data["roll"]);
+						
+						var message = "Your " + attr + " roll was: " + data["roll"] + " (" + data["dice"].join() + ")";						
+						
+						showRoll(data["roll"], message);
+						
+						$("#" + rollBtnId).remove().end();
+					});
+					
+					return false;
+				}
+			}));
+	});
+}
+
 function setSavedValues() {
 	//Get saved nationality
 	var savedNationality = $("#NewCharacterForm_selectedNationality").prop("value");
@@ -89,22 +129,22 @@ function popNativeLanguagesStatic() {
 		var id =  lang.prop("value");
 		var item = $("<li/>");
 		  
-		  var span = $("<span/>",{text : langText});
+		var span = $("<span/>",{text : langText});
 		  
-		  item.append(span);
+		item.append(span);
 		  
-		  var hiddenInput = $("<input />",{
-			  type : "hidden",
-			  name : "character.nativeLanguages['" + lang + "']",
-			  id : "NewCharacterForm_character_nativeLanguages_'" + lang + "'_",
-			  value : id
-		  });
+		var hiddenInput = $("<input />",{
+			type : "hidden",
+			name : "character.nativeLanguages['" + name + "']",
+			id : "NewCharacterForm_character_nativeLanguages_'" + name + "'_",
+			value : id
+		});
 		  
-		  item.append(hiddenInput);
-		  
-		  items.append(item);
+		item.append(hiddenInput);
+		 
+		items.append(item);
 	});
-	
+			
 	$("#NativeLanguagesContainer").append(items);
 }
 

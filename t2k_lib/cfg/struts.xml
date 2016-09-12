@@ -244,6 +244,12 @@
 			<result name="success" type="json" />			
 			<result name="error"   type="json" />
 			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>
+		
+		<action name="RollBucket" class="red.arpanet.t2k.web.actions.json.DieRollAction" method="rollBucket">
+			<result name="success" type="json" />			
+			<result name="error"   type="json" />
+			<exception-mapping result="error" exception="java.lang.Exception" />
 		</action>	
 	
 	</package>

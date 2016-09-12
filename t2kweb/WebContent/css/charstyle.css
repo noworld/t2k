@@ -176,3 +176,38 @@ Flat Form Button Color: Gray/T2K Yellow
 	border-style: double;
 	font-size: 18pt;
 }
+
+.attrDesc {
+	font-size: 12pt;	
+	float: left;
+	text-align: left;
+}
+
+.attrTitle {
+	font-style: italic;
+	padding: 0 10px 0 10px;
+	vertical-align: text-top;
+	margin-top: 10px;
+	font-size: 14pt;
+}
+
+.attrName {
+	font-size: 14pt;
+}
+
+.basic_attributes_container > button {
+	border: 1px;
+	border-color: Gray;
+	box-shadow:none;
+	border-radius: 0px;
+	float: right;
+	margin-left: 5px;
+	margin-right: 2px;
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 16pt;	
+}
+
+.basic_attributes_container > button:HOVER {
+	background-color: #F0ab55;
+	text-decoration: underline;
+}

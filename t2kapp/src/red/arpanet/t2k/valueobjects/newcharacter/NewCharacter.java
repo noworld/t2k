@@ -35,7 +35,12 @@ public class NewCharacter {
 	protected int faction;
 	protected List<Skill> skills;
 	protected Map<String,Integer> nativeLanguages;
-	
+	protected int strength;
+	protected int agility;
+	protected int constitution;
+	protected int intelligence;
+	protected int education;
+	protected int charisma;
 	
 	public NewCharacter() {
 		this.skills = new ArrayList<Skill>();
@@ -88,6 +93,54 @@ public class NewCharacter {
 
 	public void setNativeLanguages(Map<String, Integer> nativeLanguages) {
 		this.nativeLanguages = nativeLanguages;
+	}
+
+	public int getStrength() {
+		return strength;
+	}
+
+	public void setStrength(int strength) {
+		this.strength = strength;
+	}
+
+	public int getAgility() {
+		return agility;
+	}
+
+	public void setAgility(int agility) {
+		this.agility = agility;
+	}
+
+	public int getConstitution() {
+		return constitution;
+	}
+
+	public void setConstitution(int constitution) {
+		this.constitution = constitution;
+	}
+
+	public int getIntelligence() {
+		return intelligence;
+	}
+
+	public void setIntelligence(int intelligence) {
+		this.intelligence = intelligence;
+	}
+
+	public int getEducation() {
+		return education;
+	}
+
+	public void setEducation(int education) {
+		this.education = education;
+	}
+
+	public int getCharisma() {
+		return charisma;
+	}
+
+	public void setCharisma(int charisma) {
+		this.charisma = charisma;
 	}
 	
 }
