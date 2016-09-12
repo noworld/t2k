@@ -1,12 +1,13 @@
 var currLangs;
-var optionalLangCount;
+var optionalLangCount = 0;
 var rollBoxes = [];
-var maxBoxes = 3;
+var maxBoxes = 2;
 var hideRollDelay = 8000;
 var hideBoxTimeout;
 var rollHistory = [];
 var attributePointsRemaining = 0;
 var adjustedAttributePoints = 32;
+var rollBoxFirstOffset = "450px";
 
 $(function() {
 	
@@ -20,6 +21,7 @@ function bindEvents() {
 	$("#NewCharacterForm_character_faction").on("change",changeFaction);
 	$("#NewCharacterForm_character_nationality").on("change",changeNationality);
 	$("#NewCharacterSaveLink").on("click",function(){$("#NewCharacterForm").submit();});
+	$("#AttributeReset").on("click",resetAttributes);
 }
 
 function changeFaction() {
@@ -33,8 +35,6 @@ function changeNationality() {
 }
 
 function popNationalitySelect() {
-		
-	optionalLangCount = 0;
 	
 	$("#NewCharacterForm_character_nationality").find('option').remove().end();
 	
@@ -79,7 +79,7 @@ function setupAttributes() {
 							
 							var message = "Your " + attr + " roll was: " + data["roll"] + " [(" + data["dice"].join("+") + ")-2]";						
 							
-							showRoll(data["roll"], message);
+							showRoll(data["roll"], message, rollBoxFirstOffset);
 							
 							setAttributeTotal();
 							
@@ -94,6 +94,8 @@ function setupAttributes() {
 			}
 			  
 	});
+		
+	setAttributeTotal();
 }
 
 function setSavedValues() {
@@ -156,6 +158,7 @@ function popNativeLanguagesStatic() {
 function popNativeLanguageSelect() {
 	$("#NativeLanguagesContainer").children().remove().end();
 	currLangs = {};
+	optionalLangCount = 0;
 	
 	var ajaxUrl = "json/NativeLanguageValues?nationalityId=" + $("#NewCharacterForm_character_nationality").val();
 	
@@ -218,9 +221,12 @@ function popNativeLanguageSelect() {
 				        id: skipBtnId,
 				        click: function () {
 				        			var langElement = $("#item_lang_" + val["id"]);
-				        			langElement.children().remove().end();
+				        			langElement.children("input").remove().end();
+				        			langElement.children("button").remove().end();
 				        			langElement.removeClass("pending_lang");
 									langElement.addClass("failed_lang");
+									optionalLangCount--;
+									checkLanguagesFinished();
 				        			return false;
 				        		}
 				    }));
@@ -289,22 +295,26 @@ function attemptLang(id) {
 				" against " +
 				attemptedLang["targetNumber"] +
 				" to receive " + attemptedLang["name"] + 
-				" as a native language. (" + result + ")");
+				" as a native language. (" + result + ")",
+				rollBoxFirstOffset);
 		
-		if(optionalLangCount <= 0) {
-			var parent = langElement.parent(); 
-			parent.children().each(function(idx) {
-				if($(this).text().indexOf("native") < 0) {
-					$(this).remove();
-				}
-			});
-			$("#NewCharacterForm_languagesFinished").prop("value","true");
-		}
+		checkLanguagesFinished();
 	});
 
 }
 
-function showRoll(roll, message) {	
+function checkLanguagesFinished() {
+	if(optionalLangCount <= 0) {
+		$("#NativeLanguagesContainer ul").children().each(function(idx,el) {
+			if($(el).text().indexOf("native") < 0) {
+				$(el).remove();
+			}
+		});
+		$("#NewCharacterForm_languagesFinished").prop("value","true");
+	}
+}
+
+function showRoll(roll, message, offset) {	
 	
 	if(rollBoxes.length == maxBoxes) {
 		var lastBox = rollBoxes.shift();
@@ -326,7 +336,8 @@ function showRoll(roll, message) {
 	
 	var rollBox = $("<div></div>",{
 		text: message,		
-		"class":"roll_display"
+		"class":"roll_display",
+		style: "top: " + offset + ";"
 		});
 	
 	rollBoxes.push(rollBox);
@@ -399,4 +410,26 @@ function setAttributeTotal() {
 	}
 	
 	$("#AttributeAdjustmentPoints").text("[" + attributePointsRemaining + " ]");
+}
+
+function resetAttributes() {
+	$(".basic_attributes_container span").each(function (idx,el){
+		$(el).text("[ _ ]");
+	});
+	
+	$(".basic_attributes_container > input[id^=NewCharacterForm_character_]").each(function (idx,el){
+		$(el).prop("value",0);
+	});
+	
+	$(".basic_attributes_container button[id^=btn_roll_]").remove().end();
+	
+	$("#NewCharacterForm_character_strength").prop("value",0);
+	$("#NewCharacterForm_character_agility").prop("value",0);
+	$("#NewCharacterForm_character_constitution").prop("value",0);
+	$("#NewCharacterForm_character_intelligence").prop("value",0);
+	$("#NewCharacterForm_character_education").prop("value",0);
+	$("#NewCharacterForm_character_charisma").prop("value",0);
+	
+	setupAttributes();
+	return false;
 }

@@ -54,12 +54,27 @@ Flat Form Button Color: Gray/T2K Yellow
 	max-width: 1440px;
 }
 
+.char_sheet_left {
+	float: left;
+	position: relative;
+	width: 45%;
+}
+
+.char_sheet_right {
+	position: relative;
+	float: right;
+	width: 45%;
+}
+
 .char_subtitle {
 	font-size: 36pt;
 	margin: 25px 0 25px 0;
 }
 
 .char_menu {
+	position: static;
+	float: right;
+	vertical-align: bottom;
 	font-family: 'Fjalla One', sans-serif;
 	font-size: 24px;
 	color: #126ca1;
@@ -78,6 +93,10 @@ Flat Form Button Color: Gray/T2K Yellow
 	font-style: normal;
 	text-decoration: none;
 	color: #126ca1;
+	border: 1px;
+	padding: 5px;
+	border-color: gray;
+	border-style: solid;
 }
 
 .char_menubar li a:VISITED {
@@ -87,6 +106,7 @@ Flat Form Button Color: Gray/T2K Yellow
 }
 
 .char_menubar li a:HOVER {	
+	background-color: #ccffcc;
 	color: #1580bf;
 	text-decoration: underline;
 }
@@ -97,7 +117,7 @@ Flat Form Button Color: Gray/T2K Yellow
 
 .form_table td:NTH-CHILD(ODD) {
 	min-width: 120px;	
-	text-align: right;
+	text-align: left;
 	padding-right: 10px;
 	padding-left: 5px;
 }
@@ -147,7 +167,7 @@ Flat Form Button Color: Gray/T2K Yellow
 }
 
 .pending_lang > button:HOVER {
-	background-color: #F0ab55;
+	background-color: #ccffcc;
 	text-decoration: underline;
 }
 
@@ -163,7 +183,6 @@ Flat Form Button Color: Gray/T2K Yellow
 	background-color: GhostWhite;
 	height: 200px;
 	width: 200px;
-	top: 450px;
 	left: -200px;	
 	padding: 5px;
 	border-color: gray;
@@ -192,24 +211,27 @@ Flat Form Button Color: Gray/T2K Yellow
 	padding-left: 15px;
 }
 
+.basic_attributes_container {
+	padding: 2px;
+}
+
 .basic_attributes_container > button {
 	border: 1px;
 	border-color: Gray;
 	box-shadow:none;
 	border-radius: 0px;
 	float: right;
-	margin-left: 5px;
-	margin-right: 2px;
+	margin-right: 2px;	
 	font-family: 'Fjalla One', sans-serif;
 	font-size: 16pt;	
 }
 
 .basic_attributes_container > button:HOVER {
-	background-color: #F0ab55;
+	background-color: #ccffcc;
 	text-decoration: underline;
 }
 
-.char_sheet_left {
+.char_sheet_note {
 	float: left;
 	margin: 0;
 	padding-left: 15px;
