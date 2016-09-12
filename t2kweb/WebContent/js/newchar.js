@@ -7,16 +7,26 @@ var hideBoxTimeout;
 var rollHistory = [];
 
 $(function() {
-
+	
 	bindEvents();
-	popNationalitySelect(); 	
-	setSavedValues();
+	popNationalitySelect();
+	
 });
 
 function bindEvents() {
-	$("#NewCharacterForm_character_faction").on("change",popNationalitySelect);
-	$("#NewCharacterForm_character_nationality").on("change",popNativeLanguage);
+	$("#NewCharacterForm_character_faction").on("change",changeFaction);
+	$("#NewCharacterForm_character_nationality").on("change",changeNationality);
 	$("#NewCharacterSaveLink").on("click",function(){$("#NewCharacterForm").submit();});
+}
+
+function changeFaction() {
+	$("#NewCharacterForm_languagesFinished").prop("value","false");
+	popNationalitySelect();
+}
+
+function changeNationality() {
+	$("#NewCharacterForm_languagesFinished").prop("value","false");
+	popNativeLanguageSelect();
 }
 
 function popNationalitySelect() {
@@ -24,6 +34,7 @@ function popNationalitySelect() {
 	optionalLangCount = 0;
 	
 	$("#NewCharacterForm_character_nationality").find('option').remove().end();
+	
 	
 	var ajaxUrl = "json/CharValues?groupName=nationalities_by_id&groupVal=" + $("#NewCharacterForm_character_faction").val();
 	
@@ -37,10 +48,10 @@ function popNationalitySelect() {
 		 
 		  $("#NewCharacterForm_character_nationality").append(items.join(""));
 		  
-		}).done(setSavedNationality);
+		}).done(setSavedValues);
 }
 
-function setSavedNationality() {
+function setSavedValues() {
 	//Get saved nationality
 	var savedNationality = $("#NewCharacterForm_selectedNationality").prop("value");
 	
@@ -59,11 +70,45 @@ function setSavedNationality() {
 		$("#NewCharacterForm_character_nationality").prop("value",savedNationality);
 	}
 	
-	//Choose the native languages based on the nationality
-	popNativeLanguage();
+	if($("#NewCharacterForm_languagesFinished").prop("value") === "true") {
+		popNativeLanguagesStatic();
+	} else {
+		//Choose the native languages based on the nationality
+		popNativeLanguageSelect();
+	}
+	
 }
 
-function popNativeLanguage() {
+function popNativeLanguagesStatic() {
+	var items = $("<ul />");
+	var regex = /\['(.*)'\]/;
+	$("[id^=NewCharacterForm_selectedLanguages_]").each(function(idx,el) {
+		var lang = $(el);
+		var name = (lang.prop("name").match(regex))[1];
+		var langText = name + " (native)";
+		var id =  lang.prop("value");
+		var item = $("<li/>");
+		  
+		  var span = $("<span/>",{text : langText});
+		  
+		  item.append(span);
+		  
+		  var hiddenInput = $("<input />",{
+			  type : "hidden",
+			  name : "character.nativeLanguages['" + lang + "']",
+			  id : "NewCharacterForm_character_nativeLanguages_'" + lang + "'_",
+			  value : id
+		  });
+		  
+		  item.append(hiddenInput);
+		  
+		  items.append(item);
+	});
+	
+	$("#NativeLanguagesContainer").append(items);
+}
+
+function popNativeLanguageSelect() {
 	$("#NativeLanguagesContainer").children().remove().end();
 	currLangs = {};
 	
@@ -149,6 +194,12 @@ function popNativeLanguage() {
 				  optionalLangCount++;
 				  items.append(item);
 			  }			
+			  
+			  if(optionalLangCount > 0) {
+				  $("#NewCharacterForm_languagesFinished").prop("value","false");
+			  } else {
+				  $("#NewCharacterForm_languagesFinished").prop("value","true");
+			  }
 		  });
 		 
 		  $("#NativeLanguagesContainer").append(items);
@@ -175,7 +226,10 @@ function attemptLang(id) {
 				}
 			});
 			
+			$("#NewCharacterForm_languagesFinished").prop("value","true");
+			
 			result = "Success!";
+			
 		} else {
 			langElement.children().remove().end();
 			langElement.removeClass("pendingLang");
@@ -199,7 +253,7 @@ function attemptLang(id) {
 					$(this).remove();
 				}
 			});
-			
+			$("#NewCharacterForm_languagesFinished").prop("value","true");
 		}
 	});
 

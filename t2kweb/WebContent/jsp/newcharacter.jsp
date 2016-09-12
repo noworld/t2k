@@ -113,11 +113,13 @@
 					<td>
 						<div id="NativeLanguagesContainer">
 							<ul>
+								<!-- 
 								<s:iterator value="character.nativeLanguages">
 									<li>
 										<s:textfield name="%{key}" value="%{key}" /><s:hidden name="character.nativeLanguages['%{key}']" value="%{value}" />										
 									</li>								
               					</s:iterator>
+              					 -->
               				</ul>
 						</div>
 					</td>
