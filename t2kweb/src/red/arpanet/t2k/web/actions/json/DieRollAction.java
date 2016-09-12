@@ -86,6 +86,18 @@ public class DieRollAction extends BaseAction {
 		return SUCCESS;
 	}
 	
+	public String rollAttribute() {
+		
+		while(this.roll <= 0) {
+			int roll1 = Die.rollSix();
+			int roll2 = Die.rollSix();
+			this.dice = new Integer[]{roll1,roll2};
+			this.roll = roll1 + roll2;
+			this.roll -= 2;
+		}
+		return SUCCESS;
+	}
+	
 	public String rollTen() {
 		this.roll = Die.rollTen();
 		this.dice = new Integer[]{this.roll};

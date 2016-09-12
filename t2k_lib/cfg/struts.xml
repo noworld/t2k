@@ -250,6 +250,12 @@
 			<result name="success" type="json" />			
 			<result name="error"   type="json" />
 			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>
+		
+		<action name="RollAttribute" class="red.arpanet.t2k.web.actions.json.DieRollAction" method="rollAttribute">
+			<result name="success" type="json" />			
+			<result name="error"   type="json" />
+			<exception-mapping result="error" exception="java.lang.Exception" />
 		</action>	
 	
 	</package>

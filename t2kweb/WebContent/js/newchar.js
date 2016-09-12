@@ -72,13 +72,13 @@ function setupAttributes() {
 				id: rollBtnId,
 				click: function () {
 	
-					var ajaxUrl = "json/RollTwoDSix";
+					var ajaxUrl = "json/RollAttribute";
 					
 					$.getJSON(ajaxUrl, function(data) {
 						$("#" + attr + "_roll").text("[ " + data["roll"] + " ]");
 						$("#NewCharacterForm_character_" + attr).prop("value",data["roll"]);
 						
-						var message = "Your " + attr + " roll was: " + data["roll"] + " (" + data["dice"].join() + ")";						
+						var message = "Your " + attr + " roll was: " + data["roll"] + " [(" + data["dice"].join("+") + ")-2]";						
 						
 						showRoll(data["roll"], message);
 						
