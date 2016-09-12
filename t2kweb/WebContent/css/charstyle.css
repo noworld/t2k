@@ -91,11 +91,11 @@ Flat Form Button Color: Gray/T2K Yellow
 	text-decoration: underline;
 }
 
-.formTable td {
+.form_table td {
 	vertical-align: top;
 }
 
-.formTable td:NTH-CHILD(ODD) {
+.form_table td:NTH-CHILD(ODD) {
 	min-width: 120px;	
 	text-align: right;
 	padding-right: 10px;
@@ -126,7 +126,7 @@ Flat Form Button Color: Gray/T2K Yellow
 	padding: 5px 0 5px 10px;
 }
 
-.pendingLang {
+.pending_lang {
 	color: gray;
 	background-color: Lavender;
 	font-size: 14pt;
@@ -134,7 +134,7 @@ Flat Form Button Color: Gray/T2K Yellow
 	vertical-align: middle;
 }
 
-.pendingLang > button {
+.pending_lang > button {
 	border: 1px;
 	border-color: Gray;
 	box-shadow:none;
@@ -146,12 +146,12 @@ Flat Form Button Color: Gray/T2K Yellow
 	font-size: 16pt;	
 }
 
-.pendingLang > button:HOVER {
+.pending_lang > button:HOVER {
 	background-color: #F0ab55;
 	text-decoration: underline;
 }
 
-.failedLang {
+.failed_lang {
 	color: gray;
 	background-color: Lavender;
 	text-decoration: line-through;
@@ -172,13 +172,13 @@ Flat Form Button Color: Gray/T2K Yellow
 	font-size: 18pt;
 }
 
-.attrDesc {
+.attr_desc {
 	font-size: 12pt;	
 	float: left;
 	text-align: left;
 }
 
-.attrTitle {
+.attr_title {
 	font-style: italic;
 	padding: 0 10px 0 10px;
 	vertical-align: text-top;
@@ -186,8 +186,10 @@ Flat Form Button Color: Gray/T2K Yellow
 	font-size: 14pt;
 }
 
-.attrName {
+.attr_name {
 	font-size: 14pt;
+	float: left;
+	padding-left: 15px;
 }
 
 .basic_attributes_container > button {
@@ -205,4 +207,16 @@ Flat Form Button Color: Gray/T2K Yellow
 .basic_attributes_container > button:HOVER {
 	background-color: #F0ab55;
 	text-decoration: underline;
+}
+
+.char_sheet_left {
+	float: left;
+	margin: 0;
+	padding-left: 15px;
+}
+
+.char_sheet_divider {
+	border-color: Gray;
+	border-width: 3px 0 0 0;
+	border-style: double;
 }

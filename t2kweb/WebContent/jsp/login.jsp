@@ -27,7 +27,7 @@
 
 <s:form action="Login" method="post" validate="true">
 
-		<table class="formTable">
+		<table class="form_table">
 			<tr>
 				<td><s:text name="t2k.login.useridfield" /></td>
 				<td><s:textfield name="credentials.userId" /></td>
@@ -37,12 +37,12 @@
 				<td><s:password name="credentials.password" /></td>
 			</tr>	
 			<s:if test="hasFieldErrors()">
-				<tr class="formTableFooter">
+				<tr class="form_tableFooter">
 					<td colspan="2"><s:fielderror/></td>					
 				</tr>
 			</s:if>
 			<s:if test="hasActionErrors()">				
-				<tr class="formTableFooter">
+				<tr class="form_tableFooter">
 					<td colspan="2"><s:actionerror/></td>					
 				</tr>
 			</s:if>

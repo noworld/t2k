@@ -116,30 +116,30 @@ select {
 	margin: 25px 5% 25px 5%;
 }
 
-.formTable {
+.form_table {
 	width: 90%;
 	margin: 25px 0 25px 0;
 }
 
-.formTable td:FIRST-CHILD {
+.form_table td:FIRST-CHILD {
 	width: 50%;
 	padding-right: 10px;
 	text-align: right;
 	font-size: x-large;
 }
 
-.formTable td:LAST-CHILD {
+.form_table td:LAST-CHILD {
 	width: 50%;
 	padding-left: 10px;
 	text-align: left;
 	font-size: x-large;
 }
 
-.formTable input[type="text"] {
+.form_table input[type="text"] {
 	min-width: 300px;
 }
 
-.formTable input[type="password"] {
+.form_table input[type="password"] {
 	min-width: 300px;
 }
 
@@ -157,7 +157,7 @@ select {
 	border: 0;
 }
 
-.footertext {
+.footer_text {
 	margin: 0 15px 0 0;
 	font-size: small;
 	color: black;

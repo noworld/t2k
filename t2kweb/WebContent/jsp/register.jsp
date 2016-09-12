@@ -31,7 +31,7 @@
 
 <s:form action="Register">		
 		<s:token name="registerToken" />
-		<table class="formTable">
+		<table class="form_table">
 			
 			<tr>
 				<td><s:text name="t2k.register.emailaddressfield" /></td>

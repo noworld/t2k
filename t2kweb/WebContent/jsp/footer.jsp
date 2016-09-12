@@ -23,9 +23,9 @@
 
 <div class="footer">
 	<div class="hline"></div>
-	<div class="footertext"><s:text name="t2k.copyright" /></div>
-	<div class="footertext"><s:text name="t2k.disclaimer" /></div>
-	<div class="footertext">version&nbsp;<s:text name="t2k.version" /></div>
+	<div class="footer_text"><s:text name="t2k.copyright" /></div>
+	<div class="footer_text"><s:text name="t2k.disclaimer" /></div>
+	<div class="footer_text">version&nbsp;<s:text name="t2k.version" /></div>
 </div>
 
 

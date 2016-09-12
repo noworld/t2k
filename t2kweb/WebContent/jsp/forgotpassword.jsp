@@ -28,13 +28,13 @@
 <s:form action="ForgotPassword" method="post" validate="true">
 	<s:token />
 	<div>
-		<table class="formTable">
+		<table class="form_table">
 			<tr>
 				<td><s:text name="t2k.invite.emailaddressfield" /></td>
 				<td><s:textfield name="email" /></td>
 			</tr>
 			<s:if test="hasFieldErrors()">
-				<tr class="formTableFooter">
+				<tr class="form_tableFooter">
 					<td colspan="2"><s:fielderror/></td>					
 				</tr>
 			</s:if>

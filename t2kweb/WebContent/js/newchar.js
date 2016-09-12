@@ -1,10 +1,12 @@
 var currLangs;
 var optionalLangCount;
 var rollBoxes = [];
-var maxBoxes = 2;
+var maxBoxes = 3;
 var hideRollDelay = 8000;
 var hideBoxTimeout;
 var rollHistory = [];
+var attributePointsRemaining = 0;
+var adjustedAttributePoints = 32;
 
 $(function() {
 	
@@ -63,31 +65,34 @@ function setupAttributes() {
 					|| $("#NewCharacterForm_character_" + attr).prop("value").trim() === ""
 					|| $("#NewCharacterForm_character_" + attr).prop("value") == 0) {
 				$("#" + attr + "_roll").text("[ _ ]");
+				
+				hiddenElement.parent().append($('<button/>', {
+					text: "Roll",
+					id: rollBtnId,
+					click: function () {
+		
+						var ajaxUrl = "json/RollAttribute";
+						
+						$.getJSON(ajaxUrl, function(data) {
+							$("#" + attr + "_roll").text("[ " + data["roll"] + " ]");
+							$("#NewCharacterForm_character_" + attr).prop("value",data["roll"]);
+							
+							var message = "Your " + attr + " roll was: " + data["roll"] + " [(" + data["dice"].join("+") + ")-2]";						
+							
+							showRoll(data["roll"], message);
+							
+							setAttributeTotal();
+							
+							$("#" + rollBtnId).remove().end();
+						});
+						
+						return false;
+					}
+				}));
 			} else {
 				$("#" + attr + "_roll").text("[ " + $("#NewCharacterForm_character_" + attr).prop("value") + " ]");
 			}
 			  
-			hiddenElement.parent().append($('<button/>', {
-				text: "Roll",
-				id: rollBtnId,
-				click: function () {
-	
-					var ajaxUrl = "json/RollAttribute";
-					
-					$.getJSON(ajaxUrl, function(data) {
-						$("#" + attr + "_roll").text("[ " + data["roll"] + " ]");
-						$("#NewCharacterForm_character_" + attr).prop("value",data["roll"]);
-						
-						var message = "Your " + attr + " roll was: " + data["roll"] + " [(" + data["dice"].join("+") + ")-2]";						
-						
-						showRoll(data["roll"], message);
-						
-						$("#" + rollBtnId).remove().end();
-					});
-					
-					return false;
-				}
-			}));
 	});
 }
 
@@ -190,7 +195,7 @@ function popNativeLanguageSelect() {
 				  
 				  var item = $("<li/>",{
 					  id : "item_lang_" + id,
-					  "class" : "pendingLang"
+					  "class" : "pending_lang"
 					  });
 				  
 				  var span = $("<span/>",{text : langText});
@@ -214,8 +219,8 @@ function popNativeLanguageSelect() {
 				        click: function () {
 				        			var langElement = $("#item_lang_" + val["id"]);
 				        			langElement.children().remove().end();
-				        			langElement.removeClass("pendingLang");
-									langElement.addClass("failedLang");
+				        			langElement.removeClass("pending_lang");
+									langElement.addClass("failed_lang");
 				        			return false;
 				        		}
 				    }));
@@ -256,7 +261,7 @@ function attemptLang(id) {
 		var langElement = $("#item_lang_" + attemptedLang["id"]);
 		if(data["roll"] <= attemptedLang["targetNumber"]) {
 			langElement.find("button").remove().end();
-			langElement.removeClass("pendingLang");
+			langElement.removeClass("pending_lang");
 			langElement.find("span").text(attemptedLang["name"] + " (native)");
 			
 			var parent = langElement.parent(); 
@@ -272,8 +277,8 @@ function attemptLang(id) {
 			
 		} else {
 			langElement.children().remove().end();
-			langElement.removeClass("pendingLang");
-			langElement.addClass("failedLang");
+			langElement.removeClass("pending_lang");
+			langElement.addClass("failed_lang");
 			langElement.text(attemptedLang["name"]);
 			optionalLangCount--;
 			result = "Fail";
@@ -349,4 +354,49 @@ function hideRoll() {
 	}
 	
 	rollBoxes = [];
+}
+
+function setAttributeTotal() {
+	
+	var attrTotal = 0;
+	
+	var str = parseInt($("#NewCharacterForm_character_strength").prop("value"));
+	if(!isNaN(str)) {
+		attrTotal += str;
+	}
+	
+	var agl = parseInt($("#NewCharacterForm_character_agility").prop("value"));
+	if(!isNaN(agl)) {
+		attrTotal += agl;
+	}
+	
+	var con = parseInt($("#NewCharacterForm_character_constitution").prop("value"));
+	if(!isNaN(con)) {
+		attrTotal += con;
+	}
+	
+	var intel = parseInt($("#NewCharacterForm_character_intelligence").prop("value"));
+	if(!isNaN(intel)) {
+		attrTotal += intel;
+	}
+	
+	var edu = parseInt($("#NewCharacterForm_character_education").prop("value"));
+	if(!isNaN(edu)) {
+		attrTotal += edu;
+	}
+	
+	var chr = parseInt($("#NewCharacterForm_character_charisma").prop("value"));
+	if(!isNaN(chr)) {
+		attrTotal += chr;
+	}
+	
+	$("#AttributeTotalVal").text("[" + attrTotal + " ]");
+	
+	attributePointsRemaining = adjustedAttributePoints - attrTotal;
+	
+	if(attributePointsRemaining < 0) {
+		attributePointsRemaining = 0;
+	}
+	
+	$("#AttributeAdjustmentPoints").text("[" + attributePointsRemaining + " ]");
 }

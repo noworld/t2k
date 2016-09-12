@@ -51,7 +51,7 @@
 				<s:hidden name="selectedLanguages['%{key}']" value="%{value}" />
 			</s:iterator>
 			
-			<table class="formTable">
+			<table class="form_table">
 				
 				<tr>
 					<td><s:text name="t2k.newchar.namefield" /></td>
@@ -123,7 +123,7 @@
 				
 				<tr>
 					<td><s:text name="t2k.newchar.basicattributestext" /></td>
-					<td><span class="attrDesc"><s:text name="t2k.newchar.basicattributesdesc" /></span></td>
+					<td><span class="attr_desc"><s:text name="t2k.newchar.basicattributesdesc" /></span></td>
 							
 					<td><s:text name="t2k.newchar.namefield" /></td>
 					<td><s:textfield name="abc" /></td>
@@ -133,11 +133,11 @@
 				</tr>
 				
 				<tr>
-					<td><span class="attrTitle"><s:text name="t2k.newchar.attributetext" /></span></td>
+					<td><span class="attr_title"><s:text name="t2k.newchar.attributetext" /></span></td>
 					<td>
-						<span class="attrTitle"><s:text name="t2k.newchar.rolltext" /></span>
-						<span class="attrTitle"><s:text name="t2k.newchar.adjtext" /></span>
-						<span class="attrTitle"><s:text name="t2k.newchar.finaltext" /></span>
+						<span class="attr_title"><s:text name="t2k.newchar.rolltext" /></span>
+						<span class="attr_title"><s:text name="t2k.newchar.adjtext" /></span>
+						<span class="attr_title"><s:text name="t2k.newchar.finaltext" /></span>
 					</td>
 							
 					<td><s:text name="t2k.newchar.namefield" /></td>
@@ -148,12 +148,12 @@
 				</tr>
 				
 				<tr>
-					<td><span class="attrName"><s:text name="t2k.newchar.strtext" /></span></td>
+					<td><span class="attr_name"><s:text name="t2k.newchar.strtext" /></span></td>
 					<td>
 						<div class="basic_attributes_container">
-							<span class="attrTitle" id="strength_roll">[ _ ]</span>
-							<span class="attrTitle" id="strength_adj">[ _ ]</span>
-							<span class="attrTitle" id="strength_final">[ _ ]</span>
+							<span class="attr_title" id="strength_roll">[ _ ]</span>
+							<span class="attr_title" id="strength_adj">[ _ ]</span>
+							<span class="attr_title" id="strength_final">[ _ ]</span>
 							<s:textfield type="hidden" name="character.strength" />
 						</div>
 					</td>
@@ -166,12 +166,12 @@
 				</tr>
 				
 				<tr>
-					<td><span class="attrName"><s:text name="t2k.newchar.agltext" /></span></td>
+					<td><span class="attr_name"><s:text name="t2k.newchar.agltext" /></span></td>
 					<td>
 						<div class="basic_attributes_container">
-							<span class="attrTitle" id="agility_roll">[ _ ]</span>
-							<span class="attrTitle" id="agility_adj">[ _ ]</span>
-							<span class="attrTitle" id="agility_final">[ _ ]</span>
+							<span class="attr_title" id="agility_roll">[ _ ]</span>
+							<span class="attr_title" id="agility_adj">[ _ ]</span>
+							<span class="attr_title" id="agility_final">[ _ ]</span>
 							<s:textfield type="hidden" name="character.agility" />
 						</div>
 					</td>
@@ -184,12 +184,12 @@
 				</tr>
 				
 				<tr>
-					<td><span class="attrName"><s:text name="t2k.newchar.context" /></span></td>
+					<td><span class="attr_name"><s:text name="t2k.newchar.context" /></span></td>
 					<td>
 						<div class="basic_attributes_container">
-							<span class="attrTitle" id="constitution_roll">[ _ ]</span>
-							<span class="attrTitle" id="constitution_adj">[ _ ]</span>
-							<span class="attrTitle" id="constitution_final">[ _ ]</span>
+							<span class="attr_title" id="constitution_roll">[ _ ]</span>
+							<span class="attr_title" id="constitution_adj">[ _ ]</span>
+							<span class="attr_title" id="constitution_final">[ _ ]</span>
 							<s:textfield type="hidden" name="character.constitution" />
 						</div>
 					</td>
@@ -202,12 +202,12 @@
 				</tr>
 				
 				<tr>
-					<td><span class="attrName"><s:text name="t2k.newchar.inttext" /></span></td>
+					<td><span class="attr_name"><s:text name="t2k.newchar.inttext" /></span></td>
 					<td>
 						<div class="basic_attributes_container">
-							<span class="attrTitle" id="intelligence_roll">[ _ ]</span>
-							<span class="attrTitle" id="intelligence_adj">[ _ ]</span>
-							<span class="attrTitle" id="intelligence_final">[ _ ]</span>
+							<span class="attr_title" id="intelligence_roll">[ _ ]</span>
+							<span class="attr_title" id="intelligence_adj">[ _ ]</span>
+							<span class="attr_title" id="intelligence_final">[ _ ]</span>
 							<s:textfield type="hidden" name="character.intelligence" />
 						</div>
 					</td>
@@ -220,12 +220,12 @@
 				</tr>
 				
 				<tr>
-					<td><span class="attrName"><s:text name="t2k.newchar.edutext" /></span></td>
+					<td><span class="attr_name"><s:text name="t2k.newchar.edutext" /></span></td>
 					<td>
 						<div class="basic_attributes_container">
-							<span class="attrTitle" id="education_roll">[ _ ]</span>
-							<span class="attrTitle" id="education_adj">[ _ ]</span>
-							<span class="attrTitle" id="education_final">[ _ ]</span>
+							<span class="attr_title" id="education_roll">[ _ ]</span>
+							<span class="attr_title" id="education_adj">[ _ ]</span>
+							<span class="attr_title" id="education_final">[ _ ]</span>
 							<s:textfield type="hidden" name="character.education" />
 						</div>
 					</td>
@@ -238,15 +238,43 @@
 				</tr>
 				
 				<tr>
-					<td><span class="attrName"><s:text name="t2k.newchar.chrtext" /></span></td>
+					<td><span class="attr_name"><s:text name="t2k.newchar.chrtext" /></span></td>
 					<td>
 						<div class="basic_attributes_container">
-							<span class="attrTitle" id="charisma_roll">[ _ ]</span>
-							<span class="attrTitle" id="charisma_adj">[ _ ]</span>
-							<span class="attrTitle" id="charisma_final">[ _ ]</span>
+							<span class="attr_title" id="charisma_roll">[ _ ]</span>
+							<span class="attr_title" id="charisma_adj">[ _ ]</span>
+							<span class="attr_title" id="charisma_final">[ _ ]</span>
 							<s:textfield type="hidden" name="character.charisma" />
 						</div>
 					</td>
+							
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
+				</tr>
+				
+				<tr>
+					<td><span class="attr_name"><s:text name="t2k.newchar.attrtotaltext" /></span></td>
+					<td class="char_sheet_divider">
+						<div class="basic_attributes_container">
+							<span class="attr_title" id="AttributeTotalVal">[ _ ]</span>
+							<span class="attr_title" id="AttributeAdjustmentPoints">[ _ ]</span>
+							<span class="attr_title" id="AttributeAdjustmentPlaceholder">[ _ ]</span>
+						</div>
+					</td>
+							
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="abc" /></td>
+					
+					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:textfield name="def" /></td>
+				</tr>
+				
+				<tr>
+					<td colspan="2"><span class="attr_title char_sheet_left"><s:text name="t2k.newchar.rolldesc" /></span></td>
+					<td style="display:none;"></td>	<!-- Required to keep the nth-child css working -->	
 							
 					<td><s:text name="t2k.newchar.namefield" /></td>
 					<td><s:textfield name="abc" /></td>
