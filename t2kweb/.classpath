@@ -16,5 +16,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/t2kapp"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/swdao"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/swapp"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
