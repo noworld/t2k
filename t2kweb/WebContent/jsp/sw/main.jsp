@@ -20,24 +20,5 @@
 
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
- 	
-<div class="header">
-	<s:text name="%{#headerText}" />
-</div>
 
-<div class="spacer"></div>
-
-<!-- This will throw an exception if devMode == true due to invalid session -->
-<s:if test="#session.LoggedIn">
-	<div class="menu">
-		<ul class="menubar">
-			<li><a href="<s:url action="Main" />"><s:text name="t2k.menu.hometext" /></a></li>
-			<li>|</li>
-			<li><a href="<s:url action="Logout" />"><s:text name="t2k.menu.logouttext" /></a></li>
-		</ul>
-	</div>
-
-	
-</s:if>
-
-
+HELLO MAIN

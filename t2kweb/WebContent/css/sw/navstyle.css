@@ -1,0 +1,128 @@
+/*
+	©2016 ARPANET.RED
+	
+	All rights reserved.
+	
+	* No Warranty * 
+		1.1. "As-Is".
+			The Software is provided "as is,"
+			with all faults, defects and errors, and without
+			warranty of any kind.
+			
+		1.2. No Liability.
+			Licensor does not warrant that
+			the Software will be free of bugs, errors, viruses
+			or other defects, and Licensor shall have no
+			liability of any kind for the use of or inability
+			to use the software, the software content or any
+			associated service.
+*/
+
+
+
+/*
+GOOGLE FONTS
+font-family: 'Permanent Marker', cursive;
+font-family: 'Cedarville Cursive', cursive;
+font-family: 'Contrail One', cursive;
+font-family: 'Crimson Text', serif;
+
+COLORS
+light gray: #f5f5f0
+light green: #ccffcc
+white: GhostWhite
+T2K Yellow: DarkKhaki
+T2K Medium Blue: FireBrick
+T2K Dark Blue: Maroon
+*/
+
+.leftnav {			
+	font-family: 'Crimson Text', serif;
+	font-size: 24px;	
+	background-color: DarkKhaki;
+	border-color: FireBrick;
+	border-style: double none double none;
+	position: absolute;
+	left: 45px;
+	min-width: 130px;
+	padding: 0;
+	margin: 0;
+	z-index: 2;
+}
+
+.leftnav ul {
+	padding: 0;
+	margin: 0;
+}
+
+
+.leftnav ul li {
+	list-style-type: none;
+	margin: 5px;
+}
+
+.collapsebox {
+	content: "";
+	position: absolute;
+	right: 5px;
+	top: 0.25em;
+	width: 1em;
+	height: 0.15em;
+	background: Maroon;
+	box-shadow: 0 0.25em 0 0 Maroon, 0 0.5em 0 0 Maroon;
+}
+
+.leftnav ul li a:LINK {
+	text-decoration: none;
+	color: black;
+}
+
+.leftnav ul li a:VISITED {
+	text-decoration: none;
+	color: black;
+}
+
+.leftnav ul li a:HOVER {
+	text-decoration: underline;
+	color: FireBrick;	
+}
+
+#leftNavCollapse {
+	position: absolute;
+	top:0;
+	right: 0;
+	min-height: 30px;
+	min-width: 30px;
+	background-color: DarkKhaki;
+}
+
+#leftbar {
+	position:absolute;
+	width: 25px;
+	height: 150%;
+	top: 0;
+	left: 85px;
+	z-index: -10;
+	background-color: none;
+	border-color: FireBrick;
+	border-width: 0 20px 0 20px;
+	border-style: solid;
+	
+}
+
+#leftNavMenuTitle {
+	position: absolute;
+	display:none;
+	color: Black;
+	background-color: DarkKhaki;
+	font-size: 18px;
+	left: 5px;
+	top: 0px;
+	width: 100px;	
+	height: 30px;
+}
+
+#leftNavMenuTitle:HOVER {
+	text-decoration: underline;
+	cursor: pointer;
+}

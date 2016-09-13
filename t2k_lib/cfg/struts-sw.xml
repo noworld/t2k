@@ -7,6 +7,22 @@
 
 	<package name="sw-web" extends="rpg-web" namespace="/">
 	
+		<global-results>
+			<result name="error" type="tiles">SW-Error</result>		
+		</global-results>
+	
+		<action name="SW-Main" class="red.arpanet.sw.web.actions.MainAction">
+			<result name="input" type="tiles">SW-Main</result>
+			<result name="success" type="tiles">SW-Main</result>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>
+		
+		<action name="SW-Profile" class="red.arpanet.t2k.web.actions.ProfileAction">
+			<result name="input" type="tiles">SW-Profile</result>
+			<result name="success" type="tiles">SW-Profile</result>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</action>
+		
 	</package>
 
 </struts>

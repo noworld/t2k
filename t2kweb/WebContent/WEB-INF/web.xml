@@ -24,7 +24,7 @@
 
 	<context-param>
 		<param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
-		<param-value>/WEB-INF/tiles.xml</param-value>
+		<param-value>/WEB-INF/tiles.xml,/WEB-INF/tiles-sw.xml</param-value>
 	</context-param>
 	
 	<listener>

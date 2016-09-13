@@ -28,6 +28,9 @@
     	<put-attribute name="jqueryJsFile" value="js/jquery-2.1.4.min.js" /> 	
     	<put-attribute name="mainCssFile" value="css/mainstyle.css"/>        
         <put-attribute name="mainJsFile" value="js/script.js" />
+        <put-attribute name="browserTitle" type="string" value="t2k.browsertitle" />
+        <put-attribute name="browserSubTitle" type="string" value="Apocalypse Life" />
+        <put-attribute name="headerText" type="string" value="t2k.header.title" />        
         <put-attribute name="header" value="/jsp/header.jsp" />
         <put-attribute name="footer" value="/jsp/footer.jsp" />
     </definition>
@@ -41,47 +44,47 @@
     </definition>
     
     <definition name="Main" extends="leftnav">
-    	<put-attribute name="browserTitle" type="string" value="Main" />
+    	<put-attribute name="browserSubTitle" type="string" value="Main" />
     	<put-attribute name="body" value="/jsp/main.jsp"/>
  	</definition>
  	
  	<definition name="Error" extends="basepage" >
- 		<put-attribute name="browserTitle" type="string" value="Error" />
+ 		<put-attribute name="browserSubTitle" type="string" value="Error" />
  		<put-attribute name="body" value="/jsp/error.jsp"/>
  	</definition>
  	
  	<definition name="Login" extends="basepage">
- 		<put-attribute name="browserTitle" type="string" value="Login" />
+ 		<put-attribute name="browserSubTitle" type="string" value="Login" />
  		<put-attribute name="body" value="/jsp/login.jsp"/>
  	</definition>
  	
  	<definition name="Register" extends="basepage">
- 		<put-attribute name="browserTitle" type="string" value="Register" />
+ 		<put-attribute name="browserSubTitle" type="string" value="Register" />
  		<put-attribute name="body" value="/jsp/register.jsp"/>
  	</definition>
  	
  	<definition name="RegisterSuccess" extends="basepage">
- 		<put-attribute name="browserTitle" type="string" value="Success!" />
+ 		<put-attribute name="browserSubTitle" type="string" value="Success!" />
  		<put-attribute name="body" value="/jsp/registersuccess.jsp"/>
  	</definition>
  	
  	<definition name="ForgotPassword" extends="basepage">
- 		<put-attribute name="browserTitle" type="string" value="Account Recovery" />
+ 		<put-attribute name="browserSubTitle" type="string" value="Account Recovery" />
  		<put-attribute name="body" value="/jsp/forgotpassword.jsp"/>
  	</definition>
  	
  	<definition name="ForgotPasswordSuccess" extends="basepage">
- 		<put-attribute name="browserTitle" type="string" value="Success!" />
+ 		<put-attribute name="browserSubTitle" type="string" value="Success!" />
  		<put-attribute name="body" value="/jsp/forgotpasswordsuccess.jsp"/>
  	</definition>
  	
  	<definition name="SysAdmin" extends="leftnav">
-    	<put-attribute name="browserTitle" type="string" value="System Administration" />
+    	<put-attribute name="browserSubTitle" type="string" value="System Administration" />
     	<put-attribute name="body" value="/jsp/sysadmin.jsp"/>
  	</definition>
  	
  	<definition name="Invite" extends="leftnav">
- 		<put-attribute name="browserTitle" type="string" value="Send Invite" />
+ 		<put-attribute name="browserSubTitle" type="string" value="Send Invite" />
  		<put-attribute name="body" value="/jsp/invite.jsp"/>
  	</definition>
  	
@@ -91,32 +94,32 @@
  	</definition>
  	
  	<definition name="Profile" extends="leftnav">
-    	<put-attribute name="browserTitle" type="string" value="Edit Profile" />
+    	<put-attribute name="browserSubTitle" type="string" value="Edit Profile" />
     	<put-attribute name="body" value="/jsp/profile.jsp"/>
  	</definition>
  	
  	<definition name="Campaigns" extends="leftnav">
-    	<put-attribute name="browserTitle" type="string" value="My Campaigns" />
+    	<put-attribute name="browserSubTitle" type="string" value="My Campaigns" />
     	<put-attribute name="body" value="/jsp/campaigns.jsp"/>
  	</definition>
  	
  	<definition name="CharacterList" extends="leftnav">
-    	<put-attribute name="browserTitle" type="string" value="Character" />    	
+    	<put-attribute name="browserSubTitle" type="string" value="Character" />    	
     	<put-attribute name="body" value="/jsp/characterlist.jsp"/>
  	</definition>
  	
  	<definition name="Character" extends="leftnav">
-    	<put-attribute name="browserTitle" type="string" value="Character" />
+    	<put-attribute name="browserSubTitle" type="string" value="Character" />
     	<put-attribute name="pageCssFile" value="css/charstyle.css"/>
     	<put-attribute name="pageJsFile" value="js/char.js"/>
     	<put-attribute name="body" value="/jsp/character.jsp"/>
  	</definition>
  	
  	<definition name="NewCharacter" extends="leftnav">
-    	<put-attribute name="browserTitle" type="string" value="Character" />
+    	<put-attribute name="browserSubTitle" type="string" value="Character" />
     	<put-attribute name="pageCssFile" value="css/charstyle.css"/>
     	<put-attribute name="pageJsFile" value="js/newchar.js"/>
-    	<put-attribute name="body" value="/jsp/newcharacter.jsp"/>
+    	<put-attribute name="body" value="/jsp/t2k/newcharacter.jsp"/>
  	</definition>
  	
 </tiles-definitions>

@@ -23,7 +23,13 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <s:set var="debugMode" value="%{getText('t2k.debugmode')}" />
-
+<s:set var="title">
+	<tiles:getAsString name="browserTitle"/>
+</s:set>
+<s:set var="headerText">
+	<tiles:getAsString name="headerText"/>
+</s:set>
+ 	
 <head>
 	<meta name="robots" content="noindex,nofollow" />
 	<meta http-equiv="cache-control" content="max-age=0" />
@@ -32,7 +38,7 @@
 	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 	<meta http-equiv="pragma" content="no-cache" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title><s:text name="t2k.browsertitle" />: <tiles:getAsString name="browserTitle"/></title>
+	<title><s:text name="%{#title}"/>: <tiles:getAsString name="browserSubTitle"/></title>
 	<link rel="icon" type="image/png" href="favicon.ico" ></link>
 	<link rel="stylesheet" href="<tiles:getAsString name="googleFonts"/>" ></link>	
 	<link rel="stylesheet" href="<tiles:getAsString name="mainCssFile"/>" type="text/css"></link>

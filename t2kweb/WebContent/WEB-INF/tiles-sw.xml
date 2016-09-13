@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+	©2016 ARPANET.RED
+	
+	All rights reserved.
+	
+	* No Warranty * 
+		1.1. "As-Is".
+			The Software is provided "as is,"
+			with all faults, defects and errors, and without
+			warranty of any kind.
+			
+		1.2. No Liability.
+			Licensor does not warrant that
+			the Software will be free of bugs, errors, viruses
+			or other defects, and Licensor shall have no
+			liability of any kind for the use of or inability
+			to use the software, the software content or any
+			associated service.
+-->
+
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"        
+    "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<definition name="sw-basepage" template="/jsp/layout.jsp">   
+    	<put-attribute name="googleFonts" value="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Contrail+One|Crimson+Text|Permanent+Marker" />
+    	<put-attribute name="jqueryJsFile" value="js/jquery-2.1.4.min.js" /> 	
+    	<put-attribute name="mainCssFile" value="css/sw/mainstyle.css"/>        
+        <put-attribute name="mainJsFile" value="js/script.js" />
+        <put-attribute name="browserTitle" type="string" value="sw.browsertitle" />
+        <put-attribute name="browserSubTitle" type="string" value="Fast, Furious, Fun!" />
+        <put-attribute name="headerText" type="string" value="sw.header.title" />  
+        <put-attribute name="header" value="/jsp/header.jsp" />
+        <put-attribute name="footer" value="/jsp/footer.jsp" />
+    </definition>
+    
+    <definition name="sw-leftnav" extends="sw-basepage" template="/jsp/leftnavlayout.jsp">
+    	<put-attribute name="leftnavbar" value="/jsp/sw/leftnavbar.jsp" />
+    	<put-attribute name="navCssFile" value="css/sw/navstyle.css"/>
+    	<put-attribute name="navJsFile" value="js/leftnav.js" />
+    	<put-attribute name="pageCssFile" value=""/>
+    	<put-attribute name="pageJsFile" value=""/>
+    </definition>
+	
+    <definition name="SW-Main" extends="sw-leftnav">
+    	<put-attribute name="browserSubTitle" type="string" value="Main" />
+    	<put-attribute name="body" value="/jsp/sw/main.jsp"/>
+ 	</definition>
+ 	
+ 	<definition name="SW-Error" extends="sw-basepage" >
+ 		<put-attribute name="browserSubTitle" type="string" value="Error" />
+ 		<put-attribute name="body" value="/jsp/error.jsp"/>
+ 	</definition>
+ 	
+ 	<definition name="SW-Profile" extends="sw-leftnav">
+    	<put-attribute name="browserSubTitle" type="string" value="Edit Profile" />
+    	<put-attribute name="body" value="/jsp/profile.jsp"/>
+ 	</definition>
+ 	
+</tiles-definitions>

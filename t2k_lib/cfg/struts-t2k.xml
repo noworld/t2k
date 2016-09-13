@@ -6,32 +6,6 @@
 <struts>
 
 	<package name="t2k-web" extends="rpg-web" namespace="/">
-
-		<!-- 
-		***************
-		ACTIONS SECTION
-		***************
-		-->		
-		
-		<action name="ShowLogin" class="red.arpanet.t2k.web.actions.LoginAction" method="show">
-			<result name="input" type="tiles">Login</result>
-			<result name="login" type="tiles">Login</result>
-			<result name="success" type="tiles">Login</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
-		
-		<action name="Login" class="red.arpanet.t2k.web.actions.LoginAction">
-			<result name="input" type="tiles">Login</result>
-			<result name="login" type="tiles">Login</result>
-			<result name="success" type="redirectAction">Main</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
-		
-		<action name="Logout" class="red.arpanet.t2k.web.actions.LogoutAction">
-			<result name="login" type="tiles">Login</result>
-			<result name="success" type="tiles">Login</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
 		
 		<action name="Register" class="red.arpanet.t2k.web.actions.RegisterAction">
 			<interceptor-ref name="t2kTokenStack" />    	
