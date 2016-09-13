@@ -14,8 +14,11 @@
 	<!-- example of configuration for wildcards-->
  	<constant name="struts.enable.SlashesInActionNames" value="true" />
     <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
+    
+    <include file="struts-t2k.xml"/>
+    <include file="struts-sw.xml"/>
 
-	<package name="t2kweb" extends="struts-default" namespace="/">
+	<package name="rpg-web" extends="struts-default" namespace="/">
 
 		<result-types>
 			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
@@ -54,118 +57,10 @@
 		<global-exception-mappings>
 			<exception-mapping exception="java.lang.Exception" result="error" />
 		</global-exception-mappings>
-
-		<!-- 
-		***************
-		ACTIONS SECTION
-		***************
-		-->		
-		
-		<action name="ShowLogin" class="red.arpanet.t2k.web.actions.LoginAction" method="show">
-			<result name="input" type="tiles">Login</result>
-			<result name="login" type="tiles">Login</result>
-			<result name="success" type="tiles">Login</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
-		
-		<action name="Login" class="red.arpanet.t2k.web.actions.LoginAction">
-			<result name="input" type="tiles">Login</result>
-			<result name="login" type="tiles">Login</result>
-			<result name="success" type="redirectAction">Main</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
-		
-		<action name="Logout" class="red.arpanet.t2k.web.actions.LogoutAction">
-			<result name="login" type="tiles">Login</result>
-			<result name="success" type="tiles">Login</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
-		
-		<action name="Register" class="red.arpanet.t2k.web.actions.RegisterAction">
-			<interceptor-ref name="t2kTokenStack" />    	
-			<result name="input" type="tiles">Register</result>
-			<result name="success" type="tiles">RegisterSuccess</result>
-			<result name="invalid.token" type="tiles">Register</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
-		
-		<action name="ShowInvite" class="red.arpanet.t2k.web.actions.InviteAction" method="show">
-			<result name="input" type="tiles">Invite</result>
-			<result name="success" type="tiles">Invite</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>		
-		
-		<action name="Invite" class="red.arpanet.t2k.web.actions.InviteAction">
-			<result name="input" type="tiles">Invite</result>
-			<result name="success" type="tiles">InviteSuccess</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
-		
-		<action name="ShowForgotPassword" class="red.arpanet.t2k.web.actions.ForgotPasswordAction" method="show">
-			<result name="input" type="tiles">ForgotPassword</result>
-			<result name="success" type="tiles">ForgotPassword</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
-		
-		<action name="ForgotPassword" class="red.arpanet.t2k.web.actions.ForgotPasswordAction">
-			<interceptor-ref name="t2kTokenStack" />
-			<result name="input" type="tiles">ForgotPassword</result>
-			<result name="success" type="tiles">ForgotPasswordSuccess</result>
-			<result name="invalid.token" type="tiles">ForgotPassword</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
-		
-		<action name="SysAdmin" class="red.arpanet.t2k.web.actions.SysAdminAction">
-			<result name="input" type="tiles">SysAdmin</result>
-			<result name="success" type="tiles">SysAdmin</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
-		
-		<action name="Main" class="red.arpanet.t2k.web.actions.MainAction">
-			<result name="input" type="tiles">Main</result>
-			<result name="success" type="tiles">Main</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
-		
-		<action name="Profile" class="red.arpanet.t2k.web.actions.ProfileAction">
-			<result name="input" type="tiles">Profile</result>
-			<result name="success" type="tiles">Profile</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
-		
-		<action name="Campaigns" class="red.arpanet.t2k.web.actions.CampaignAction">
-			<result name="input" type="tiles">Campaigns</result>
-			<result name="success" type="tiles">Campaigns</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
-		
-		<action name="Characters" class="red.arpanet.t2k.web.actions.CharacterListAction">
-			<result name="input" type="tiles">CharacterList</result>
-			<result name="success" type="tiles">CharacterList</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
-		
-		<action name="ShowNewCharacter" class="red.arpanet.t2k.web.actions.NewCharacterAction" method="show">
-			<result name="input" type="tiles">NewCharacter</result>
-			<result name="success" type="tiles">NewCharacter</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>	
-		
-		<action name="NewCharacter" class="red.arpanet.t2k.web.actions.NewCharacterAction">
-			<result name="input" type="tiles">NewCharacter</result>
-			<result name="success" type="tiles">NewCharacter</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>		
-		
-		<action name="Character" class="red.arpanet.t2k.web.actions.CharacterAction">
-			<result name="input" type="tiles">Character</result>
-			<result name="success" type="tiles">Character</result>
-			<exception-mapping result="error" exception="java.lang.Exception" />
-		</action>
 		
 	</package>
 	
-	<package name="t2kjson" extends="json-default" namespace="/json">
+	<package name="rpg-json" extends="json-default" namespace="/json">
 	
 		<result-types>
 			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
