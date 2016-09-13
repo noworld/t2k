@@ -6,6 +6,7 @@
 		<project>t2kdao</project>
 		<project>t2kapp</project>
 		<project>swdao</project>
+		<project>swapp</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

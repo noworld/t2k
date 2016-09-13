@@ -18,18 +18,26 @@
 			associated service.
 */
 
-package red.arpanet.sw.valueobjects;
+package red.arpanet.sw.valueobjects.newcharacter;
 
 import java.util.Date;
 import java.util.Set;
+
+import red.arpanet.sw.valueobjects.Attribute;
+import red.arpanet.sw.valueobjects.Edge;
+import red.arpanet.sw.valueobjects.Hindrance;
+import red.arpanet.sw.valueobjects.Skill;
 
 public class NewCharacter {
 
 	protected int id;
 	protected String name;
 	protected String desc;
+	protected int gender;
 	protected Set<Attribute> attributes;
 	protected Set<Skill> skills;
+	protected Set<Edge> edges;
+	protected Set<Hindrance> hindrances;
 	protected Date creationDate;
 	protected Date updateDate;
 
@@ -57,6 +65,14 @@ public class NewCharacter {
 		this.desc = desc;
 	}
 
+	public int getGender() {
+		return gender;
+	}
+
+	public void setGender(int gender) {
+		this.gender = gender;
+	}
+
 	public Set<Attribute> getAttributes() {
 		return attributes;
 	}
@@ -71,6 +87,22 @@ public class NewCharacter {
 
 	public void setSkills(Set<Skill> skills) {
 		this.skills = skills;
+	}
+
+	public Set<Edge> getEdges() {
+		return edges;
+	}
+
+	public void setEdges(Set<Edge> edges) {
+		this.edges = edges;
+	}
+
+	public Set<Hindrance> getHindrances() {
+		return hindrances;
+	}
+
+	public void setHindrances(Set<Hindrance> hindrances) {
+		this.hindrances = hindrances;
 	}
 
 	public Date getCreationDate() {

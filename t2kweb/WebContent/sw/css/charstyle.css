@@ -22,19 +22,18 @@
 
 /*
 GOOGLE FONTS
-font-family: 'Stardos Stencil', cursive;
-font-family: 'Arimo', sans-serif;
-font-family: 'Fjalla One', sans-serif;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Cedarville Cursive', cursive;
+font-family: 'Contrail One', cursive;
+font-family: 'Crimson Text', serif;
 
 COLORS
 light gray: #f5f5f0
 light green: #ccffcc
 white: GhostWhite
-T2K Yellow: #F0ab55
-T2K Medium Blue: #1580bf
-T2K Dark Blue: #126ca1
-T2K Darker Blue: #0d4d73
-Flat Form Button Color: Gray/light green
+T2K Yellow: DarkKhaki
+T2K Medium Blue: FireBrick
+T2K Dark Blue: Maroon
 */
 
 .char_sheet {
@@ -77,7 +76,7 @@ Flat Form Button Color: Gray/light green
 	vertical-align: bottom;
 	font-family: 'Fjalla One', sans-serif;
 	font-size: 24px;
-	color: #126ca1;
+	color: Maroon;
 	width: 100%;
 	margin: 0;
 	text-align: right;
@@ -92,7 +91,7 @@ Flat Form Button Color: Gray/light green
 .char_menubar li a:LINK {
 	font-style: normal;
 	text-decoration: none;
-	color: #126ca1;
+	color: Maroon;
 	border: 1px;
 	padding: 5px;
 	border-color: gray;
@@ -102,12 +101,12 @@ Flat Form Button Color: Gray/light green
 .char_menubar li a:VISITED {
 	font-style: normal;
 	text-decoration: none;
-	color: #126ca1;
+	color: Maroon;
 }
 
 .char_menubar li a:HOVER {	
 	background-color: #ccffcc;
-	color: #1580bf;
+	color: FireBrick;
 	text-decoration: underline;
 }
 

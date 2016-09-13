@@ -11,6 +11,9 @@
         <dependent-module archiveName="swdao.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/swdao/swdao">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="swapp.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/swapp/swapp">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/t2kweb/build/classes"/>
         <property name="context-root" value="t2k"/>
     </wb-module>

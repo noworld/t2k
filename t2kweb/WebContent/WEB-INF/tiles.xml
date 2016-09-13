@@ -119,7 +119,7 @@
     	<put-attribute name="browserSubTitle" type="string" value="Character" />
     	<put-attribute name="pageCssFile" value="css/charstyle.css"/>
     	<put-attribute name="pageJsFile" value="js/newchar.js"/>
-    	<put-attribute name="body" value="/jsp/t2k/newcharacter.jsp"/>
+    	<put-attribute name="body" value="/jsp/newcharacter.jsp" />
  	</definition>
  	
 </tiles-definitions>

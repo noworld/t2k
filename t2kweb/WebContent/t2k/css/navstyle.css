@@ -1,0 +1,121 @@
+/*
+	©2016 ARPANET.RED
+	
+	All rights reserved.
+	
+	* No Warranty * 
+		1.1. "As-Is".
+			The Software is provided "as is,"
+			with all faults, defects and errors, and without
+			warranty of any kind.
+			
+		1.2. No Liability.
+			Licensor does not warrant that
+			the Software will be free of bugs, errors, viruses
+			or other defects, and Licensor shall have no
+			liability of any kind for the use of or inability
+			to use the software, the software content or any
+			associated service.
+*/
+
+
+
+/*
+GOOGLE FONTS
+font-family: 'Stardos Stencil', cursive;
+font-family: 'Arimo', sans-serif;
+font-family: 'Fjalla One', sans-serif;
+
+COLORS
+light gray: #f5f5f0
+light green: #ccffcc
+white: GhostWhite
+T2K Yellow: #F0ab55
+T2K Medium Blue: #1580bf
+T2K Dark Blue: #126ca1
+T2K Darker Blue: #0d4d73
+*/
+
+.leftnav {			
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 24px;	
+	background-color: #F0ab55;
+	border-color: #1580bf;
+	border-style: double none double none;
+	position: absolute;
+	left: 45px;
+	min-width: 130px;
+	padding: 0;
+	margin: 0;
+	z-index: 2;
+}
+
+.leftnav ul {
+	padding: 0;
+	margin: 0;
+}
+
+
+.leftnav ul li {
+	list-style-type: none;
+	margin: 5px;
+}
+
+.collapsebox {
+	content: "";
+	position: absolute;
+	right: 5px;
+	top: 0.25em;
+	width: 1em;
+	height: 0.15em;
+	background: #126ca1;
+	box-shadow: 0 0.25em 0 0 #126ca1, 0 0.5em 0 0 #126ca1;
+}
+
+.leftnav ul li a:LINK {
+	text-decoration: none;
+	color: black;
+}
+
+.leftnav ul li a:VISITED {
+	text-decoration: none;
+	color: black;
+}
+
+.leftnav ul li a:HOVER {
+	text-decoration: underline;
+	color: #1580bf;	
+}
+
+#leftNavCollapse {
+	position: absolute;
+	top:0;
+	right: 0;
+	min-height: 30px;
+	min-width: 30px;
+}
+
+#leftbar {
+	position:absolute;
+	width: 120px;
+	height: 150%;
+	top: 0;
+	left: 50px;
+	z-index: -1;
+	background-color: #1580bf;
+	color: #126ca1;
+}
+
+#leftNavMenuTitle {
+	position: absolute;
+	display:none;
+	color: #F0ab55;
+	font-size: 18px;
+	left: 10px;
+	top: 5px;
+}
+
+#leftNavMenuTitle:HOVER {
+	text-decoration: underline;
+	cursor: pointer;
+}

@@ -9,7 +9,7 @@
 			with all faults, defects and errors, and without
 			warranty of any kind.
 			
-		1.2. No Liability.
+		1.1. No Liability.
 			Licensor does not warrant that
 			the Software will be free of bugs, errors, viruses
 			or other defects, and Licensor shall have no
@@ -18,22 +18,8 @@
 			associated service.
 */
 
+package red.arpanet.sw.valueobjects;
 
-package red.arpanet.sw.web.actions;
-
-import red.arpanet.t2k.annotations.RequiresAuthentication;
-import red.arpanet.t2k.util.CopyrightArpanet;
-
-@CopyrightArpanet
-@RequiresAuthentication
-public class MainAction extends SwBaseAction {
-
-	private static final long serialVersionUID = 1L;
-	
-	public String execute() {
-
-		return SUCCESS;
-	
-	}
+public class Edge {
 
 }

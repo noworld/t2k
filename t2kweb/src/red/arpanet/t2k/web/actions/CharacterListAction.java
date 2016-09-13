@@ -23,10 +23,12 @@ package red.arpanet.t2k.web.actions;
 
 import org.apache.log4j.Logger;
 
+import red.arpanet.t2k.annotations.RequiresAuthentication;
 import red.arpanet.t2k.util.CopyrightArpanet;
 import static red.arpanet.t2k.util.LogUtil.t;
 
 @CopyrightArpanet
+@RequiresAuthentication
 public class CharacterListAction extends BaseAction {
 	
 	private static final Logger LOG = Logger.getLogger(CharacterListAction.class);

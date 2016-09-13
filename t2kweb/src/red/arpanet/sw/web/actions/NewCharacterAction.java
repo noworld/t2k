@@ -20,16 +20,27 @@
 
 
 package red.arpanet.sw.web.actions;
-
+       
+import red.arpanet.sw.valueobjects.newcharacter.NewCharacter;
 import red.arpanet.t2k.annotations.RequiresAuthentication;
 import red.arpanet.t2k.util.CopyrightArpanet;
 
 @CopyrightArpanet
 @RequiresAuthentication
-public class MainAction extends SwBaseAction {
-
+public class NewCharacterAction extends SwBaseAction {
+	
 	private static final long serialVersionUID = 1L;
 	
+	protected NewCharacter character;
+		
+	public NewCharacter getCharacter() {
+		return character;
+	}
+
+	public void setCharacter(NewCharacter character) {
+		this.character = character;
+	}
+
 	public String execute() {
 
 		return SUCCESS;

@@ -29,11 +29,13 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 
+import red.arpanet.t2k.annotations.RequiresAuthentication;
 import red.arpanet.t2k.controllers.EnumeratedValueController;
 import red.arpanet.t2k.util.CopyrightArpanet;
 import red.arpanet.t2k.valueobjects.newcharacter.NewCharacter;
 
 @CopyrightArpanet
+@RequiresAuthentication
 public class NewCharacterAction extends BaseAction {
 	
 	private static final Logger LOG = Logger.getLogger(NewCharacterAction.class);
