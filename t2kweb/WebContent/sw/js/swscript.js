@@ -25,14 +25,10 @@ function formatSavageWorldsTitle() {
 				for(var i = 0; i < text.length; i++) {
 					var item = $("<span />",{
 						text : text.charAt(i),						
-						style :"font-size:" + (size - (i * 3)) + "px;" +
-								"padding-top: " + (i * 20) + "px;" +
-								"vertical-align: top;" +								
-								"color: FireBrick;" + 
-								"text-shadow: -2px 3px 0px rgba(0, 0, 0, 1);"
-								
+						style :"font-size:" + (size - (i * 3)) + "px;"																
 					});
 					
+					item.addClass("title_letter");
 					items.push(item);
 				}
 								

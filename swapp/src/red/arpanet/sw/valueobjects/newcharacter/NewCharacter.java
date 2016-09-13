@@ -32,7 +32,7 @@ public class NewCharacter {
 
 	protected int id;
 	protected String name;
-	protected String desc;
+	protected String description;
 	protected int gender;
 	protected Set<Attribute> attributes;
 	protected Set<Skill> skills;
@@ -57,12 +57,12 @@ public class NewCharacter {
 		this.name = name;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public int getGender() {

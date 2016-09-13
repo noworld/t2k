@@ -204,3 +204,10 @@ select {
 	/* Internet Explorer */
 	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
  }
+ 
+ .title_letter {
+ 	vertical-align: top;								
+	color: FireBrick; 
+	text-shadow: -3px 4px 0px rgba(0, 0, 0, 1);
+	margin-left: 2px;
+}

@@ -34,32 +34,44 @@
 				<s:text name="sw.newchar.title" />
 			</div>
 			
-			<div class="char_sheet_left">
-				<table class="form_table">
+		<div class="char_sheet_left">
+			<table class="form_table">
 				
 				<tr>
-					<td><s:text name="t2k.newchar.namefield" /></td>
+					<td><s:text name="sw.newchar.namefield" /></td>
 					<td><s:textfield name="character.name" /></td>
 	
 				</tr>
 				
 				<s:if test="hasFieldErrors()">
-				<tr>
-					<td colspan="6"><s:fielderror /></td>
-				</tr>
+					<tr>
+						<td colspan="2"><s:fielderror /></td>
+					</tr>
 				</s:if>
 				<s:if test="hasActionMessages()">
-				<tr>
-					<td colspan="6"><s:actionmessage /></td>
-				</tr>
+					<tr>
+						<td colspan="2"><s:actionmessage /></td>
+					</tr>
 				</s:if>
 				<s:if test="hasActionErrors()">
-				<tr>
-					<td colspan="6"><s:actionerror /></td>
-				</tr>
+					<tr>
+						<td colspan="2"><s:actionerror /></td>
+					</tr>
 				</s:if>
 			</table>
-			</div>
+		</div>
+		
+		<div class="char_sheet_left">
+			<table class="form_table">
+				
+				<tr>
+					<td><s:text name="sw.newchar.descfield" /></td>
+					<td><s:textfield name="character.description" /></td>
+	
+				</tr>
+
+			</table>
+		</div>
 			
 		</div>
 		

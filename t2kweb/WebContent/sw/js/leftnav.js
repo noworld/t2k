@@ -8,6 +8,7 @@ function hideLeftNavMenu() {
 		});
 	$("#leftNavCollapse").off("click");
 	$("#leftNavCollapse").on("click",showLeftNavMenu);
+	$(".collapsebox").addClass("collapsebox_right");
 	setCookie("leftNavCollapse","collapse",1);
 }
 
@@ -19,6 +20,7 @@ function showLeftNavMenu() {
 		});
 	$("#leftNavCollapse").off("click");
 	$("#leftNavCollapse").on("click",hideLeftNavMenu);
+	$(".collapsebox").removeClass("collapsebox_right");
 	setCookie("leftNavCollapse","expand",1);
 }
 
@@ -33,11 +35,13 @@ $(function() {
 		$("#leftNavCollapse").on("click",showLeftNavMenu);
 		$("#leftNavMenuTitle").off("click");
 		$("#leftNavMenuTitle").on("click",showLeftNavMenu);
+		$(".collapsebox").addClass("collapsebox_right");
 		
 		setCookie("leftNavCollapse","collapse");
 	} else {
 		$("#leftNavCollapse").bind("click",hideLeftNavMenu);
 		$("#leftNavMenuTitle").bind("click",showLeftNavMenu);
+		$(".collapsebox").removeClass("collapsebox_right");
 		setCookie("leftNavCollapse","expand");
 	}
 });

@@ -44,7 +44,7 @@ T2K Dark Blue: Maroon
 	border-style: double none double none;
 	position: absolute;
 	left: 45px;
-	min-width: 130px;
+	min-width: 170px;
 	padding: 0;
 	margin: 0;
 	z-index: 2;
@@ -64,12 +64,27 @@ T2K Dark Blue: Maroon
 .collapsebox {
 	content: "";
 	position: absolute;
-	right: 5px;
+	right: 0;
 	top: 0.25em;
-	width: 1em;
+	width: 0.75em;
 	height: 0.15em;
 	background: Maroon;
 	box-shadow: 0 0.25em 0 0 Maroon, 0 0.5em 0 0 Maroon;
+}
+
+.collapsebox_right {	
+	right: 65px;
+}
+
+#leftNavCollapse {
+	position: absolute;
+	top:0;
+	right: 0;
+	min-height: 30px;
+	min-width: 30px;
+	background-color: transparent;
+	border: none;
+	z-index: 0;
 }
 
 .leftnav ul li a:LINK {
@@ -85,15 +100,6 @@ T2K Dark Blue: Maroon
 .leftnav ul li a:HOVER {
 	text-decoration: underline;
 	color: FireBrick;	
-}
-
-#leftNavCollapse {
-	position: absolute;
-	top:0;
-	right: 0;
-	min-height: 30px;
-	min-width: 30px;
-	background-color: DarkKhaki;
 }
 
 #leftbar {
@@ -116,10 +122,12 @@ T2K Dark Blue: Maroon
 	color: Black;
 	background-color: DarkKhaki;
 	font-size: 18px;
-	left: 5px;
+	left: 38px;
 	top: 0px;
 	width: 100px;	
 	height: 30px;
+	margin-bottom: 5px;
+	padding-top: 5px;
 }
 
 #leftNavMenuTitle:HOVER {
