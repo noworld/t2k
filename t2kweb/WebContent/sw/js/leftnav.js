@@ -4,11 +4,11 @@ function hideLeftNavMenu() {
 	$("#leftNavList").slideUp(400, function(){
 			$("#leftNavMenu").css("border-style", "none");
 			$("#leftNavList").hide();
-			$("#leftNavMenuTitle").show();				
+			$("#leftNavMenuTitle").show();
+			$(".collapsebox").addClass("collapsebox_right");
 		});
 	$("#leftNavCollapse").off("click");
-	$("#leftNavCollapse").on("click",showLeftNavMenu);
-	$(".collapsebox").addClass("collapsebox_right");
+	$("#leftNavCollapse").on("click",showLeftNavMenu);	
 	setCookie("leftNavCollapse","collapse",1);
 }
 

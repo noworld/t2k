@@ -44,7 +44,7 @@ T2K Darker Blue: #0d4d73
 	border-style: double none double none;
 	position: absolute;
 	left: 45px;
-	min-width: 130px;
+	min-width: 170px;
 	padding: 0;
 	margin: 0;
 	z-index: 2;
@@ -64,12 +64,16 @@ T2K Darker Blue: #0d4d73
 .collapsebox {
 	content: "";
 	position: absolute;
-	right: 5px;
+	right: 0;
 	top: 0.25em;
 	width: 1em;
 	height: 0.15em;
 	background: #126ca1;
 	box-shadow: 0 0.25em 0 0 #126ca1, 0 0.5em 0 0 #126ca1;
+}
+
+.collapsebox_right {	
+	right: 45px;
 }
 
 .leftnav ul li a:LINK {
@@ -113,6 +117,7 @@ T2K Darker Blue: #0d4d73
 	font-size: 18px;
 	left: 10px;
 	top: 5px;
+	width: 120px;
 }
 
 #leftNavMenuTitle:HOVER {

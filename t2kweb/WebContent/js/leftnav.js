@@ -5,6 +5,7 @@ function hideLeftNavMenu() {
 			$("#leftNavMenu").css("border-style", "none");
 			$("#leftNavList").hide();
 			$("#leftNavMenuTitle").show();				
+			$(".collapsebox").addClass("collapsebox_right");
 		});
 	$("#leftNavCollapse").off("click");
 	$("#leftNavCollapse").on("click",showLeftNavMenu);
@@ -15,7 +16,8 @@ function showLeftNavMenu() {
 	$("#leftNavMenuTitle").hide();
 	$("#leftNavMenu").css("border-style", "double none double none");
 	$("#leftNavList").slideDown(400, function(){			
-			$("#leftNavList").show();			
+			$("#leftNavList").show();		
+			$(".collapsebox").removeClass("collapsebox_right");
 		});
 	$("#leftNavCollapse").off("click");
 	$("#leftNavCollapse").on("click",hideLeftNavMenu);
@@ -33,11 +35,13 @@ $(function() {
 		$("#leftNavCollapse").on("click",showLeftNavMenu);
 		$("#leftNavMenuTitle").off("click");
 		$("#leftNavMenuTitle").on("click",showLeftNavMenu);
+		$(".collapsebox").addClass("collapsebox_right");
 		
 		setCookie("leftNavCollapse","collapse");
 	} else {
 		$("#leftNavCollapse").bind("click",hideLeftNavMenu);
 		$("#leftNavMenuTitle").bind("click",showLeftNavMenu);
+		$(".collapsebox").removeClass("collapsebox_right");
 		setCookie("leftNavCollapse","expand");
 	}
 });
