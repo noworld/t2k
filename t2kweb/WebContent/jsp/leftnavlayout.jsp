@@ -50,7 +50,10 @@
 	<script src="<tiles:getAsString name="jqueryJsFile"/>" type="text/javascript"></script>
 	<script src="<tiles:getAsString name="mainJsFile"/>" type="text/javascript"></script>
 	<script src="<tiles:getAsString name="navJsFile"/>" type="text/javascript"></script>
-	<s:if test="#attr['pageCssFile'] != ''">
+	<s:if test="#attr['appJsFile'] != ''">
+		<script src="<tiles:getAsString name="appJsFile"/>" type="text/javascript"></script>
+	</s:if>
+	<s:if test="#attr['pageJsFile'] != ''">
 		<script src="<tiles:getAsString name="pageJsFile"/>" type="text/javascript"></script>
 	</s:if>
 	

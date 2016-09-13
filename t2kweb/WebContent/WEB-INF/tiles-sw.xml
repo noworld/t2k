@@ -24,10 +24,13 @@
 <tiles-definitions>
 
 	<definition name="sw-basepage" template="/jsp/layout.jsp" >   
-    	<put-attribute name="googleFonts" value="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Contrail+One|Crimson+Text|Permanent+Marker" />
-    	<put-attribute name="jqueryJsFile" value="js/jquery-2.1.4.min.js" /> 	
+    	<put-attribute name="googleFonts" value="https://fonts.googleapis.com/css?family=Bangers|Contrail+One" />
+    	<put-attribute name="jqueryJsFile" value="/rpg/js/jquery-2.1.4.min.js" /> 	
     	<put-attribute name="mainCssFile" value="css/mainstyle.css"/>        
-        <put-attribute name="mainJsFile" value="js/script.js" />
+        <put-attribute name="mainJsFile" value="/rpg/js/script.js" />
+        <put-attribute name="appJsFile" value="js/swscript.js" />
+        <put-attribute name="pageCssFile" value=""/>
+    	<put-attribute name="pageJsFile" value=""/>
         <put-attribute name="browserTitle" type="string" value="sw.browsertitle" />        
         <put-attribute name="browserSubTitle" type="string" value="Fast, Furious, Fun!" />
         <put-attribute name="headerText" type="string" value="sw.header.title" />  
@@ -39,8 +42,6 @@
     	<put-attribute name="leftnavbar" value="/sw/jsp/leftnavbar.jsp" />
     	<put-attribute name="navCssFile" value="css/navstyle.css"/>
     	<put-attribute name="navJsFile" value="js/leftnav.js" />
-    	<put-attribute name="pageCssFile" value=""/>
-    	<put-attribute name="pageJsFile" value=""/>
     </definition>
     
     <definition name="SW-Error" extends="sw-basepage" >
@@ -60,13 +61,13 @@
 	
     <definition name="SW-Main" extends="sw-leftnav">
     	<put-attribute name="browserSubTitle" type="string" value="Main" />
-    	<put-attribute name="body" value="/jsp/main.jsp"/>
+    	<put-attribute name="body" value="/sw/jsp/main.jsp"/>
  	</definition> 	
  	
  	<definition name="SW-NewCharacter" extends="sw-leftnav">
     	<put-attribute name="browserSubTitle" type="string" value="New Character" />
     	<put-attribute name="pageCssFile" value="css/charstyle.css"/>
-    	<put-attribute name="body" value="/jsp/newcharacter.jsp"/>
+    	<put-attribute name="body" value="/sw/jsp/newcharacter.jsp"/>
  	</definition>
  	
 </tiles-definitions>

@@ -28,6 +28,9 @@
     	<put-attribute name="jqueryJsFile" value="js/jquery-2.1.4.min.js" /> 	
     	<put-attribute name="mainCssFile" value="css/mainstyle.css"/>        
         <put-attribute name="mainJsFile" value="js/script.js" />
+        <put-attribute name="appJsFile" value="js/t2kscript.js" />
+        <put-attribute name="pageCssFile" value=""/>
+    	<put-attribute name="pageJsFile" value=""/>
         <put-attribute name="browserTitle" type="string" value="t2k.browsertitle" />
         <put-attribute name="browserSubTitle" type="string" value="Apocalypse Life" />
         <put-attribute name="headerText" type="string" value="t2k.header.title" />        
@@ -39,8 +42,6 @@
     	<put-attribute name="leftnavbar" value="/jsp/leftnavbar.jsp" />
     	<put-attribute name="navCssFile" value="css/navstyle.css"/>
     	<put-attribute name="navJsFile" value="js/leftnav.js" />
-    	<put-attribute name="pageCssFile" value=""/>
-    	<put-attribute name="pageJsFile" value=""/>
     </definition>
     
     <definition name="Main" extends="leftnav">

@@ -41,9 +41,15 @@
 	<title><s:text name="%{#title}"/>: <tiles:getAsString name="browserSubTitle"/></title>
 	<link rel="icon" type="image/png" href="favicon.ico" ></link>
 	<link rel="stylesheet" href="<tiles:getAsString name="googleFonts"/>" ></link>	
-	<link rel="stylesheet" href="<tiles:getAsString name="mainCssFile"/>" type="text/css"></link>
+	<link rel="stylesheet" href="<tiles:getAsString name="mainCssFile"/>" type="text/css"></link>	
 	<script src="<tiles:getAsString name="jqueryJsFile"/>" type="text/javascript"></script>
 	<script src="<tiles:getAsString name="mainJsFile"/>" type="text/javascript"></script>
+	<s:if test="#attr['appJsFile'] != ''">
+		<script src="<tiles:getAsString name="appJsFile"/>" type="text/javascript"></script>
+	</s:if>
+	<s:if test="#attr['pageJsFile'] != ''">
+		<script src="<tiles:getAsString name="pageJsFile"/>" type="text/javascript"></script>
+	</s:if>
 </head>
 
 <body>
