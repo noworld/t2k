@@ -24,6 +24,7 @@ package red.arpanet.t2k.web.actions;
 import org.apache.log4j.Logger;
 
 import red.arpanet.t2k.util.CopyrightArpanet;
+import static red.arpanet.t2k.util.LogUtil.t;
 
 @CopyrightArpanet
 public class CharacterAction extends BaseAction {
@@ -43,7 +44,7 @@ public class CharacterAction extends BaseAction {
 	}
 
 	public String execute() {
-		
+		t(LOG,"In CharacterAction.execeute()");
 		return SUCCESS;
 	
 	}

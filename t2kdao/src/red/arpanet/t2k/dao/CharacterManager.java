@@ -35,7 +35,7 @@ import red.arpanet.t2k.dao.model.character.T2kNationality;
 import red.arpanet.t2k.dao.model.character.T2kNativeLanguage;
 import red.arpanet.t2k.dao.model.character.T2kSkill;
 
-public class CharacterManager extends BaseDaoManager  {
+public class CharacterManager extends T2kBaseDaoManager  {
 	
 	private static final Logger LOG = Logger.getLogger(CharacterManager.class);
 

@@ -46,7 +46,7 @@ import red.arpanet.t2k.util.TokenUtil;
 import red.arpanet.t2k.valueobjects.RegistrationInfo;
 
 @CopyrightArpanet
-public class UserManager extends BaseDaoManager {
+public class UserManager extends T2kBaseDaoManager {
 
 	private static final Logger LOG = Logger.getLogger(UserManager.class);
 

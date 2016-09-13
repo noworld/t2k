@@ -18,8 +18,22 @@
 			associated service.
 */
 
-package red.arpanet.t2k.dao;
+package red.arpanet.sw.dao;
 
-public class CampaignManager extends T2kBaseDaoManager  {
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
+public abstract class SwBaseDaoManager {
+
+	public static final String PERSISTENCE_UNIT_NAME = "sw_v1";
+
+	protected static final EntityManagerFactory EMF = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+	
+	protected static void closeEm(EntityManager em) {
+		if(em != null && em.isOpen()) {
+			em.close();
+		}
+	}
+	
 }

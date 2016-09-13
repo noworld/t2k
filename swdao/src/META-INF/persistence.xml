@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-
-	<persistence-unit name="t2k_v1">
+	<persistence-unit name="sw_v1">
 	
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+		
+		<class>red.arpanet.sw.dao.model.character.SwAttribute</class>
 	
-		<class>red.arpanet.t2k.dao.model.account.T2kUser</class>
-		<class>red.arpanet.t2k.dao.model.account.T2kRole</class>
-		<class>red.arpanet.t2k.dao.model.account.T2kAccountStatus</class>
-		<class>red.arpanet.t2k.dao.model.account.T2kInvite</class>
-		<class>red.arpanet.t2k.dao.model.campaign.T2kCampaign</class>
-		<class>red.arpanet.t2k.dao.model.character.T2kAttribute</class>
-		<class>red.arpanet.t2k.dao.model.character.T2kSkill</class>
-		<class>red.arpanet.t2k.dao.model.T2kEnumeratedValue</class>
-		<class>red.arpanet.t2k.dao.model.character.T2kNationality</class>
-		<class>red.arpanet.t2k.dao.model.character.T2kArmy</class>
-		<class>red.arpanet.t2k.dao.model.character.T2kSkillLevel</class>
-		<class>red.arpanet.t2k.dao.model.character.T2kRank</class>
-		<class>red.arpanet.t2k.dao.model.character.T2kCharacter</class>
-		<class>red.arpanet.t2k.dao.model.character.T2kContact</class>
-		<class>red.arpanet.t2k.dao.model.character.T2kNativeLanguage</class>
-	
-		 <properties>
+		<properties>
 
 			<property name="openjpa.ConnectionURL" value="jdbc:hsqldb:hsql://localhost:9001/t2k_v1"/>
      		<property name="openjpa.ConnectionDriverName" value="org.hsqldb.jdbcDriver"/>

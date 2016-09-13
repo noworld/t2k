@@ -31,7 +31,7 @@ import org.apache.log4j.Logger;
 
 import red.arpanet.t2k.dao.model.T2kEnumeratedValue;
 
-public class ValueManager extends BaseDaoManager  {
+public class ValueManager extends T2kBaseDaoManager  {
 	
 	private static final Logger LOG = Logger.getLogger(ValueManager.class);
 

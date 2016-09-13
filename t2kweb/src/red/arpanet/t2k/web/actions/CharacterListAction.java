@@ -24,6 +24,7 @@ package red.arpanet.t2k.web.actions;
 import org.apache.log4j.Logger;
 
 import red.arpanet.t2k.util.CopyrightArpanet;
+import static red.arpanet.t2k.util.LogUtil.t;
 
 @CopyrightArpanet
 public class CharacterListAction extends BaseAction {
@@ -33,7 +34,7 @@ public class CharacterListAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	
 	public String execute() {
-
+		t(LOG,"In CharacterListAction.execute()");
 		return SUCCESS;
 	
 	}

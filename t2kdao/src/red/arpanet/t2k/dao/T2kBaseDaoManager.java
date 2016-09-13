@@ -24,7 +24,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public abstract class BaseDaoManager {
+public abstract class T2kBaseDaoManager {
 
 	public static final String PERSISTENCE_UNIT_NAME = "t2k_v1";
 	public  static final String DEFAULT_ROLE = "newbie";
