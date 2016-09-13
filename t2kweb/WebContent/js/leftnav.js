@@ -16,11 +16,11 @@ function showLeftNavMenu() {
 	$("#leftNavMenuTitle").hide();
 	$("#leftNavMenu").css("border-style", "double none double none");
 	$("#leftNavList").slideDown(400, function(){			
-			$("#leftNavList").show();		
-			$(".collapsebox").removeClass("collapsebox_right");
+			$("#leftNavList").show();					
 		});
 	$("#leftNavCollapse").off("click");
 	$("#leftNavCollapse").on("click",hideLeftNavMenu);
+	$(".collapsebox").removeClass("collapsebox_right");
 	setCookie("leftNavCollapse","expand",1);
 }
 
