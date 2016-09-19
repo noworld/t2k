@@ -66,7 +66,7 @@
 				</tr>	
 				
 				<tr>
-					<td><s:text name="t2k.newchar.nationalityfield" /></td>
+					<td class="tabbed_row"><s:text name="t2k.newchar.nationalityfield" /></td>
 					<td><s:select
 							name="character.nationality"
 							list="nationalities"/></td>
@@ -248,12 +248,102 @@
 		<div class="char_menu">
 			<ul class="char_menubar">
 				<li>
-					<s:a href="#" id="NewCharacterSaveLink"><s:text name="t2k.char.savebutton" /></s:a>
+					<s:a href="#" id="NewCharacterSaveLink1"><s:text name="t2k.char.savebutton" /></s:a>
+				</li>
+				<li>
+					<s:a href="%{charListUrl}"><s:text name="t2k.char.cancelbutton" /></s:a>
+				</li>
+			</ul>
+			<div class="char_sheet_divider"></div>
+		</div>
+				
+		<!-- 
+		    SKILLS AND CAREERS		
+		 -->
+		<div class="char_sheet_box no_border">
+			<div class="char_sheet_left">
+				<table class="form_table">
+					
+					<tr>
+						<td><s:text name="t2k.newchar.bgskillstext" /></td>
+						<td class="bg_skill_select"><s:select name="character.bgSkill1" list="bgSkills"/>
+							<span class="bg_skill_text">&nbsp;<s:text name="t2k.newchar.plus2text"/></span></td>
+					</tr>
+					
+					<tr>
+						<td></td>
+						<td class="bg_skill_select"><s:select name="character.bgSkill2" list="bgSkills"/>
+							<span class="bg_skill_text">&nbsp;<s:text name="t2k.newchar.plus2text"/></span></td>
+					</tr>
+					
+					<tr>
+						<td></td>
+						<td class="bg_skill_select"><s:select name="character.bgSkill3" list="bgSkills"/>
+							<span class="bg_skill_text">&nbsp;<s:text name="t2k.newchar.plus2text"/></span></td>
+					</tr>
+					
+					<tr>
+						<td></td>
+						<td class="bg_skill_select"><s:select name="character.bgSkill4" list="bgSkills"/>
+							<span class="bg_skill_text">&nbsp;<s:text name="t2k.newchar.plus2text"/></span></td>
+					</tr>
+					
+					<tr>
+						<td><s:text name="t2k.newchar.careerstext" /></td>
+						<td></td>
+	
+					</tr>
+					
+					<tr>
+						<td colspan="2"><span class="career_row"></span></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="char_sheet_right">
+				<table class="form_table">
+					
+					<tr>
+						<td><s:text name="t2k.newchar.skillstext" /></td>
+						<td></td>
+					</tr>
+					
+					<tr>
+						<td>1</td>
+						<td>Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>					
+					</tr>
+					
+					<tr>
+						<td>2</td>
+						<td>B</td>
+					</tr>
+					
+					<tr>
+						<td>3</td>
+						<td>C</td>
+					</tr>
+					
+					<tr>
+						<td>4</td>
+						<td>D</td>
+					</tr>
+					
+					
+	
+				</table>
+			</div>
+		</div>
+		
+		<div class="char_menu">
+			<ul class="char_menubar">
+				<li>
+					<s:a href="#" id="NewCharacterSaveLink2"><s:text name="t2k.char.savebutton" /></s:a>
 				</li>
 				<li>
 					<s:a href="%{charListUrl}"><s:text name="t2k.char.cancelbutton" /></s:a>
 				</li>
 			</ul>
 		</div>
+
 	</s:form>
 </div>

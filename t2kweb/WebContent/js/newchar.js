@@ -11,17 +11,31 @@ var rollBoxFirstOffset = "450px";
 
 $(function() {
 	
+	addJsFiles() ;
 	bindEvents();
 	popNationalitySelect();
 	setupAttributes();
 	
 });
 
+function addJsFiles() {
+	$("head").append($("<script></script>",{
+		src: "js/chargencareers.js",
+		type: "text/javascript",
+	}));
+}
+
 function bindEvents() {
 	$("#NewCharacterForm_character_faction").on("change",changeFaction);
 	$("#NewCharacterForm_character_nationality").on("change",changeNationality);
-	$("#NewCharacterSaveLink").on("click",function(){$("#NewCharacterForm").submit();});
-	$("#AttributeReset").on("click",resetAttributes);
+	$("#NewCharacterSaveLink1").on("click",saveForm);
+	$("#NewCharacterSaveLink2").on("click",saveForm);
+	$("#AttributeReset").on("click",resetAttributes);	
+}
+
+function saveForm() {
+	$("#NewCharacterForm").submit();
+	return false;
 }
 
 function changeFaction() {
@@ -256,6 +270,26 @@ function popNativeLanguageSelect() {
 		  $("#NativeLanguagesContainer").append(items);
 		  
 		});
+}
+
+function popBgSkillsSelect() {
+	
+	$("#NewCharacterForm_character_nationality").find('option').remove().end();
+	
+	
+	var ajaxUrl = "json/CharValues?groupName=nationalities_by_id&groupVal=" + $("#NewCharacterForm_character_faction").val();
+	
+	$.getJSON(ajaxUrl, function(data) {
+		
+		  var items = [];
+		  
+		  $.each( data["values"], function(key, val) {			  
+			  items.push("<option value='" + key + "'>" + val + "</option>");			
+		  });
+		 
+		  $("#NewCharacterForm_character_nationality").append(items.join(""));
+		  
+		}).done(setSavedValues);
 }
 
 function attemptLang(id) {

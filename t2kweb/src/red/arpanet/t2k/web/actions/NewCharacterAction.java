@@ -30,6 +30,7 @@ import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import red.arpanet.t2k.annotations.RequiresAuthentication;
+import red.arpanet.t2k.controllers.CharacterController;
 import red.arpanet.t2k.controllers.EnumeratedValueController;
 import red.arpanet.t2k.util.CopyrightArpanet;
 import red.arpanet.t2k.valueobjects.newcharacter.NewCharacter;
@@ -44,6 +45,7 @@ public class NewCharacterAction extends BaseAction {
 	
 	protected static Map<Integer,String> genders = EnumeratedValueController.getGenders();
 	protected static Map<Integer,String> factions = EnumeratedValueController.getPlayableFactions();
+	protected static Map<Integer,String> bgSkills = CharacterController.getBackgroundSkills();
 	
 	protected String token;
 	protected NewCharacter character;
@@ -87,6 +89,10 @@ public class NewCharacterAction extends BaseAction {
 
 	public Map<Integer, String> getFactions() {
 		return factions;
+	}
+
+	public Map<Integer, String> getBgSkills() {
+		return bgSkills;
 	}
 
 	public Map<String, Integer> getSelectedLanguages() {

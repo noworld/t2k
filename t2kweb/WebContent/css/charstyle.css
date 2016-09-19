@@ -49,7 +49,7 @@ Flat Form Button Color: Gray/light green
 .char_sheet_box {
 	border-width: 3px;
 	border-style: solid;
-	boarder-color: black;
+	border-color: black;
 	margin: 25px;
 	max-width: 1440px;
 }
@@ -122,6 +122,9 @@ Flat Form Button Color: Gray/light green
 	padding-left: 5px;
 }
 
+.form_table td.tabbed_row {
+	padding-left: 32px;
+}
 
 #NativeLanguagesContainer {
 	float: left;
@@ -238,7 +241,28 @@ Flat Form Button Color: Gray/light green
 }
 
 .char_sheet_divider {
+	position: relative;
 	border-color: Gray;
 	border-width: 3px 0 0 0;
 	border-style: double;
+}
+
+.bg_skill_select select {
+	width: 220px;
+	font-size: smaller;
+}
+
+.bg_skill_text {
+	font-size: 14pt;
+}
+
+.career_row {
+	font-size: 14pt;
+	padding: 5px 0 5px 0;
+	margin: 5px;
+}
+
+.no_border {
+	border: none;
+	border-style: none;
 }

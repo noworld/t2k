@@ -20,6 +20,9 @@
 		<class>red.arpanet.t2k.dao.model.character.T2kCharacter</class>
 		<class>red.arpanet.t2k.dao.model.character.T2kContact</class>
 		<class>red.arpanet.t2k.dao.model.character.T2kNativeLanguage</class>
+		<class>red.arpanet.t2k.dao.model.career.T2kCareer</class>
+		<class>red.arpanet.t2k.dao.model.career.T2kSkillPackage</class>
+		<class>red.arpanet.t2k.dao.model.career.T2kSkillOption</class>
 	
 		 <properties>
 
