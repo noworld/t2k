@@ -150,7 +150,7 @@ END
 -- SKILL PACKAGES
 -- DROP PROCEDURE IF EXISTS create_skill_packages;
 -- TRUNCATE TABLE PUBLIC.T2K_SKILL_PACKAGE;
-CREATE PROCEDURE create_skill_packages()
+CREATE PROCEDURE create_skill_packages(skill_package_name VARCHAR(255))
 MODIFIES SQL DATA
 BEGIN ATOMIC
 	--Skill Option ID
@@ -165,7 +165,7 @@ BEGIN ATOMIC
 
 	--Skill Package ID
 	IF soid IS NOT NULL THEN
-		CALL create_skill_package(spid,'US Army Basic Training');
+		CALL create_skill_package(spid,skill_package_name);
 		INSERT INTO PUBLIC.T2K_SKILL_PACKAGE_T2K_SKILL_OPTION (T2KSKILLPACKAGE_ID,SKILLOPTIONS_ID) VALUES(spid,soid);
 	END IF;
 END
@@ -180,7 +180,7 @@ END
 -- Skill Options
 
 -- Skill Packages
-CALL create_skill_packages();
+CALL create_skill_packages('US Army Basic Training');
 COMMIT;
 
 
