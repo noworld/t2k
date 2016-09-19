@@ -1,14 +1,33 @@
---------------------
--- Career Tables 
---------------------
+----------------------
+-- Delete data prior
+-- to insertion
+----------------------
+DROP TABLE PUBLIC.T2K_SKILL_LEVEL;
+DROP TABLE PUBLIC.T2K_SKILL_OPTION;
+DROP TABLE PUBLIC.T2K_SKILL_PACKAGE;
+DROP TABLE PUBLIC.T2K_SKILL_PACKAGE_T2K_SKILL_OPTION;
+DROP TABLE PUBLIC.T2K_CAREER;
+DROP TABLE PUBLIC.T2K_CAREER_T2K_NATIONALITY;
 
---Delete data
+TRUNCATE TABLE PUBLIC.T2K_SKILL_LEVEL;
+TRUNCATE TABLE PUBLIC.T2K_SKILL_OPTION;
+TRUNCATE TABLE PUBLIC.T2K_SKILL_PACKAGE;
+TRUNCATE TABLE PUBLIC.T2K_SKILL_PACKAGE_T2K_SKILL_OPTION;
 TRUNCATE TABLE PUBLIC.T2K_CAREER;
+TRUNCATE TABLE PUBLIC.T2K_CAREER_T2K_NATIONALITY
+
 DROP PROCEDURE IF EXISTS create_career;
 DROP PROCEDURE IF EXISTS create_mil_career;
+DROP PROCEDURE IF EXISTS create_skill_option;
+DROP PROCEDURE IF EXISTS create_skill_package;
+DROP PROCEDURE IF EXISTS create_skill_level;
 
---Create stored procs for inserts
+-----------------------------------
+-- Create stored procs for inserts
+-----------------------------------
+
 --civilian
+--DROP PROCEDURE IF EXISTS create_career;
 CREATE PROCEDURE create_career(career_name VARCHAR(255), career_group INT) 
 MODIFIES SQL DATA
 BEGIN ATOMIC
@@ -29,6 +48,7 @@ BEGIN ATOMIC
 END
 
 --military
+--DROP PROCEDURE IF EXISTS create_mil_career;
 CREATE PROCEDURE create_mil_career(career_name VARCHAR(255), career_group INT, mil_org INT, mil_branch INT, nationality INT) 
 MODIFIES SQL DATA
 BEGIN ATOMIC
@@ -54,6 +74,116 @@ BEGIN ATOMIC
 	END IF;
 				
 END
+
+--skill level
+--DROP PROCEDURE IF EXISTS create_skill_level;
+CREATE PROCEDURE create_skill_level(INOUT skill_level_id INT, IN skill_name VARCHAR(255), IN skill_level INT)
+MODIFIES SQL DATA
+BEGIN ATOMIC
+    DECLARE id_val INT DEFAULT 0;
+    DECLARE skill_id INT DEFAULT 0;
+    
+	SET id_val = SELECT MAX(ID) FROM PUBLIC.T2K_SKILL_LEVEL;
+	
+	IF id_val IS NULL THEN
+		SET id_val = 0;
+	ELSE 
+		SET id_val = id_val + 1;
+	END IF;
+	
+	SET skill_id = SELECT ID FROM PUBLIC.T2K_SKILL s WHERE s.NAME = skill_name;
+	
+	IF skill_id IS NOT NULL THEN
+		INSERT INTO PUBLIC.T2K_SKILL_LEVEL (ID,LEVEL,SKILL_ID) VALUES (id_val,skill_level,skill_id);
+		SET skill_level_id = id_val;
+	END IF;
+
+END
+
+-- skill option
+--DROP PROCEDURE IF EXISTS create_skill_option;
+CREATE PROCEDURE create_skill_option(INOUT skill_option_id INT, skill_name VARCHAR(255), skill_level INT, optional BOOLEAN) 
+MODIFIES SQL DATA
+BEGIN ATOMIC
+    DECLARE id_val INT DEFAULT 0;
+    DECLARE skill_level_id INT DEFAULT 0;
+    
+	SET id_val = SELECT MAX(ID) FROM PUBLIC.T2K_SKILL_OPTION;
+	
+	IF id_val IS NULL THEN
+		SET id_val = 0;
+	ELSE 
+		SET id_val = id_val + 1;
+	END IF;
+	
+	SET skill_level_id = NULL;
+	
+	CALL create_skill_level(skill_level_id, skill_name, skill_level);
+	
+	IF skill_level_id IS NOT NULL THEN
+		INSERT INTO PUBLIC.T2K_SKILL_OPTION (ID,OPTIONAL,SKILLLEVEL_ID) VALUES (id_val,optional,skill_level_id);	
+		SET skill_option_id = id_val;
+	END IF;
+
+END
+
+-- single skill package
+--DROP PROCEDURE IF EXISTS create_skill_package;
+CREATE PROCEDURE create_skill_package(INOUT skill_package_id INT, skill_package_name VARCHAR(255)) 
+MODIFIES SQL DATA
+BEGIN ATOMIC
+
+	SET skill_package_id = SELECT MAX(ID) FROM PUBLIC.T2K_SKILL_PACKAGE;
+	
+	IF skill_package_id IS NULL THEN
+		SET skill_package_id = 0;
+	ELSE 
+		SET skill_package_id = skill_package_id + 1;
+	END IF;
+	
+	IF skill_package_id IS NOT NULL THEN
+		INSERT INTO PUBLIC.T2K_SKILL_PACKAGE (ID,NAME) VALUES (skill_package_id,skill_package_name);	
+	END IF;
+
+END
+
+-- SKILL PACKAGES
+-- DROP PROCEDURE IF EXISTS create_skill_packages;
+-- TRUNCATE TABLE PUBLIC.T2K_SKILL_PACKAGE;
+CREATE PROCEDURE create_skill_packages()
+MODIFIES SQL DATA
+BEGIN ATOMIC
+	--Skill Option ID
+	DECLARE soid INT;
+	-- Skill Package ID
+	DECLARE spid INT DEFAULT 0;
+	
+	SET soid = null;
+	SET spid = null;
+	
+	CALL create_skill_option(soid, 'Autogun', 0, FALSE);
+
+	--Skill Package ID
+	IF soid IS NOT NULL THEN
+		CALL create_skill_package(spid,'US Army Basic Training');
+		INSERT INTO PUBLIC.T2K_SKILL_PACKAGE_T2K_SKILL_OPTION (T2KSKILLPACKAGE_ID,SKILLOPTIONS_ID) VALUES(spid,soid);
+	END IF;
+END
+
+
+--------------------
+-- Career Tables 
+--------------------
+
+-- Skill Levels
+
+-- Skill Options
+
+-- Skill Packages
+CALL create_skill_packages();
+COMMIT;
+
+
 
 --------------------
 -- MILITARY CAREERS
@@ -1430,7 +1560,7 @@ CALL create_career('Attorney',142);
 CALL create_career('Civil Engineer',142);
 CALL create_career('Commercial Pilot',142);
 CALL create_career('Computer Programmer',142);
-CALL create_career('Computer Programmer',142);
+CALL create_career('Computer Programmer',142); 
 CALL create_career('Construction Worker',142);
 CALL create_career('Criminal',142);
 CALL create_career('Entertainer',142);
