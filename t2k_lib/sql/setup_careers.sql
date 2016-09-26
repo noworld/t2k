@@ -18,8 +18,9 @@ TRUNCATE TABLE PUBLIC.T2K_CAREER_T2K_NATIONALITY
 
 DROP PROCEDURE IF EXISTS create_career;
 DROP PROCEDURE IF EXISTS create_mil_career;
-DROP PROCEDURE IF EXISTS create_skill_option;
+DROP PROCEDURE IF EXISTS create_skill_packages;
 DROP PROCEDURE IF EXISTS create_skill_package;
+DROP PROCEDURE IF EXISTS create_skill_option;
 DROP PROCEDURE IF EXISTS create_skill_level;
 
 -----------------------------------
@@ -102,11 +103,12 @@ END
 
 -- skill option
 --DROP PROCEDURE IF EXISTS create_skill_option;
-CREATE PROCEDURE create_skill_option(INOUT skill_option_id INT, skill_name VARCHAR(255), skill_level INT, optional BOOLEAN) 
+CREATE PROCEDURE create_skill_option(INOUT skill_option_id INT, skill_name VARCHAR(255), skill_level INT, optional BOOLEAN, alt_skill_name VARCHAR(255), alt_skill_level INT) 
 MODIFIES SQL DATA
 BEGIN ATOMIC
     DECLARE id_val INT DEFAULT 0;
     DECLARE skill_level_id INT DEFAULT 0;
+    DECLARE alt_skill_level_id INT DEFAULT 0;
     
 	SET id_val = SELECT MAX(ID) FROM PUBLIC.T2K_SKILL_OPTION;
 	
@@ -120,8 +122,13 @@ BEGIN ATOMIC
 	
 	CALL create_skill_level(skill_level_id, skill_name, skill_level);
 	
+	IF alt_skill_name IS NOT NULL THEN
+		SET alt_skill_level_id = NULL;
+		CALL create_skill_level(alt_skill_level_id,alt_skill_name,alt_skill_level);
+	END IF;
+	
 	IF skill_level_id IS NOT NULL THEN
-		INSERT INTO PUBLIC.T2K_SKILL_OPTION (ID,OPTIONAL,SKILLLEVEL_ID) VALUES (id_val,optional,skill_level_id);	
+		INSERT INTO PUBLIC.T2K_SKILL_OPTION (ID,OPTIONAL,SKILLLEVEL_ID,ALTSKILLLEVEL_ID) VALUES (id_val,optional,skill_level_id,alt_skill_level_id);	
 		SET skill_option_id = id_val;
 	END IF;
 
@@ -150,23 +157,31 @@ END
 -- SKILL PACKAGES
 -- DROP PROCEDURE IF EXISTS create_skill_packages;
 -- TRUNCATE TABLE PUBLIC.T2K_SKILL_PACKAGE;
-CREATE PROCEDURE create_skill_packages(skill_package_name VARCHAR(255))
+CREATE PROCEDURE create_skill_packages(skill_package_name VARCHAR(255), skill_list VARCHAR(255) ARRAY, skill_level_list INT ARRAY, skill_optional_list BOOLEAN ARRAY, 
+	alt_skill_list VARCHAR(255) ARRAY, alt_skill_level_list INT ARRAY)
 MODIFIES SQL DATA
 BEGIN ATOMIC
 	--Skill Option ID
 	DECLARE soid INT;
 	-- Skill Package ID
-	DECLARE spid INT DEFAULT 0;
+	DECLARE spid INT;
+	--loop counter
+	DECLARE ctr INT;
 	
 	SET soid = null;
 	SET spid = null;
 	
-	CALL create_skill_option(soid, 'Autogun', 0, FALSE);
+	--Create the skill package
+	CALL create_skill_package(spid,skill_package_name);
 
-	--Skill Package ID
-	IF soid IS NOT NULL THEN
-		CALL create_skill_package(spid,skill_package_name);
-		INSERT INTO PUBLIC.T2K_SKILL_PACKAGE_T2K_SKILL_OPTION (T2KSKILLPACKAGE_ID,SKILLOPTIONS_ID) VALUES(spid,soid);
+	--Add skills to package
+	IF spid IS NOT NULL THEN
+		SET ctr = 0;
+		WHILE ctr <= CARDINALITY(skill_list) DO	
+			CALL create_skill_option(soid, skill_list[ctr], skill_level_list[ctr], skill_optional_list[ctr], alt_skill_list[ctr], alt_skill_level_list[ctr]);		
+			INSERT INTO PUBLIC.T2K_SKILL_PACKAGE_T2K_SKILL_OPTION (T2KSKILLPACKAGE_ID,SKILLOPTIONS_ID) VALUES(spid,soid);
+			SET ctr = ctr + 1;
+		END WHILE;
 	END IF;
 END
 
@@ -175,12 +190,64 @@ END
 -- Career Tables 
 --------------------
 
--- Skill Levels
-
--- Skill Options
-
 -- Skill Packages
-CALL create_skill_packages('US Army Basic Training');
+CALL create_skill_packages('US Army Basic Training',
+							ARRAY['Armed Martial Arts','Autogun','Grenade Launcher','Ground Vehicle (Wheeled)','Small Arms (Rifle)','Swimming','Tac Missile','Thrown Weapon','Unarmed Martial Arts'],
+							ARRAY[0,0,1,1,1,2,1,0,1,1],
+							ARRAY[FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE],
+							ARRAY[NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL],
+							ARRAY[NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL]);
+COMMIT;
+							
+--How to allow either SMALL ARMS RIFLE or SMALL ARMS PISTOL??
+CALL create_skill_packages('USMC Basic Training',
+							ARRAY['Armed Martial Arts','Autogun','Grenade Launcher','Ground Vehicle (Wheeled)','Small Arms (Rifle)'],
+							ARRAY[10,20,5,5,5],
+							ARRAY[TRUE,FALSE],
+							ARRAY[NULL,NULL,NULL,NULL,'Small Arms (Pistol)'],
+							ARRAY[NULL,NULL,NULL,NULL,6]);
+COMMIT;
+							
+CALL create_skill_packages('Test Skill Package',
+							ARRAY['Swimming','Tracking'],
+							ARRAY[10,20],
+							ARRAY[TRUE,FALSE]);
+COMMIT;
+							
+CALL create_skill_packages('Test Skill Package',
+							ARRAY['Swimming','Tracking'],
+							ARRAY[10,20],
+							ARRAY[TRUE,FALSE]);
+COMMIT;
+							
+CALL create_skill_packages('Test Skill Package',
+							ARRAY['Swimming','Tracking'],
+							ARRAY[10,20],
+							ARRAY[TRUE,FALSE]);
+COMMIT;
+							
+CALL create_skill_packages('Test Skill Package',
+							ARRAY['Swimming','Tracking'],
+							ARRAY[10,20],
+							ARRAY[TRUE,FALSE]);
+COMMIT;
+							
+CALL create_skill_packages('Test Skill Package',
+							ARRAY['Swimming','Tracking'],
+							ARRAY[10,20],
+							ARRAY[TRUE,FALSE]);
+COMMIT;
+							
+CALL create_skill_packages('Test Skill Package',
+							ARRAY['Swimming','Tracking'],
+							ARRAY[10,20],
+							ARRAY[TRUE,FALSE]);
+COMMIT;
+							
+CALL create_skill_packages('Test Skill Package',
+							ARRAY['Swimming','Tracking'],
+							ARRAY[10,20],
+							ARRAY[TRUE,FALSE]);
 COMMIT;
 
 

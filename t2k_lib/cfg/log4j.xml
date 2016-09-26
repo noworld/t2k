@@ -21,15 +21,15 @@
 	</appender>
 	
 	<appender name="webEventsLog" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="C:\\nick\\dev\\t2k\\t2k_lib\\logs\\t2k_log.txt" />
+		<param name="File" value="C:/Users/nicholas.waun/git/t2k/t2k_lib/logs/t2k_log.txt" />
 		<param name="DatePattern" value=".yyyy-MM-dd" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%-24d %-5p %c{8}:%L %m%n" />
 		</layout>
 	</appender>
 	
-	<appender name="DatabaseLog" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="C:\\nick\\dev\\t2k\\t2k_lib\\logs\\t2k_data_log.txt" />
+	<appender name="databaseLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="C:/Users/nicholas.waun/git/t2k/t2k_lib/logs/t2k_data_log.txt" />
 		<param name="DatePattern" value=".yyyy-MM-dd" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%-24d %-5p %c{8}:%L %m%n" />
@@ -38,27 +38,32 @@
 	
 	<logger name="org.hsqldb" additivity="false">
 		<level value="TRACE" />
- 		<appender-ref ref="DatabaseLog"/>
+		<appender-ref ref="STDOUT" />
+ 		<appender-ref ref="databaseLog"/>
 	</logger>
 	
 	<logger name="hsqldb.db" additivity="false">
 		<level value="TRACE" />
- 		<appender-ref ref="DatabaseLog"/>
+		<appender-ref ref="STDOUT" />
+ 		<appender-ref ref="databaseLog"/>
 	</logger>  	
 	
 	<logger name="openjpa" additivity="false">
 		<level value="TRACE" />
- 		<appender-ref ref="DatabaseLog"/>
+		<appender-ref ref="STDOUT" />
+ 		<appender-ref ref="databaseLog"/>
 	</logger>  
 
 	<logger name="openjpa.jdbc.SQL" additivity="false">
 		<level value="TRACE" />
+		<appender-ref ref="STDOUT" />
  		<appender-ref ref="DatabaseLog"/>
 	</logger>    
 	
 	<logger name="openjpa.Query" additivity="false">
 		<level value="TRACE" />
- 		<appender-ref ref="DatabaseLog"/>
+		<appender-ref ref="STDOUT" />
+ 		<appender-ref ref="databaseLog"/>
 	</logger>    
 
 	<logger name="red.arpanet.t2k">

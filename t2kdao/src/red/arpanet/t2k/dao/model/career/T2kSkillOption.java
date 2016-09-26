@@ -38,6 +38,9 @@ public class T2kSkillOption implements Serializable {
 	@ManyToOne
 	private T2kSkillLevel skillLevel;
 	
+	@ManyToOne
+	private T2kSkillLevel altSkillLevel;
+	
 	public int getId() {
 		return this.id;
 	}
@@ -60,6 +63,14 @@ public class T2kSkillOption implements Serializable {
 
 	public void setSkillLevel(T2kSkillLevel skillLevel) {
 		this.skillLevel = skillLevel;
+	}
+
+	public T2kSkillLevel getAltSkillLevel() {
+		return altSkillLevel;
+	}
+
+	public void setAltSkillLevel(T2kSkillLevel altSkillLevel) {
+		this.altSkillLevel = altSkillLevel;
 	}
    
 }
